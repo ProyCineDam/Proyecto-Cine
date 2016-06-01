@@ -1,14 +1,30 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package gestion;
 
-/**
- *
- * @author crist
- */
+import java.util.*;
 public class Cine {
     
+    String nombre;
+    ArrayList<Pelicula> peliculas;
+    
+    Cine(String nombre){
+        this.nombre=nombre;
+        this.peliculas=new ArrayList();
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public ArrayList<Pelicula> getPeliculas() {
+        return peliculas;
+    }
+
+    public void setPeliculas(ArrayList<Pelicula> peliculas) {
+        this.peliculas = peliculas;
+    }
 }

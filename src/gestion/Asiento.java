@@ -1,14 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package gestion;
 
-/**
- *
- * @author crist
- */
+import java.util.*;
 public class Asiento {
+    
+    int numAsiento;
+    int filaAsiento;
+    
+    Asiento(int filaAsiento, int numAsiento){
+        this.numAsiento=numAsiento;
+        this.filaAsiento=filaAsiento;
+    }
+    
+    
     
 }
