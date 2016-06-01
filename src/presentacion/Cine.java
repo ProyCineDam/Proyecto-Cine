@@ -33,14 +33,16 @@ public class Cine extends javax.swing.JFrame {
         ModificarSala = new javax.swing.JMenuItem();
         BorrarSala = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        AñadirSesion = new javax.swing.JMenuItem();
+        ModificarSesiones = new javax.swing.JMenuItem();
+        BorrarSesiones = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        AñadirPelicula = new javax.swing.JMenuItem();
+        modificarPelicula = new javax.swing.JMenuItem();
+        borrarPelicula = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jMenu1.setText("Sala");
 
@@ -72,32 +74,57 @@ public class Cine extends javax.swing.JFrame {
 
         jMenu2.setText("Sesiones");
 
-        jMenuItem1.setText("Añadir sesiones");
-        jMenu2.add(jMenuItem1);
-
-        jMenuItem2.setText("Modificar sesiones");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        AñadirSesion.setText("Añadir sesiones");
+        AñadirSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                AñadirSesionActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem2);
+        jMenu2.add(AñadirSesion);
 
-        jMenuItem3.setText("Borrar sesiones");
-        jMenu2.add(jMenuItem3);
+        ModificarSesiones.setText("Modificar sesiones");
+        ModificarSesiones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModificarSesionesActionPerformed(evt);
+            }
+        });
+        jMenu2.add(ModificarSesiones);
+
+        BorrarSesiones.setText("Borrar sesiones");
+        BorrarSesiones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BorrarSesionesActionPerformed(evt);
+            }
+        });
+        jMenu2.add(BorrarSesiones);
 
         jMenuBar1.add(jMenu2);
 
         jMenu4.setText("Peliculas");
 
-        jMenuItem4.setText("Añadir Pelicula");
-        jMenu4.add(jMenuItem4);
+        AñadirPelicula.setText("Añadir Pelicula");
+        AñadirPelicula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AñadirPeliculaActionPerformed(evt);
+            }
+        });
+        jMenu4.add(AñadirPelicula);
 
-        jMenuItem5.setText("Modificar Pelicula");
-        jMenu4.add(jMenuItem5);
+        modificarPelicula.setText("Modificar Pelicula");
+        modificarPelicula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificarPeliculaActionPerformed(evt);
+            }
+        });
+        jMenu4.add(modificarPelicula);
 
-        jMenuItem6.setText("Borrar Pelicula");
-        jMenu4.add(jMenuItem6);
+        borrarPelicula.setText("Borrar Pelicula");
+        borrarPelicula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                borrarPeliculaActionPerformed(evt);
+            }
+        });
+        jMenu4.add(borrarPelicula);
 
         jMenuBar1.add(jMenu4);
 
@@ -120,9 +147,10 @@ public class Cine extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    private void ModificarSesionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarSesionesActionPerformed
+         presentacion.ModificarSala modificarSala = new presentacion.ModificarSala();
+        modificarSala.setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_ModificarSesionesActionPerformed
 
     private void AñadirsalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AñadirsalaActionPerformed
         presentacion.AñadirSala altaSala = new presentacion.AñadirSala();
@@ -138,6 +166,31 @@ public class Cine extends javax.swing.JFrame {
         presentacion.BorrarSala borrarSala = new presentacion.BorrarSala();
         borrarSala.setVisible(true); // TODO add your handling code here:
     }//GEN-LAST:event_BorrarSalaActionPerformed
+
+    private void AñadirSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AñadirSesionActionPerformed
+        presentacion.AñadirSesion altaSesion = new presentacion.AñadirSesion();
+        altaSesion.setVisible(true); // TODO add your handling code here:
+    }//GEN-LAST:event_AñadirSesionActionPerformed
+
+    private void BorrarSesionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BorrarSesionesActionPerformed
+       presentacion.BorrarSesion borrarSesion = new presentacion.BorrarSesion();
+        borrarSesion.setVisible(true); // TODO add your handling code here:
+    }//GEN-LAST:event_BorrarSesionesActionPerformed
+
+    private void AñadirPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AñadirPeliculaActionPerformed
+       presentacion.AñadirPelicula altaPelicula = new presentacion.AñadirPelicula();
+        altaPelicula.setVisible(true); // TODO add your handling code here:
+    }//GEN-LAST:event_AñadirPeliculaActionPerformed
+
+    private void modificarPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarPeliculaActionPerformed
+      presentacion.ModificarPelicula modificarPelicula = new presentacion.ModificarPelicula();
+        modificarPelicula.setVisible(true); // TODO add your handling code here:
+    }//GEN-LAST:event_modificarPeliculaActionPerformed
+
+    private void borrarPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarPeliculaActionPerformed
+         presentacion.BorrarPelicula borrarPelicula = new presentacion.BorrarPelicula();
+        borrarPelicula.setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_borrarPeliculaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,6 +218,9 @@ public class Cine extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Cine.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -175,19 +231,19 @@ public class Cine extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem AñadirPelicula;
+    private javax.swing.JMenuItem AñadirSesion;
     private javax.swing.JMenuItem Añadirsala;
     private javax.swing.JMenuItem BorrarSala;
+    private javax.swing.JMenuItem BorrarSesiones;
     private javax.swing.JMenuItem ModificarSala;
+    private javax.swing.JMenuItem ModificarSesiones;
+    private javax.swing.JMenuItem borrarPelicula;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem modificarPelicula;
     // End of variables declaration//GEN-END:variables
 }

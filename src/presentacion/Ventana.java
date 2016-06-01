@@ -72,7 +72,7 @@ public class Ventana extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CineActionPerformed
-       presentacion.Cine cine = new presentacion.Cine();
+       presentacion.CrearCine cine = new presentacion.CrearCine();
         cine.setVisible(true);  // TODO add your handling code here:
     }//GEN-LAST:event_CineActionPerformed
 
@@ -101,6 +101,9 @@ public class Ventana extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Ventana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
