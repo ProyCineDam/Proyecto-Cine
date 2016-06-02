@@ -1,13 +1,14 @@
 
-package gestion;
+package datos;
 
+import gestion.Pelicula;
 import java.util.*;
 public class Cine {
     
-    String nombre;
-    ArrayList<Pelicula> peliculas;
+   private String nombre;
+   private ArrayList<Pelicula> peliculas;
     
-    Cine(String nombre){
+    public Cine(String nombre){
         this.nombre=nombre;
         this.peliculas=new ArrayList();
     }
