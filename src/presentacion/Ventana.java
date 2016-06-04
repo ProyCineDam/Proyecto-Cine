@@ -5,6 +5,11 @@
  */
 package presentacion;
 
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author usuario
@@ -16,6 +21,16 @@ public class Ventana extends javax.swing.JFrame {
      */
     public Ventana() {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setIconImage(new ImageIcon(getClass().getResource("/recursos/iconoVentana.png")).getImage());
+        //icono de ventana
+        ((JPanel)getContentPane()).setOpaque(fal­se);
+        ImageIcon uno=new ImageIcon(this.getClass().getResource("/recursos/cine2010.png"));
+        JLabel fondo= new JLabel(); 
+        fondo.setIcon(uno);
+        getLayeredPane().add(fondo,JLayeredPane.FRAME_CONTENT_LAYER);
+        fondo.setBounds(0,0,uno.getIconWidth(),u­no.getIconHeight());
     }
 
     /**
@@ -36,45 +51,60 @@ public class Ventana extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Cine.setText("Cine");
+        Cine.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/boton iniciar.png"))); // NOI18N
+        Cine.setContentAreaFilled(false);
+        Cine.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/boton iniciar.png"))); // NOI18N
+        Cine.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/boton iniciar pulsado.png"))); // NOI18N
+        Cine.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/boton iniciar.png"))); // NOI18N
         Cine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CineActionPerformed(evt);
             }
         });
 
-        Comprar.setText("Comprar Entradas");
+        Comprar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/comprar entradas.png"))); // NOI18N
+        Comprar.setContentAreaFilled(false);
+        Comprar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/comprar entradas encima.png"))); // NOI18N
+        Comprar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/comprar entradas pulsado.png"))); // NOI18N
+        Comprar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComprarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Cine, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Cine, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(105, 105, 105)
-                .addComponent(Comprar, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(143, Short.MAX_VALUE))
+                .addGap(48, 48, 48)
+                .addComponent(Comprar, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(173, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Cine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(72, 72, 72)
-                .addComponent(Comprar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addComponent(Cine, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(Comprar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void CineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CineActionPerformed
-       presentacion.CrearCine cine = new presentacion.CrearCine();
-        cine.setVisible(true);  // TODO add your handling code here:
+       presentacion.Admin entrar = new presentacion.Admin();
+        entrar.setVisible(true);  // TODO add your handling code here:
     }//GEN-LAST:event_CineActionPerformed
+
+    private void ComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComprarActionPerformed
+       presentacion.ComprarEntradas comprar = new presentacion.ComprarEntradas();
+        comprar.setVisible(true); // TODO add your handling code here:
+    }//GEN-LAST:event_ComprarActionPerformed
 
     /**
      * @param args the command line arguments

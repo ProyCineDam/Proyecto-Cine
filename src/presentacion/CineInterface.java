@@ -27,7 +27,11 @@ public class CineInterface extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTextField1 = new javax.swing.JTextField();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jMenuBar1 = new javax.swing.JMenuBar();
+        Cine = new javax.swing.JMenu();
+        CrearCine = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         Añadirsala = new javax.swing.JMenuItem();
         ModificarSala = new javax.swing.JMenuItem();
@@ -42,7 +46,21 @@ public class CineInterface extends javax.swing.JFrame {
         borrarPelicula = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
 
+        jTextField1.setText("jTextField1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        Cine.setText("Cine");
+
+        CrearCine.setText("Crear Cine");
+        CrearCine.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CrearCineActionPerformed(evt);
+            }
+        });
+        Cine.add(CrearCine);
+
+        jMenuBar1.add(Cine);
 
         jMenu1.setText("Sala");
 
@@ -148,7 +166,7 @@ public class CineInterface extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ModificarSesionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarSesionesActionPerformed
-         presentacion.ModificarSala modificarSala = new presentacion.ModificarSala();
+        presentacion.ModificarSala modificarSala = new presentacion.ModificarSala();
         modificarSala.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_ModificarSesionesActionPerformed
 
@@ -158,7 +176,7 @@ public class CineInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_AñadirsalaActionPerformed
 
     private void ModificarSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarSalaActionPerformed
-         presentacion.ModificarSala modificarSala = new presentacion.ModificarSala();
+        presentacion.ModificarSala modificarSala = new presentacion.ModificarSala();
         modificarSala.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_ModificarSalaActionPerformed
 
@@ -173,24 +191,29 @@ public class CineInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_AñadirSesionActionPerformed
 
     private void BorrarSesionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BorrarSesionesActionPerformed
-       presentacion.BorrarSesion borrarSesion = new presentacion.BorrarSesion();
+        presentacion.BorrarSesion borrarSesion = new presentacion.BorrarSesion();
         borrarSesion.setVisible(true); // TODO add your handling code here:
     }//GEN-LAST:event_BorrarSesionesActionPerformed
 
     private void AñadirPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AñadirPeliculaActionPerformed
-       presentacion.AñadirPelicula altaPelicula = new presentacion.AñadirPelicula();
+        presentacion.AñadirPelicula altaPelicula = new presentacion.AñadirPelicula();
         altaPelicula.setVisible(true); // TODO add your handling code here:
     }//GEN-LAST:event_AñadirPeliculaActionPerformed
 
     private void modificarPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarPeliculaActionPerformed
-      presentacion.ModificarPelicula modificarPelicula = new presentacion.ModificarPelicula();
+        presentacion.ModificarPelicula modificarPelicula = new presentacion.ModificarPelicula();
         modificarPelicula.setVisible(true); // TODO add your handling code here:
     }//GEN-LAST:event_modificarPeliculaActionPerformed
 
     private void borrarPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarPeliculaActionPerformed
-         presentacion.BorrarPelicula borrarPelicula = new presentacion.BorrarPelicula();
+        presentacion.BorrarPelicula borrarPelicula = new presentacion.BorrarPelicula();
         borrarPelicula.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_borrarPeliculaActionPerformed
+
+    private void CrearCineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearCineActionPerformed
+        presentacion.CrearCine cine = new presentacion.CrearCine();
+        cine.setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_CrearCineActionPerformed
 
     /**
      * @param args the command line arguments
@@ -240,14 +263,18 @@ public class CineInterface extends javax.swing.JFrame {
     private javax.swing.JMenuItem Añadirsala;
     private javax.swing.JMenuItem BorrarSala;
     private javax.swing.JMenuItem BorrarSesiones;
+    private javax.swing.JMenu Cine;
+    private javax.swing.JMenuItem CrearCine;
     private javax.swing.JMenuItem ModificarSala;
     private javax.swing.JMenuItem ModificarSesiones;
     private javax.swing.JMenuItem borrarPelicula;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JMenuItem modificarPelicula;
     // End of variables declaration//GEN-END:variables
 }
