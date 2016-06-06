@@ -29,8 +29,6 @@ public class Pelicula {
         return "Pelicula{" + "nomPeli=" + nomPeli + ", nacionalidad=" + nacionalidad + ", duracion=" + duracion + ", director=" + director + ", interpretes=" + interpretes + ", argumento=" + argumento + ", genero=" + genero + '}';
     }
     
-    
-
     public String getNomPeli() {
         return nomPeli;
     }

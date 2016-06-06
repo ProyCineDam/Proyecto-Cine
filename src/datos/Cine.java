@@ -7,10 +7,18 @@ public class Cine {
     
    private String nombre;
    private ArrayList<Pelicula> peliculas;
+   
+   public Cine(){
+       
+   }
     
     public Cine(String nombre){
         this.nombre=nombre;
         this.peliculas=new ArrayList();
+    }
+    
+    public void añadirPelicula(Pelicula pelicula){
+        peliculas.add(pelicula);
     }
 
     public String getNombre() {
