@@ -38,15 +38,15 @@
                       </Group>
                       <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextField5" min="-2" pref="46" max="-2" attributes="0"/>
+                          <Component id="txtDuracion" min="-2" pref="46" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Component id="jButton1" min="-2" pref="86" max="-2" attributes="0"/>
+                              <Component id="btnAñadirPeli" min="-2" pref="86" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jTextField6" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextField3" alignment="0" pref="170" max="32767" attributes="0"/>
-                                  <Component id="jTextField1" alignment="0" pref="170" max="32767" attributes="0"/>
-                                  <Component id="jTextField4" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextField7" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtArgumentos" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtNacion" alignment="0" pref="170" max="32767" attributes="0"/>
+                                  <Component id="txtNombre" alignment="0" pref="170" max="32767" attributes="0"/>
+                                  <Component id="txtInterpretes" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtGenero" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -63,28 +63,28 @@
               <Component id="jLabel1" min="-2" pref="32" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNacion" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jTextField5" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtDuracion" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField4" alignment="0" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="txtInterpretes" alignment="0" min="-2" pref="22" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                      <Component id="jTextField6" min="-2" pref="22" max="-2" attributes="0"/>
+                      <Component id="txtArgumentos" min="-2" pref="22" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -93,11 +93,11 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextField7" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="txtGenero" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="34" max="32767" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <Component id="btnAñadirPeli" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -123,37 +123,37 @@
         <Property name="text" type="java.lang.String" value="A&#xf1;adir Pelicula"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="txtNombre">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nombre"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btnA&#xf1;adirPeli">
       <Properties>
         <Property name="text" type="java.lang.String" value="a&#xf1;adir"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField3">
+    <Component class="javax.swing.JTextField" name="txtNacion">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField4">
+    <Component class="javax.swing.JTextField" name="txtInterpretes">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField5">
+    <Component class="javax.swing.JTextField" name="txtDuracion">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
       <Properties>
         <Property name="text" type="java.lang.String" value="Duraci&#xf3;n"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField6">
+    <Component class="javax.swing.JTextField" name="txtArgumentos">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
         <Property name="text" type="java.lang.String" value="Argumentos"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField7">
+    <Component class="javax.swing.JTextField" name="txtGenero">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
