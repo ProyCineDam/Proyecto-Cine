@@ -29,6 +29,10 @@ public class Pelicula {
         return "Pelicula{" + "nomPeli=" + nomPeli + ", nacionalidad=" + nacionalidad + ", duracion=" + duracion + ", director=" + director + ", interpretes=" + interpretes + ", argumento=" + argumento + ", genero=" + genero + '}';
     }
     
+    public void añadirSesion(Sesion sesion) {
+        sesionesPeli.add(sesion);
+    }
+    
     public String getNomPeli() {
         return nomPeli;
     }

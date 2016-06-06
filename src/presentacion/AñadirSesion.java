@@ -53,6 +53,11 @@ public class AñadirSesion extends javax.swing.JFrame {
         jLabel2.setText("Nombre");
 
         btnAñadirSesion.setText("añadir");
+        btnAñadirSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAñadirSesionActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Precio");
 
@@ -149,6 +154,10 @@ public class AñadirSesion extends javax.swing.JFrame {
     private void comboSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSalaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboSalaActionPerformed
+
+    private void btnAñadirSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAñadirSesionActionPerformed
+        // TODO add your handling code here:zz
+    }//GEN-LAST:event_btnAñadirSesionActionPerformed
 
     /**
      * @param args the command line arguments
