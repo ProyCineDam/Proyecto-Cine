@@ -91,8 +91,9 @@ public class CrearCine extends javax.swing.JFrame {
     private void añadirCineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirCineActionPerformed
         
         Cine crearCine = new Cine(txtNombreCine.getText());
-        presentacion.CineInterface cine = new presentacion.CineInterface();
-        cine.setVisible(true);  // TODO add your handling code here:
+        this.dispose();
+        //presentacion.CineInterface cine = new presentacion.CineInterface();
+       // cine.setVisible(true);  // TODO add your handling code here:
     }//GEN-LAST:event_añadirCineActionPerformed
 
     private void txtNombreCineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreCineActionPerformed
