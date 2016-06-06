@@ -78,7 +78,7 @@ public class AñadirPelicula extends javax.swing.JFrame {
 
         jLabel7.setText("Genero");
 
-        jLabel9.setText("Interpretes");
+        jLabel9.setText("Director");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

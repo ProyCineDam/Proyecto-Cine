@@ -181,7 +181,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Interpretes"/>
+        <Property name="text" type="java.lang.String" value="Director"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtDirector">
