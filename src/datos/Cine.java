@@ -4,9 +4,11 @@ package datos;
 import gestion.Pelicula;
 import java.util.*;
 public class Cine {
+
+   
     
    private String nombre;
-   private ArrayList<Pelicula> peliculas;
+   private static ArrayList<Pelicula> peliculas;
    
    public Cine(){
        
@@ -28,4 +30,13 @@ public class Cine {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public static ArrayList<Pelicula> getPeliculas() {
+        return peliculas;
+    }
+
+    public void setPeliculas(ArrayList<Pelicula> peliculas) {
+        this.peliculas = peliculas;
+    }
+    
 }

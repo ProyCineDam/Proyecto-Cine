@@ -31,8 +31,6 @@ public class ListadoDeSesiones extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaSesiones = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         titulo.setFont(new java.awt.Font("Andalus", 1, 18)); // NOI18N
         titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titulo.setText("Listado de Sesiones");

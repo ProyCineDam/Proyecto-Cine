@@ -5,26 +5,31 @@
  */
 package presentacion;
 
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
-
+import gestion.Pelicula;
+import datos.Cine;
 /**
  *
  * @author abel
  */
 public class ListadoDePeliculas extends javax.swing.JFrame {
-
+private DefaultTableModel dtm;
     /**
      * Creates new form ListadoDePeliculas
      */
     public ListadoDePeliculas() {
         initComponents();
-        DefaultTableModel dtm = new DefaultTableModel();
-        tabla.setModel(dtm);
+        dtm = new DefaultTableModel();
+        tablaPelis.setModel(dtm);
+    
         dtm.addColumn("NOMBRE ");
         dtm.addColumn("Nacionalidad");
         dtm.addColumn("Duracion");
         dtm.addColumn("Director");
         dtm.addColumn("Interpretes");
+        dtm.addColumn("Argumento");
+        dtm.addColumn("Genero");
         borrarTabla();
         llenarTabla();
     }
@@ -41,8 +46,6 @@ public class ListadoDePeliculas extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaPelis = new javax.swing.JTable();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Andalus", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -119,7 +122,24 @@ public class ListadoDePeliculas extends javax.swing.JFrame {
             }
         });
     }
-
+    private void llenarTabla(){
+        ArrayList<Pelicula> pelis;
+    pelis = datos.Cine.getPeliculas();
+        for (int i = 0; i < pelis.size(); i++) {
+            Pelicula peli = pelis.get(i);
+            Object[] datos = {peli.getNomPeli(), peli.getNacionalidad(), peli.getDuracion(), peli.getDirector(), peli.getInterpretes()+
+                    peli.getArgumento(), peli.getGenero()};
+            dtm.addRow(datos);
+            tablaPelis.setModel(dtm);
+        }
+    }
+public void borrarTabla() {
+        
+        while (0 < dtm.getRowCount()) {
+            dtm.removeRow(0);
+        }
+        
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

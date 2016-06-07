@@ -5,6 +5,9 @@
  */
 package presentacion;
 
+import gestion.Pelicula;
+import java.util.ArrayList;
+
 /**
  *
  * @author usuario
@@ -16,6 +19,8 @@ public class ModificarPelicula extends javax.swing.JFrame {
      */
     public ModificarPelicula() {
         initComponents();
+        comboPelis.removeAllItems();
+        cargarComboPelis();
     }
 
     /**
@@ -30,7 +35,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnSeleccionarSala = new javax.swing.JButton();
         nombre = new javax.swing.JLabel();
-        comboSalas = new javax.swing.JComboBox();
+        comboPelis = new javax.swing.JComboBox();
         jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -45,8 +50,6 @@ public class ModificarPelicula extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jLabel1.setFont(new java.awt.Font("Andalus", 3, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Modificar Pelicula");
@@ -60,10 +63,10 @@ public class ModificarPelicula extends javax.swing.JFrame {
 
         nombre.setText("pelicula");
 
-        comboSalas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        comboSalas.addActionListener(new java.awt.event.ActionListener() {
+        comboPelis.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboPelis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboSalasActionPerformed(evt);
+                comboPelisActionPerformed(evt);
             }
         });
 
@@ -121,7 +124,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(nombre)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(comboSalas, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                        .addComponent(comboPelis, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addGap(40, 40, 40))
         );
         layout.setVerticalGroup(
@@ -132,7 +135,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nombre)
-                    .addComponent(comboSalas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboPelis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSeleccionarSala)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -175,10 +178,15 @@ public class ModificarPelicula extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSeleccionarSalaActionPerformed
 
-    private void comboSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSalasActionPerformed
+    private void comboPelisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboPelisActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_comboSalasActionPerformed
-
+    }//GEN-LAST:event_comboPelisActionPerformed
+private void cargarComboPelis(){
+    ArrayList <Pelicula> pelis = datos.Cine.getPeliculas();
+            for (int i = 0; i < pelis.size(); i++) {
+        comboPelis.addItem(pelis.get(i).getNomPeli());
+    }
+}
     /**
      * @param args the command line arguments
      */
@@ -219,7 +227,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSeleccionarSala;
-    private javax.swing.JComboBox comboSalas;
+    private javax.swing.JComboBox comboPelis;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

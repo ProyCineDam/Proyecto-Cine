@@ -31,8 +31,6 @@ public class ListadoDeSalas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaSalas = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jLabel1.setFont(new java.awt.Font("Andalus", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Listado de Salas");

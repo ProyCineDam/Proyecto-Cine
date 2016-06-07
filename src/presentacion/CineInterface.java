@@ -48,8 +48,6 @@ public class CineInterface extends javax.swing.JFrame {
 
         jTextField1.setText("jTextField1");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
         Cine.setText("Cine");
 
         CrearCine.setText("Crear Cine");

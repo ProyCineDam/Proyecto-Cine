@@ -5,6 +5,8 @@
  */
 package presentacion;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author usuario
@@ -52,8 +54,6 @@ public class AñadirPelicula extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         txtDirector = new javax.swing.JTextField();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel5.setText("Interpretes");
 
@@ -133,7 +133,7 @@ public class AñadirPelicula extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(txtDirector, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -170,13 +170,21 @@ public class AñadirPelicula extends javax.swing.JFrame {
         this.interpretes = txtInterpretes.getText();
         this.argumento = txtArgumentos.getText();
         this.genero = txtGenero.getText();
-        
+
         peli = new gestion.Pelicula(nomPeli, nacionalidad, duracion, director, interpretes, argumento, genero);
-        
+
         c = new datos.Cine();
-        
+
         c.añadirPelicula(peli);
-        
+        txtNombre.setText("");
+        txtArgumentos.setText("");
+        txtDirector.setText("");
+        txtDuracion.setText("");
+        txtGenero.setText("");
+        txtInterpretes.setText("");
+        txtNacion.setText("");
+       
+
     }//GEN-LAST:event_btnAñadirPeliActionPerformed
 
     /**
