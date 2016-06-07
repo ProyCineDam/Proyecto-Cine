@@ -6,6 +6,8 @@
 package presentacion;
 
 import gestion.Pelicula;
+import java.util.ArrayList;
+import presentacion.ModificarPelicula;
 
 /**
  *
@@ -18,6 +20,8 @@ public class BorrarPelicula extends javax.swing.JFrame {
      */
     public BorrarPelicula() {
         initComponents();
+        comboPelis.removeAllItems();
+        cargarComboPelis();
     }
 
     /**
@@ -99,9 +103,15 @@ public class BorrarPelicula extends javax.swing.JFrame {
     }//GEN-LAST:event_comboPelisActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         String nomPelicula = comboPelis.getSelectedItem().toString();
+        String nomPelicula = comboPelis.getSelectedItem().toString();
         Pelicula pelis = datos.Cine.buscaPelicula(nomPelicula);// TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+    private void cargarComboPelis() {
+        ArrayList<Pelicula> pelis = datos.Cine.getPeliculas();
+        for (int i = 0; i < pelis.size(); i++) {
+            comboPelis.addItem(pelis.get(i).getNomPeli());
+        }
+    }
 
     /**
      * @param args the command line arguments
