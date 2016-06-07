@@ -24,28 +24,26 @@ public class Admin extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
-        //setIconImage(new ImageIcon(getClass().getResource("/recursos/iconoVentana.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/recursos/logohp.png")).getImage());
         //icono de ventana
-        ((JPanel)getContentPane()).setOpaque(fal­se);
-        ImageIcon uno=new ImageIcon(this.getClass().getResource("/recursos/User.png"));
-        JLabel fondo= new JLabel(); 
+        ((JPanel) getContentPane()).setOpaque(fal­se);
+        ImageIcon uno = new ImageIcon(this.getClass().getResource("/recursos/User.png"));
+        JLabel fondo = new JLabel();
         fondo.setIcon(uno);
-        getLayeredPane().add(fondo,JLayeredPane.FRAME_CONTENT_LAYER);
-        fondo.setBounds(0,0,uno.getIconWidth(),u­no.getIconHeight());
-        ((JPanel)getContentPane()).setOpaque(fal­se);
-        
-        ImageIcon dos=new ImageIcon(this.getClass().getResource("/recursos/FondoAzul.png"));
-        JLabel fondos= new JLabel(); 
+        getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
+        fondo.setBounds(0, 0, uno.getIconWidth(), u­no.getIconHeight());
+        ((JPanel) getContentPane()).setOpaque(fal­se);
+
+        ImageIcon dos = new ImageIcon(this.getClass().getResource("/recursos/FondoAzul.png"));
+        JLabel fondos = new JLabel();
         fondos.setIcon(dos);
-        getLayeredPane().add(fondos,JLayeredPane.FRAME_CONTENT_LAYER);
-        fondos.setBounds(0,0,dos.getIconWidth(),dos.getIconHeight());
+        getLayeredPane().add(fondos, JLayeredPane.FRAME_CONTENT_LAYER);
+        fondos.setBounds(0, 0, dos.getIconWidth(), dos.getIconHeight());
 
 
- /*public Image getIconImage() {
-        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/logohp.png"));
-        return retValue;
-    }*/
+      
     }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -62,6 +60,7 @@ public class Admin extends javax.swing.JFrame {
         entrar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         txtContraseña = new javax.swing.JPasswordField();
+        btnSalir = new javax.swing.JButton();
 
         Titulo.setFont(new java.awt.Font("Andalus", 3, 24)); // NOI18N
         Titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -88,6 +87,13 @@ public class Admin extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Contraseña");
 
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -96,15 +102,19 @@ public class Admin extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(btnSalir)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(33, 33, 33)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -123,7 +133,9 @@ public class Admin extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(entrar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(entrar)
+                    .addComponent(btnSalir))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -139,10 +151,14 @@ public class Admin extends javax.swing.JFrame {
             presentacion.CineInterface cine = new presentacion.CineInterface();
             cine.setVisible(true);  // TODO add your handling code here:
             this.dispose();
-        } else{
-        JOptionPane.showMessageDialog(this, "Introduce de nuevo los datos");
+        } else {
+            JOptionPane.showMessageDialog(this, "Introduce de nuevo los datos");
         }
     }//GEN-LAST:event_entrarActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSalirActionPerformed
     private boolean validarNombre(String nombre) {
         String nom = "admin";
         if (nombre.equalsIgnoreCase(nom)) {
@@ -162,6 +178,7 @@ public class Admin extends javax.swing.JFrame {
         }
         return false;
     }
+
     /**
      * @param args the command line arguments
      */
@@ -199,6 +216,7 @@ public class Admin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Titulo;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JButton entrar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
