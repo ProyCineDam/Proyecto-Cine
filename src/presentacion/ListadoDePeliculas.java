@@ -127,7 +127,7 @@ private DefaultTableModel dtm;
     pelis = datos.Cine.getPeliculas();
         for (int i = 0; i < pelis.size(); i++) {
             Pelicula peli = pelis.get(i);
-            Object[] datos = {peli.getNomPeli(), peli.getNacionalidad(), peli.getDuracion(), peli.getDirector(), peli.getInterpretes()+
+            Object[] datos = {peli.getNomPeli(), peli.getNacionalidad(), peli.getDuracion(), peli.getDirector(), peli.getInterpretes(),
                     peli.getArgumento(), peli.getGenero()};
             dtm.addRow(datos);
             tablaPelis.setModel(dtm);

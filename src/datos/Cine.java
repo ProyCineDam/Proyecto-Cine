@@ -39,4 +39,18 @@ public class Cine {
         this.peliculas = peliculas;
     }
     
+    public static Pelicula buscaPelicula(String nom){
+        Pelicula peli=null;
+        int i=0;
+        boolean encontrado=false;
+        
+        while(i<peliculas.size() && !encontrado){
+            if(peliculas.get(i).getNomPeli().equals(nom)){
+                peli=peliculas.get(i);
+                encontrado=true;
+            }
+            i++;
+        }
+        return peli;   
+    }
 }

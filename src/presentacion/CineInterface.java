@@ -44,6 +44,7 @@ public class CineInterface extends javax.swing.JFrame {
         AñadirPelicula = new javax.swing.JMenuItem();
         modificarPelicula = new javax.swing.JMenuItem();
         borrarPelicula = new javax.swing.JMenuItem();
+        Listado = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
 
         jTextField1.setText("jTextField1");
@@ -142,6 +143,14 @@ public class CineInterface extends javax.swing.JFrame {
         });
         jMenu4.add(borrarPelicula);
 
+        Listado.setText("Listado De Peliculas");
+        Listado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ListadoActionPerformed(evt);
+            }
+        });
+        jMenu4.add(Listado);
+
         jMenuBar1.add(jMenu4);
 
         jMenu5.setText("Reservas");
@@ -213,6 +222,11 @@ public class CineInterface extends javax.swing.JFrame {
         cine.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_CrearCineActionPerformed
 
+    private void ListadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListadoActionPerformed
+        presentacion.ListadoDePeliculas lista = new presentacion.ListadoDePeliculas();
+        lista.setVisible(true);  // TODO add your handling code here:
+    }//GEN-LAST:event_ListadoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -263,6 +277,7 @@ public class CineInterface extends javax.swing.JFrame {
     private javax.swing.JMenuItem BorrarSesiones;
     private javax.swing.JMenu Cine;
     private javax.swing.JMenuItem CrearCine;
+    private javax.swing.JMenuItem Listado;
     private javax.swing.JMenuItem ModificarSala;
     private javax.swing.JMenuItem ModificarSesiones;
     private javax.swing.JMenuItem borrarPelicula;
