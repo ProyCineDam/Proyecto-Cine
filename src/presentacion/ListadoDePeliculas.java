@@ -5,6 +5,8 @@
  */
 package presentacion;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author abel
@@ -16,6 +18,15 @@ public class ListadoDePeliculas extends javax.swing.JFrame {
      */
     public ListadoDePeliculas() {
         initComponents();
+        DefaultTableModel dtm = new DefaultTableModel();
+        tabla.setModel(dtm);
+        dtm.addColumn("NOMBRE ");
+        dtm.addColumn("Nacionalidad");
+        dtm.addColumn("Duracion");
+        dtm.addColumn("Director");
+        dtm.addColumn("Interpretes");
+        borrarTabla();
+        llenarTabla();
     }
 
     /**
