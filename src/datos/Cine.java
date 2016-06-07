@@ -28,12 +28,4 @@ public class Cine {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
-    public ArrayList<Pelicula> getPeliculas() {
-        return peliculas;
-    }
-
-    public void setPeliculas(ArrayList<Pelicula> peliculas) {
-        this.peliculas = peliculas;
-    }
 }
