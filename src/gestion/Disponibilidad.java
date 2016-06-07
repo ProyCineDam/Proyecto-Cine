@@ -2,6 +2,7 @@
 package gestion;
 
 
-public class Disponibilidad {
+public enum Disponibilidad {
     
+    reservado, libre, ocupado
 }
