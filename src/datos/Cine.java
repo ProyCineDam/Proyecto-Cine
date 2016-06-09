@@ -2,6 +2,7 @@
 package datos;
 
 import gestion.Pelicula;
+import gestion.Sala;
 import java.util.*;
 public class Cine {
 
@@ -9,7 +10,7 @@ public class Cine {
     
    private String nombre;
    private static ArrayList<Pelicula> peliculas;
-   
+   private static ArrayList<Sala>listaSalas;
    public Cine(){
        
    }
@@ -21,6 +22,17 @@ public class Cine {
     
     public void añadirPelicula(Pelicula pelicula){
         peliculas.add(pelicula);
+    }
+    public void añadirSala(Sala sala){
+        listaSalas.add(sala);
+    }
+
+    public static ArrayList<Sala> getListaSalas() {
+        return listaSalas;
+    }
+
+    public static void setListaSalas(ArrayList<Sala> listaSalas) {
+        Cine.listaSalas = listaSalas;
     }
 
     public String getNombre() {
