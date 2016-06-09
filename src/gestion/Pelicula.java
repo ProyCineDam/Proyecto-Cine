@@ -14,7 +14,7 @@ public class Pelicula {
     ArrayList<Sesion>sesionesPeli;
     
     public Pelicula() {
-        
+        this.sesionesPeli=new ArrayList();
     }
 
     public Pelicula(String nomPeli, String nacionalidad, double duracion, String director, String interpretes, String argumento, String genero) {
@@ -31,6 +31,14 @@ public class Pelicula {
     @Override
     public String toString() {
         return "Pelicula{" + "nomPeli=" + nomPeli + ", nacionalidad=" + nacionalidad + ", duracion=" + duracion + ", director=" + director + ", interpretes=" + interpretes + ", argumento=" + argumento + ", genero=" + genero + '}';
+    }
+
+    public ArrayList<Sesion> getSesionesPeli() {
+        return sesionesPeli;
+    }
+
+    public void setSesionesPeli(ArrayList<Sesion> sesionesPeli) {
+        this.sesionesPeli = sesionesPeli;
     }
     
     public void añadirSesion(Sesion sesion) {
