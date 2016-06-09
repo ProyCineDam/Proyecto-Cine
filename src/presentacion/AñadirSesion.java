@@ -11,11 +11,18 @@ package presentacion;
  */
 public class AñadirSesion extends javax.swing.JFrame {
 
-    /**
-     * Creates new form AñadirSesion
-     */
+    String nomSesion;
+    String fecha;
+    String hora;
+    int sala;
+    double precio;
+    
     public AñadirSesion() {
         initComponents();
+    }
+    
+    public void añadirSesion() {
+        
     }
 
     /**
@@ -156,7 +163,23 @@ public class AñadirSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_comboSalaActionPerformed
 
     private void btnAñadirSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAñadirSesionActionPerformed
-        // TODO add your handling code here:zz
+        gestion.Sesion sesion;
+        gestion.Pelicula s;
+        this.nomSesion = txtNombre.getText();
+        this.fecha = txtFecha.getText();
+        this.hora = txtHora.getText();
+        this.precio = Double.parseDouble(txtPrecio.getText());
+        
+        sesion = new gestion.Sesion(nomSesion, fecha, hora, sala, precio);
+        
+        s = new gestion.Pelicula();
+        
+        s.añadirSesion(sesion);
+        txtNombre.setText("");
+        txtFecha.setText("");
+        txtHora.setText("");
+        txtPrecio.setText("");
+        
     }//GEN-LAST:event_btnAñadirSesionActionPerformed
 
     /**
