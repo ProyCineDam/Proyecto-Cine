@@ -104,7 +104,10 @@ public class BorrarPelicula extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String nomPelicula = comboPelis.getSelectedItem().toString();
-        Pelicula pelis = datos.Cine.buscaPelicula(nomPelicula);// TODO add your handling code here:
+        Pelicula peli = datos.Cine.buscaPelicula(nomPelicula);// TODO add your handling code here:
+        
+        datos.Cine.borrarPelicula(peli);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
     private void cargarComboPelis() {
         ArrayList<Pelicula> pelis = datos.Cine.getPeliculas();
