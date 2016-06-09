@@ -7,13 +7,13 @@ import java.util.*;
 public class Sesion {
     
     String nomSesion;
-    Calendar fecha;
-    int hora;
+    String fecha;
+    String hora;
     int sala;
     double precio;
     ArrayList<Asiento>asientos;
 
-    public Sesion(String nomSesion, Calendar fecha, int hora, int sala, double precio) {
+    public Sesion(String nomSesion, String fecha, String hora, int sala, double precio) {
         this.nomSesion = nomSesion;
         this.fecha = fecha;
         this.hora = hora;
@@ -21,9 +21,11 @@ public class Sesion {
         this.precio = precio;
         asientos=new ArrayList<Asiento>();
     }
+    
     public void añadirAsiento(Asiento asiento){
         asientos.add(asiento);
     }
+    
     public String getNomSesion() {
         return nomSesion;
     }
@@ -32,19 +34,19 @@ public class Sesion {
         this.nomSesion = nomSesion;
     }
 
-    public Calendar getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Calendar fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
-    public int getHora() {
+    public String getHora() {
         return hora;
     }
 
-    public void setHora(int hora) {
+    public void setHora(String hora) {
         this.hora = hora;
     }
 
