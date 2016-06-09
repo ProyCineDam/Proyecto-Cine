@@ -38,6 +38,14 @@ public class Sala {
     public void setColumnas(int columnas) {
         this.columnas = columnas;
     }
+
+    public boolean isTresD() {
+        return tresD;
+    }
+
+    public void setTresD(boolean tresD) {
+        this.tresD = tresD;
+    }
     
     
 }

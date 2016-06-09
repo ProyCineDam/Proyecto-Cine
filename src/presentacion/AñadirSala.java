@@ -5,17 +5,14 @@
  */
 package presentacion;
 
-/**
- *
- * @author usuario
- */
 public class AñadirSala extends javax.swing.JFrame {
-
-    /**
-     * Creates new form AñadirSala
-     */
+int numSala;
+int filas;
+int columnas;
+boolean tresD;
     public AñadirSala() {
         initComponents();
+       
     }
 
     /**
@@ -63,6 +60,11 @@ public class AñadirSala extends javax.swing.JFrame {
         jLabel2.setText("Numero");
 
         jButton1.setText("añadir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Nº Filas");
 
@@ -70,9 +72,19 @@ public class AñadirSala extends javax.swing.JFrame {
 
         SalastresD.add(jRadioButton2);
         jRadioButton2.setText("No");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
 
         SalastresD.add(jRadioButton1);
         jRadioButton1.setText("Si");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("3D");
 
@@ -158,6 +170,28 @@ public class AñadirSala extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        gestion.Sala sala;
+     
+       this.numSala=Integer.parseInt(this.txtNumero.getText());
+       this.filas=Integer.parseInt(this.txtNumeroFilas.getText());
+       this.columnas=Integer.parseInt(this.txtColumnas.getText());
+       sala=new gestion.Sala(this.numSala,this.columnas,this.filas);
+       sala.setTresD(tresD);
+       this.txtNumero.setText("");
+       this.txtNumeroFilas.setText("");
+       this.txtColumnas.setText("");
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+       this.tresD=true;
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+       this.tresD=false;
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     /**
      * @param args the command line arguments
