@@ -53,4 +53,8 @@ public class Cine {
         }
         return peli;   
     }
+    
+    public static void borrarPelicula(Pelicula p){
+        peliculas.remove(p);
+    }
 }
