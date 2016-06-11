@@ -6,6 +6,7 @@
 package presentacion;
 
 import gestion.Pelicula;
+import gestion.Sesion;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -212,7 +213,7 @@ public class ComprarEntradas extends javax.swing.JFrame {
             tablaPelis.setModel(dtm);
         }
     }
-
+    
     public void borrarTabla() {
 
         while (0 < dtm.getRowCount()) {
@@ -227,9 +228,28 @@ public class ComprarEntradas extends javax.swing.JFrame {
         String director = tablaPelis.getValueAt(row, 2).toString();
         String genero = tablaPelis.getValueAt(row, 3).toString();
         String argumento = tablaPelis.getValueAt(row, 4).toString();
+        tablaSesiones.setModel(dtm1);
+        dtm1.addColumn("Nº Sala ");
+        dtm1.addColumn("HORA");
+        dtm1.addColumn("FECHA");
+        borrarTabla();
+        llenarTabla();
 
     }//GEN-LAST:event_btnSeleccionarPeliActionPerformed
+private void llenarTabla() {
+        ArrayList<Sesion> sesiones;
+        sesiones = gestion.Pelicula.getSesionesPeli();
+        borrarTabla();
 
+        for (int i = 0; i < sesiones.size(); i++) {
+            Sesion sesion = sesiones.get(i);
+            Object[] datos = {sesion.getSala().getNumSala(), sesion.getHora(), sesion.getFecha()};
+            dtm.addRow(datos); 
+            tablaSesiones.setModel(dtm);
+        }
+
+       
+    }
     /**
      * @param args the command line arguments
      */
