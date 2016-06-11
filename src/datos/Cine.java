@@ -66,7 +66,7 @@ public class Cine {
         }
         return peli;   
     }
-    public static Sala  buscaSala(int nom){
+    public static Sala buscaSala(int nom){
         Sala sala=null;
         int i=0;
         boolean encontrado=false;
@@ -85,6 +85,6 @@ public class Cine {
         peliculas.remove(p);
     }
     public static void borrarSala(Sala s){
-        peliculas.remove(s);
+        listaSalas.remove(s);
     }
 }
