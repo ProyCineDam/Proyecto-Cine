@@ -5,6 +5,10 @@
  */
 package presentacion;
 
+import gestion.Sala;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author usuario
@@ -16,6 +20,8 @@ public class BorrarSala extends javax.swing.JFrame {
      */
     public BorrarSala() {
         initComponents();
+        comboSalas.removeAllItems();
+        cargarComboSala();
     }
 
     /**
@@ -27,12 +33,17 @@ public class BorrarSala extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        btnBorrar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         nombre = new javax.swing.JLabel();
         comboSalas = new javax.swing.JComboBox();
 
-        jButton1.setText("Borrar");
+        btnBorrar.setText("Borrar");
+        btnBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBorrarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Andalus", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -53,7 +64,7 @@ public class BorrarSala extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1)
+                    .addComponent(btnBorrar)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                             .addGap(75, 75, 75)
@@ -75,7 +86,7 @@ public class BorrarSala extends javax.swing.JFrame {
                     .addComponent(nombre)
                     .addComponent(comboSalas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
-                .addComponent(jButton1)
+                .addComponent(btnBorrar)
                 .addContainerGap(98, Short.MAX_VALUE))
         );
 
@@ -85,6 +96,15 @@ public class BorrarSala extends javax.swing.JFrame {
     private void comboSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSalasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboSalasActionPerformed
+
+    private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
+        int numero = Integer.parseInt(comboSalas.getSelectedItem().toString());
+        Sala sala = datos.Cine.buscaSala(numero);
+        datos.Cine.borrarSala(sala);
+        JOptionPane.showMessageDialog(this, "borrado");
+        this.dispose();
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnBorrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -124,9 +144,17 @@ public class BorrarSala extends javax.swing.JFrame {
         });
     }
 
+    private void cargarComboSala() {
+
+        ArrayList<Sala> salas = datos.Cine.getListaSalas();
+        for (int i = 0; i < salas.size(); i++) {
+            comboSalas.addItem(salas.get(i).getNumSala());
+        }
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBorrar;
     private javax.swing.JComboBox comboSalas;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel nombre;
     // End of variables declaration//GEN-END:variables

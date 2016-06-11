@@ -5,17 +5,33 @@
  */
 package presentacion;
 
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import gestion.Sala;
+import datos.Cine;
+
 /**
  *
  * @author abel
  */
 public class ListadoDeSalas extends javax.swing.JFrame {
 
+    private DefaultTableModel dtm;
+
     /**
      * Creates new form ListadoDeSalas
      */
     public ListadoDeSalas() {
         initComponents();
+        dtm = new DefaultTableModel();
+        tablaSalas.setModel(dtm);
+
+        dtm.addColumn("Nª De Sala ");
+        dtm.addColumn("Nº De Filas");
+        dtm.addColumn("Nº De Columnas");
+        dtm.addColumn("3D");
+        borrarTabla();
+        llenarTabla();
     }
 
     /**
@@ -105,6 +121,25 @@ public class ListadoDeSalas extends javax.swing.JFrame {
                 new ListadoDeSalas().setVisible(true);
             }
         });
+    }
+
+    private void llenarTabla() {
+        ArrayList<Sala> salas;
+        salas = datos.Cine.getListaSalas();
+        for (int i = 0; i < salas.size(); i++) {
+            Sala sala = salas.get(i);
+            Object[] datos = {sala.getNumSala(), sala.getFilas(), sala.getColumnas(), sala.getTresD()};
+            dtm.addRow(datos);
+            tablaSalas.setModel(dtm);
+        }
+    }
+
+    public void borrarTabla() {
+
+        while (0 < dtm.getRowCount()) {
+            dtm.removeRow(0);
+        }
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

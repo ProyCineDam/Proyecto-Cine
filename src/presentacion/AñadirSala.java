@@ -9,7 +9,7 @@ public class AñadirSala extends javax.swing.JFrame {
 int numSala;
 int filas;
 int columnas;
-boolean tresD;
+String tresD;
     public AñadirSala() {
         initComponents();
        
@@ -37,9 +37,9 @@ boolean tresD;
         txtColumnas = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
+        panelBoton3d = new javax.swing.JPanel();
+        botonNo = new javax.swing.JRadioButton();
+        botonSi = new javax.swing.JRadioButton();
         jLabel5 = new javax.swing.JLabel();
 
         jRadioButtonMenuItem1.setSelected(true);
@@ -70,44 +70,44 @@ boolean tresD;
 
         jLabel4.setText("Nº Total De Filas");
 
-        SalastresD.add(jRadioButton2);
-        jRadioButton2.setText("No");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        SalastresD.add(botonNo);
+        botonNo.setText("No");
+        botonNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                botonNoActionPerformed(evt);
             }
         });
 
-        SalastresD.add(jRadioButton1);
-        jRadioButton1.setText("Si");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        SalastresD.add(botonSi);
+        botonSi.setText("Si");
+        botonSi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                botonSiActionPerformed(evt);
             }
         });
 
         jLabel5.setText("3D");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelBoton3dLayout = new javax.swing.GroupLayout(panelBoton3d);
+        panelBoton3d.setLayout(panelBoton3dLayout);
+        panelBoton3dLayout.setHorizontalGroup(
+            panelBoton3dLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBoton3dLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
-                .addComponent(jRadioButton1)
+                .addComponent(botonSi)
                 .addGap(18, 18, 18)
-                .addComponent(jRadioButton2)
+                .addComponent(botonNo)
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        panelBoton3dLayout.setVerticalGroup(
+            panelBoton3dLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBoton3dLayout.createSequentialGroup()
+                .addGroup(panelBoton3dLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
+                    .addComponent(botonSi)
+                    .addComponent(botonNo))
                 .addGap(0, 10, Short.MAX_VALUE))
         );
 
@@ -121,7 +121,7 @@ boolean tresD;
                         .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(panelBoton3d, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
@@ -151,18 +151,18 @@ boolean tresD;
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtNumeroFilas, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNumeroFilas, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtColumnas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtColumnas, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(13, 13, 13)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelBoton3d, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
                 .addContainerGap(55, Short.MAX_VALUE))
@@ -173,25 +173,34 @@ boolean tresD;
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         gestion.Sala sala;
-     
+        datos.Cine c;
+        
        this.numSala=Integer.parseInt(this.txtNumero.getText());
        this.filas=Integer.parseInt(this.txtNumeroFilas.getText());
        this.columnas=Integer.parseInt(this.txtColumnas.getText());
-       sala=new gestion.Sala(this.numSala,this.columnas,this.filas);
-       sala.setTresD(tresD);
+       // hace falta hacer un if
+       this.tresD=(this.botonSi.getText());
+       sala=new gestion.Sala(this.numSala,this.columnas,this.filas,this.tresD);
+       
+        c = new datos.Cine();
+        c.añadirSala(sala);
+        
+   
        this.txtNumero.setText("");
        this.txtNumeroFilas.setText("");
        this.txtColumnas.setText("");
+      
+
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-       this.tresD=true;
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    private void botonSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiActionPerformed
+       this.tresD= this.botonSi.getText();
+    }//GEN-LAST:event_botonSiActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-       this.tresD=false;
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    private void botonNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNoActionPerformed
+       this.tresD= this.botonNo.getText();
+    }//GEN-LAST:event_botonNoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -233,6 +242,8 @@ boolean tresD;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.ButtonGroup SalastresD;
+    private javax.swing.JRadioButton botonNo;
+    private javax.swing.JRadioButton botonSi;
     private javax.swing.JButton jButton1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
@@ -241,11 +252,9 @@ boolean tresD;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
+    private javax.swing.JPanel panelBoton3d;
     private javax.swing.JTextField txtColumnas;
     private javax.swing.JTextField txtNumero;
     private javax.swing.JTextField txtNumeroFilas;

@@ -36,6 +36,7 @@ public class CineInterface extends javax.swing.JFrame {
         Añadirsala = new javax.swing.JMenuItem();
         ModificarSala = new javax.swing.JMenuItem();
         BorrarSala = new javax.swing.JMenuItem();
+        listadoDeSalas = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         AñadirSesion = new javax.swing.JMenuItem();
         ModificarSesiones = new javax.swing.JMenuItem();
@@ -86,6 +87,14 @@ public class CineInterface extends javax.swing.JFrame {
             }
         });
         jMenu1.add(BorrarSala);
+
+        listadoDeSalas.setText("Listado de Salas");
+        listadoDeSalas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listadoDeSalasActionPerformed(evt);
+            }
+        });
+        jMenu1.add(listadoDeSalas);
 
         jMenuBar1.add(jMenu1);
 
@@ -227,6 +236,11 @@ public class CineInterface extends javax.swing.JFrame {
         lista.setVisible(true);  // TODO add your handling code here:
     }//GEN-LAST:event_ListadoActionPerformed
 
+    private void listadoDeSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listadoDeSalasActionPerformed
+        ListadoDeSalas lista = new presentacion.ListadoDeSalas();
+        lista.setVisible(true);
+    }//GEN-LAST:event_listadoDeSalasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -288,6 +302,7 @@ public class CineInterface extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JMenuItem listadoDeSalas;
     private javax.swing.JMenuItem modificarPelicula;
     // End of variables declaration//GEN-END:variables
 }

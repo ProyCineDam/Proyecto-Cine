@@ -9,11 +9,11 @@ public class Sesion {
     String nomSesion;
     String fecha;
     String hora;
-    int sala;
+   Sala sala;
     double precio;
     ArrayList<Asiento>asientos;
 
-    public Sesion(String nomSesion, String fecha, String hora, int sala, double precio) {
+    public Sesion(String nomSesion, String fecha, String hora, Sala sala, double precio) {
         this.nomSesion = nomSesion;
         this.fecha = fecha;
         this.hora = hora;
@@ -50,13 +50,23 @@ public class Sesion {
         this.hora = hora;
     }
 
-    public int getSala() {
+    public Sala getSala() {
         return sala;
     }
 
-    public void setSala(int sala) {
+    public void setSala(Sala sala) {
         this.sala = sala;
     }
+
+    public ArrayList<Asiento> getAsientos() {
+        return asientos;
+    }
+
+    public void setAsientos(ArrayList<Asiento> asientos) {
+        this.asientos = asientos;
+    }
+
+   
 
     public double getPrecio() {
         return precio;

@@ -18,6 +18,7 @@ public class Cine {
     public Cine(String nombre){
         this.nombre=nombre;
         this.peliculas=new ArrayList();
+         this.listaSalas=new ArrayList();
     }
     
     public void añadirPelicula(Pelicula pelicula){
@@ -65,8 +66,25 @@ public class Cine {
         }
         return peli;   
     }
-    
+    public static Sala  buscaSala(int nom){
+        Sala sala=null;
+        int i=0;
+        boolean encontrado=false;
+        
+        while(i<listaSalas.size() && !encontrado){
+            if(listaSalas.get(i).getNumSala()==nom){
+                sala=listaSalas.get(i);
+                encontrado=true;
+            }
+            i++;
+        }
+        return sala;   
+    }
+   
     public static void borrarPelicula(Pelicula p){
         peliculas.remove(p);
+    }
+    public static void borrarSala(Sala s){
+        peliculas.remove(s);
     }
 }

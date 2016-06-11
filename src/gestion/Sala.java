@@ -6,13 +6,18 @@ public class Sala {
     int numSala;
     int filas;
     int columnas;
-    boolean tresD;
+    String tresD;
 
-    public Sala(int numSala, int filas, int columnas) {
+    public Sala(int numSala, int filas, int columnas, String tresD) {
         this.numSala = numSala;
         this.filas = filas;
         this.columnas = columnas;
-        tresD=false;
+        this.tresD= tresD;
+    }
+
+    @Override
+    public String toString() {
+        return "Sala{" + "numSala=" + numSala + ", filas=" + filas + ", columnas=" + columnas + ", tresD=" + tresD + '}';
     }
 
     public int getNumSala() {
@@ -39,13 +44,14 @@ public class Sala {
         this.columnas = columnas;
     }
 
-    public boolean isTresD() {
+    public String getTresD() {
         return tresD;
     }
 
-    public void setTresD(boolean tresD) {
+    public void setTresD(String tresD) {
         this.tresD = tresD;
     }
+
     
     
 }

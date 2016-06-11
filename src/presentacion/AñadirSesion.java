@@ -5,6 +5,10 @@
  */
 package presentacion;
 
+import gestion.Pelicula;
+import gestion.Sala;
+import java.util.ArrayList;
+
 /**
  *
  * @author usuario
@@ -19,6 +23,8 @@ public class AñadirSesion extends javax.swing.JFrame {
     
     public AñadirSesion() {
         initComponents();
+         comboSala.removeAllItems();
+         cargarComboSala();
     }
     
     public void añadirSesion() {
@@ -161,10 +167,21 @@ public class AñadirSesion extends javax.swing.JFrame {
     private void comboSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSalaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboSalaActionPerformed
+    private void cargarComboSala() {
+       
+        ArrayList <Sala> salas =  datos.Cine.getListaSalas();
+        for (int i = 0; i < salas.size(); i++) {
+            comboSala.addItem(salas.get(i).getNumSala());
+        }
+    }
 
     private void btnAñadirSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAñadirSesionActionPerformed
-        gestion.Sesion sesion;
+         gestion.Sesion sesion;
         gestion.Pelicula s;
+       
+        int nomSala= Integer.parseInt (comboSala.getSelectedItem().toString());
+        Sala sala = datos.Cine.buscaSala(nomSala);
+       
         this.nomSesion = txtNombre.getText();
         this.fecha = txtFecha.getText();
         this.hora = txtHora.getText();
