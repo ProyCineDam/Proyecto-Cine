@@ -32,7 +32,7 @@ String tresD;
         jLabel1 = new javax.swing.JLabel();
         txtNumero = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnAñadir = new javax.swing.JButton();
         txtNumeroFilas = new javax.swing.JTextField();
         txtColumnas = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -59,10 +59,10 @@ String tresD;
 
         jLabel2.setText("Numero");
 
-        jButton1.setText("añadir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAñadir.setText("añadir");
+        btnAñadir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAñadirActionPerformed(evt);
             }
         });
 
@@ -127,7 +127,7 @@ String tresD;
                     .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAñadir, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel4)
@@ -164,14 +164,14 @@ String tresD;
                 .addGap(13, 13, 13)
                 .addComponent(panelBoton3d, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(btnAñadir)
                 .addContainerGap(55, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAñadirActionPerformed
         gestion.Sala sala;
         datos.Cine c;
         
@@ -192,7 +192,7 @@ String tresD;
       
 
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAñadirActionPerformed
 
     private void botonSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiActionPerformed
        this.tresD= this.botonSi.getText();
@@ -244,7 +244,7 @@ String tresD;
     public static javax.swing.ButtonGroup SalastresD;
     private javax.swing.JRadioButton botonNo;
     private javax.swing.JRadioButton botonSi;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnAñadir;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

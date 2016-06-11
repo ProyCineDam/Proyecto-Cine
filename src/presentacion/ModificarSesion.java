@@ -1,22 +1,36 @@
 package presentacion;
 
+import gestion.Sala;
+import java.util.ArrayList;
+import gestion.Pelicula;
+import gestion.Sesion;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author usuario
  */
 public class ModificarSesion extends javax.swing.JFrame {
 
+    String nomSesion;
+    String fecha;
+    String hora;
+    int sala;
+    double precio;
+
     /**
      * Creates new form ModificarSesion
      */
     public ModificarSesion() {
         initComponents();
+        comboSala.removeAllItems();
+        cargarComboSala();
+        comboSesion.removeAllItems();
+        cargarComboSesion();
     }
 
     /**
@@ -28,34 +42,39 @@ public class ModificarSesion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        btnModificar = new javax.swing.JButton();
+        txtFecha = new javax.swing.JTextField();
+        txtHora = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        btnSeleccionarSala = new javax.swing.JButton();
+        btnSeleccionarSesion = new javax.swing.JButton();
         nombre = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         comboSesion = new javax.swing.JComboBox();
-        jTextField1 = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         comboSala = new javax.swing.JComboBox();
         jLabel6 = new javax.swing.JLabel();
         nombre1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtPrecio = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
 
-        jButton1.setText("Modificar");
+        btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Fecha");
 
         jLabel4.setText("Hora");
 
-        btnSeleccionarSala.setText("Seleccionar Sesion");
-        btnSeleccionarSala.addActionListener(new java.awt.event.ActionListener() {
+        btnSeleccionarSesion.setText("Seleccionar Sesion");
+        btnSeleccionarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSeleccionarSalaActionPerformed(evt);
+                btnSeleccionarSesionActionPerformed(evt);
             }
         });
 
@@ -114,13 +133,13 @@ public class ModificarSesion extends javax.swing.JFrame {
                                 .addGap(46, 46, 46)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(txtHora, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(28, 28, 28)
@@ -134,8 +153,8 @@ public class ModificarSesion extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSeleccionarSala, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnSeleccionarSesion, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnModificar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -148,22 +167,22 @@ public class ModificarSesion extends javax.swing.JFrame {
                     .addComponent(nombre)
                     .addComponent(comboSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSeleccionarSala)
+                .addComponent(btnSeleccionarSesion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -173,17 +192,27 @@ public class ModificarSesion extends javax.swing.JFrame {
                     .addComponent(nombre1)
                     .addComponent(comboSala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btnModificar)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSeleccionarSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarSalaActionPerformed
+    private void btnSeleccionarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarSesionActionPerformed
+        double pre;
+        String prec;
 
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSeleccionarSalaActionPerformed
+        String nomSesion = comboSesion.getSelectedItem().toString();
+        Sesion sesiones = Pelicula.buscaSesion(nomSesion);
+        txtNombre.setText(sesiones.getNomSesion());
+        txtFecha.setText(sesiones.getFecha());
+        txtHora.setText(sesiones.getHora());
+        pre = sesiones.getPrecio();
+        prec = String.valueOf(pre);
+        txtPrecio.setText(prec);
+
+    }//GEN-LAST:event_btnSeleccionarSesionActionPerformed
 
     private void comboSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSesionActionPerformed
         // TODO add your handling code here:
@@ -192,6 +221,25 @@ public class ModificarSesion extends javax.swing.JFrame {
     private void comboSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSalaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboSalaActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        String nomSesion = comboSesion.getSelectedItem().toString();
+        Sesion sesiones = Pelicula.buscaSesion(nomSesion);
+        sesiones.setNomSesion(txtNombre.getText());
+        sesiones.setFecha(txtFecha.getText());
+        sesiones.setHora(txtHora.getText());
+        sesiones.setPrecio(Double.parseDouble(txtPrecio.getText()));
+        int numero = Integer.parseInt(comboSala.getSelectedItem().toString());
+        Sala sala = datos.Cine.buscaSala(numero);
+        sesiones.setSala(sala);
+
+        txtNombre.setText("");
+        txtFecha.setText("");
+        txtHora.setText("");
+        txtPrecio.setText("");
+        
+        this.dispose();
+    }//GEN-LAST:event_btnModificarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -231,11 +279,27 @@ public class ModificarSesion extends javax.swing.JFrame {
         });
     }
 
+    private void cargarComboSala() {
+
+        ArrayList<Sala> salas = datos.Cine.getListaSalas();
+        for (int i = 0; i < salas.size(); i++) {
+            comboSala.addItem(salas.get(i).getNumSala());
+        }
+    }
+
+    private void cargarComboSesion() {
+
+        ArrayList<Sesion> sesiones = Pelicula.getSesionesPeli();
+        for (int i = 0; i < sesiones.size(); i++) {
+            comboSesion.addItem(sesiones.get(i).getNomSesion());
+
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSeleccionarSala;
+    private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnSeleccionarSesion;
     private javax.swing.JComboBox comboSala;
     private javax.swing.JComboBox comboSesion;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -243,11 +307,11 @@ public class ModificarSesion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel nombre;
     private javax.swing.JLabel nombre1;
+    private javax.swing.JTextField txtFecha;
+    private javax.swing.JTextField txtHora;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtPrecio;
     // End of variables declaration//GEN-END:variables
 }

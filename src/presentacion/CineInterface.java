@@ -41,6 +41,7 @@ public class CineInterface extends javax.swing.JFrame {
         AñadirSesion = new javax.swing.JMenuItem();
         ModificarSesiones = new javax.swing.JMenuItem();
         BorrarSesiones = new javax.swing.JMenuItem();
+        listaSesiones = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         AñadirPelicula = new javax.swing.JMenuItem();
         modificarPelicula = new javax.swing.JMenuItem();
@@ -124,6 +125,14 @@ public class CineInterface extends javax.swing.JFrame {
         });
         jMenu2.add(BorrarSesiones);
 
+        listaSesiones.setText("Lista Sesiones");
+        listaSesiones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listaSesionesActionPerformed(evt);
+            }
+        });
+        jMenu2.add(listaSesiones);
+
         jMenuBar1.add(jMenu2);
 
         jMenu4.setText("Peliculas");
@@ -182,8 +191,8 @@ public class CineInterface extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ModificarSesionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarSesionesActionPerformed
-        presentacion.ModificarSala modificarSala = new presentacion.ModificarSala();
-        modificarSala.setVisible(true);// TODO add your handling code here:
+        presentacion.ModificarSesion modificarSesion = new presentacion.ModificarSesion();
+        modificarSesion.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_ModificarSesionesActionPerformed
 
     private void AñadirsalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AñadirsalaActionPerformed
@@ -240,6 +249,11 @@ public class CineInterface extends javax.swing.JFrame {
         ListadoDeSalas lista = new presentacion.ListadoDeSalas();
         lista.setVisible(true);
     }//GEN-LAST:event_listadoDeSalasActionPerformed
+
+    private void listaSesionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaSesionesActionPerformed
+         ListadoDeSesiones lista = new presentacion.ListadoDeSesiones();
+        lista.setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_listaSesionesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -302,6 +316,7 @@ public class CineInterface extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JMenuItem listaSesiones;
     private javax.swing.JMenuItem listadoDeSalas;
     private javax.swing.JMenuItem modificarPelicula;
     // End of variables declaration//GEN-END:variables

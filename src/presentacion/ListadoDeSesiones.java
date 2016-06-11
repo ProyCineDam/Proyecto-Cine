@@ -5,17 +5,33 @@
  */
 package presentacion;
 
+import gestion.Sala;
+import gestion.Pelicula;
+import gestion.Sesion;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author abel
  */
 public class ListadoDeSesiones extends javax.swing.JFrame {
-
+ private DefaultTableModel dtm;
     /**
      * Creates new form ListadoDeSesiones
      */
     public ListadoDeSesiones() {
         initComponents();
+        dtm = new DefaultTableModel();
+        tablaSesiones.setModel(dtm);
+
+        dtm.addColumn("Nombre De Sesion ");
+        dtm.addColumn("Fecha");
+        dtm.addColumn("Hora");
+        dtm.addColumn("Precio");
+        dtm.addColumn("Sala");
+        borrarTabla();
+        llenarTabla();
     }
 
     /**
@@ -105,6 +121,24 @@ public class ListadoDeSesiones extends javax.swing.JFrame {
                 new ListadoDeSesiones().setVisible(true);
             }
         });
+    }
+    private void llenarTabla() {
+        ArrayList<Sesion> sesiones;
+        sesiones = Pelicula.getSesionesPeli();
+        for (int i = 0; i < sesiones.size(); i++) {
+            Sesion sesion = sesiones.get(i);
+            Object[] datos = {sesion.getNomSesion(), sesion.getFecha(), sesion.getHora(),sesion.getPrecio(),sesion.getSala()};
+            dtm.addRow(datos);
+            tablaSesiones.setModel(dtm);
+        }
+    }
+
+    public void borrarTabla() {
+
+        while (0 < dtm.getRowCount()) {
+            dtm.removeRow(0);
+        }
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

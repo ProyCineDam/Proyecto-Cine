@@ -1,9 +1,9 @@
-
 package gestion;
 
-
 import java.util.*;
+
 public class Pelicula {
+
     String nomPeli;
     String nacionalidad;
     double duracion;
@@ -11,10 +11,10 @@ public class Pelicula {
     String interpretes;
     String argumento;
     String genero;
-    ArrayList<Sesion>sesionesPeli;
-    
+    static ArrayList<Sesion> sesionesPeli;
+
     public Pelicula() {
-        this.sesionesPeli=new ArrayList();
+        this.sesionesPeli = new ArrayList();
     }
 
     public Pelicula(String nomPeli, String nacionalidad, double duracion, String director, String interpretes, String argumento, String genero) {
@@ -25,7 +25,26 @@ public class Pelicula {
         this.interpretes = interpretes;
         this.argumento = argumento;
         this.genero = genero;
-        sesionesPeli=new ArrayList<Sesion>();
+        sesionesPeli = new ArrayList<Sesion>();
+    }
+
+    public void añadirSesion(Sesion sesion) {
+        sesionesPeli.add(sesion);
+    }
+
+    public static Sesion buscaSesion(String nom) {
+        Sesion sesion = null;
+        int i = 0;
+        boolean encontrado = false;
+
+        while (i < sesionesPeli.size() && !encontrado) {
+            if (sesionesPeli.get(i).getNomSesion().equals(nom)) {
+                sesion = sesionesPeli.get(i);
+                encontrado = true;
+            }
+            i++;
+        }
+        return sesion;
     }
 
     @Override
@@ -33,18 +52,14 @@ public class Pelicula {
         return "Pelicula{" + "nomPeli=" + nomPeli + ", nacionalidad=" + nacionalidad + ", duracion=" + duracion + ", director=" + director + ", interpretes=" + interpretes + ", argumento=" + argumento + ", genero=" + genero + '}';
     }
 
-    public ArrayList<Sesion> getSesionesPeli() {
+    public static ArrayList<Sesion> getSesionesPeli() {
         return sesionesPeli;
     }
 
     public void setSesionesPeli(ArrayList<Sesion> sesionesPeli) {
         this.sesionesPeli = sesionesPeli;
     }
-    
-    public void añadirSesion(Sesion sesion) {
-        sesionesPeli.add(sesion);
-    }
-    
+
     public String getNomPeli() {
         return nomPeli;
     }
@@ -100,7 +115,4 @@ public class Pelicula {
     public void setGenero(String genero) {
         this.genero = genero;
     }
-    
-    
 }
-

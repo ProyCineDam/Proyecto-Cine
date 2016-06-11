@@ -41,14 +41,14 @@
                               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="jTextField4" min="-2" pref="46" max="-2" attributes="0"/>
+                                      <Component id="txtPrecio" min="-2" pref="46" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jLabel6" min="-2" pref="16" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jTextField3" alignment="1" min="-2" pref="170" max="-2" attributes="0"/>
-                                      <Component id="jTextField2" alignment="1" min="-2" pref="170" max="-2" attributes="0"/>
-                                      <Component id="jTextField1" alignment="1" min="-2" pref="170" max="-2" attributes="0"/>
+                                      <Component id="txtHora" alignment="1" min="-2" pref="170" max="-2" attributes="0"/>
+                                      <Component id="txtFecha" alignment="1" min="-2" pref="170" max="-2" attributes="0"/>
+                                      <Component id="txtNombre" alignment="1" min="-2" pref="170" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -70,8 +70,8 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnSeleccionarSala" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton1" alignment="1" min="-2" pref="86" max="-2" attributes="0"/>
+                          <Component id="btnSeleccionarSesion" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnModificar" alignment="1" min="-2" pref="86" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -90,25 +90,25 @@
                   <Component id="comboSesion" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="btnSeleccionarSala" min="-2" max="-2" attributes="0"/>
+              <Component id="btnSeleccionarSesion" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField2" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="txtFecha" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtHora" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextField4" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="txtPrecio" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel6" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
               </Group>
@@ -120,21 +120,24 @@
                   <Component id="comboSala" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="18" max="32767" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <Component id="btnModificar" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btnModificar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Modificar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModificarActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField2">
+    <Component class="javax.swing.JTextField" name="txtFecha">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField3">
+    <Component class="javax.swing.JTextField" name="txtHora">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
@@ -146,12 +149,12 @@
         <Property name="text" type="java.lang.String" value="Hora"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnSeleccionarSala">
+    <Component class="javax.swing.JButton" name="btnSeleccionarSesion">
       <Properties>
         <Property name="text" type="java.lang.String" value="Seleccionar Sesion"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSeleccionarSalaActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSeleccionarSesionActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="nombre">
@@ -183,7 +186,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboSesionActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="txtNombre">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
@@ -226,7 +229,7 @@
         <Property name="text" type="java.lang.String" value="Selecciona La Sala"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField4">
+    <Component class="javax.swing.JTextField" name="txtPrecio">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>

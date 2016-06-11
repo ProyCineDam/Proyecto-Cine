@@ -176,7 +176,7 @@ public class AñadirSesion extends javax.swing.JFrame {
     }
 
     private void btnAñadirSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAñadirSesionActionPerformed
-         gestion.Sesion sesion;
+        gestion.Sesion sesion;
         gestion.Pelicula s;
        
         int nomSala= Integer.parseInt (comboSala.getSelectedItem().toString());
@@ -192,6 +192,7 @@ public class AñadirSesion extends javax.swing.JFrame {
         s = new gestion.Pelicula();
         
         s.añadirSesion(sesion);
+        
         txtNombre.setText("");
         txtFecha.setText("");
         txtHora.setText("");
