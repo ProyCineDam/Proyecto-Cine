@@ -11,10 +11,9 @@ public class Pelicula {
     String interpretes;
     String argumento;
     String genero;
-    static ArrayList<Sesion> sesionesPeli;
+    static ArrayList<Sesion> sesionesPeli =new ArrayList();
 
     public Pelicula() {
-        this.sesionesPeli = new ArrayList();
     }
 
     public Pelicula(String nomPeli, String nacionalidad, double duracion, String director, String interpretes, String argumento, String genero) {
@@ -25,7 +24,6 @@ public class Pelicula {
         this.interpretes = interpretes;
         this.argumento = argumento;
         this.genero = genero;
-        sesionesPeli = new ArrayList<Sesion>();
     }
 
     public void añadirSesion(Sesion sesion) {

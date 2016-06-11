@@ -9,7 +9,7 @@ public class Sesion {
     String nomSesion;
     String fecha;
     String hora;
-   Sala sala;
+    Sala sala;
     double precio;
     ArrayList<Asiento>asientos;
 

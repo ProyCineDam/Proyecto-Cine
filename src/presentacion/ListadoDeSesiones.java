@@ -32,7 +32,6 @@ public class ListadoDeSesiones extends javax.swing.JFrame {
         dtm.addColumn("Hora");
         dtm.addColumn("Precio");
         dtm.addColumn("Sala");
-        borrarTabla();
         llenarTabla();
     }
 
@@ -127,7 +126,8 @@ public class ListadoDeSesiones extends javax.swing.JFrame {
 
     private void llenarTabla() {
         ArrayList<Sesion> sesiones;
-        sesiones = Pelicula.getSesionesPeli();
+        sesiones = gestion.Pelicula.getSesionesPeli();
+        borrarTabla();
 
         for (int i = 0; i < sesiones.size(); i++) {
             Sesion sesion = sesiones.get(i);

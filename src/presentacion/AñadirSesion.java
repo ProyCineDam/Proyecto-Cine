@@ -20,15 +20,15 @@ public class AñadirSesion extends javax.swing.JFrame {
     String hora;
     int sala;
     double precio;
-    
+
     public AñadirSesion() {
         initComponents();
-         comboSala.removeAllItems();
-         cargarComboSala();
+        comboSala.removeAllItems();
+        cargarComboSala();
     }
-    
+
     public void añadirSesion() {
-        
+
     }
 
     /**
@@ -168,8 +168,8 @@ public class AñadirSesion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_comboSalaActionPerformed
     private void cargarComboSala() {
-       
-        ArrayList <Sala> salas =  datos.Cine.getListaSalas();
+
+        ArrayList<Sala> salas = datos.Cine.getListaSalas();
         for (int i = 0; i < salas.size(); i++) {
             comboSala.addItem(salas.get(i).getNumSala());
         }
@@ -178,26 +178,26 @@ public class AñadirSesion extends javax.swing.JFrame {
     private void btnAñadirSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAñadirSesionActionPerformed
         gestion.Sesion sesion;
         gestion.Pelicula s;
-       
-        int nomSala= Integer.parseInt (comboSala.getSelectedItem().toString());
+
+        int nomSala = Integer.parseInt(comboSala.getSelectedItem().toString());
         Sala sala = datos.Cine.buscaSala(nomSala);
-       
+
         this.nomSesion = txtNombre.getText();
         this.fecha = txtFecha.getText();
         this.hora = txtHora.getText();
         this.precio = Double.parseDouble(txtPrecio.getText());
-        
+
         sesion = new gestion.Sesion(nomSesion, fecha, hora, sala, precio);
-        
+
         s = new gestion.Pelicula();
-        
+
         s.añadirSesion(sesion);
-        
+
         txtNombre.setText("");
         txtFecha.setText("");
         txtHora.setText("");
         txtPrecio.setText("");
-        
+
     }//GEN-LAST:event_btnAñadirSesionActionPerformed
 
     /**

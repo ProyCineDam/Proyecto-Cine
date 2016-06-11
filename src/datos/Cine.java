@@ -1,30 +1,30 @@
-
 package datos;
 
 import gestion.Pelicula;
 import gestion.Sala;
 import java.util.*;
+
 public class Cine {
 
-   
-    
-   private String nombre;
-   private static ArrayList<Pelicula> peliculas;
-   private static ArrayList<Sala>listaSalas;
-   public Cine(){
-       
-   }
-    
-    public Cine(String nombre){
-        this.nombre=nombre;
-        this.peliculas=new ArrayList();
-         this.listaSalas=new ArrayList();
+    private String nombre;
+    private static ArrayList<Pelicula> peliculas;
+    static ArrayList<Sala> listaSalas;
+
+    public Cine() {
+
     }
-    
-    public void añadirPelicula(Pelicula pelicula){
+
+    public Cine(String nombre) {
+        this.nombre = nombre;
+        this.peliculas = new ArrayList();
+        this.listaSalas = new ArrayList();
+    }
+
+    public void añadirPelicula(Pelicula pelicula) {
         peliculas.add(pelicula);
     }
-    public void añadirSala(Sala sala){
+
+    public void añadirSala(Sala sala) {
         listaSalas.add(sala);
     }
 
@@ -51,40 +51,42 @@ public class Cine {
     public void setPeliculas(ArrayList<Pelicula> peliculas) {
         this.peliculas = peliculas;
     }
-    
-    public static Pelicula buscaPelicula(String nom){
-        Pelicula peli=null;
-        int i=0;
-        boolean encontrado=false;
-        
-        while(i<peliculas.size() && !encontrado){
-            if(peliculas.get(i).getNomPeli().equals(nom)){
-                peli=peliculas.get(i);
-                encontrado=true;
+
+    public static Pelicula buscaPelicula(String nom) {
+        Pelicula peli = null;
+        int i = 0;
+        boolean encontrado = false;
+
+        while (i < peliculas.size() && !encontrado) {
+            if (peliculas.get(i).getNomPeli().equals(nom)) {
+                peli = peliculas.get(i);
+                encontrado = true;
             }
             i++;
         }
-        return peli;   
+        return peli;
     }
-    public static Sala buscaSala(int nom){
-        Sala sala=null;
-        int i=0;
-        boolean encontrado=false;
-        
-        while(i<listaSalas.size() && !encontrado){
-            if(listaSalas.get(i).getNumSala()==nom){
-                sala=listaSalas.get(i);
-                encontrado=true;
+
+    public static Sala buscaSala(int nom) {
+        Sala sala = null;
+        int i = 0;
+        boolean encontrado = false;
+
+        while (i < listaSalas.size() && !encontrado) {
+            if (listaSalas.get(i).getNumSala() == nom) {
+                sala = listaSalas.get(i);
+                encontrado = true;
             }
             i++;
         }
-        return sala;   
+        return sala;
     }
-   
-    public static void borrarPelicula(Pelicula p){
+
+    public static void borrarPelicula(Pelicula p) {
         peliculas.remove(p);
     }
-    public static void borrarSala(Sala s){
+
+    public static void borrarSala(Sala s) {
         listaSalas.remove(s);
     }
 }
