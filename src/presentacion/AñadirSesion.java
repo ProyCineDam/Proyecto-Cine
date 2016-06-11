@@ -25,6 +25,8 @@ public class AñadirSesion extends javax.swing.JFrame {
         initComponents();
         comboSala.removeAllItems();
         cargarComboSala();
+        comboPelis.removeAllItems();
+        cargarComboPelis();
     }
 
     public void añadirSesion() {
@@ -54,6 +56,8 @@ public class AñadirSesion extends javax.swing.JFrame {
         comboSala = new javax.swing.JComboBox();
         nombre = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        nombre1 = new javax.swing.JLabel();
+        comboPelis = new javax.swing.JComboBox();
 
         jLabel3.setText("Fecha");
 
@@ -89,6 +93,15 @@ public class AñadirSesion extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Andalus", 0, 12)); // NOI18N
         jLabel7.setText("Selecciona La Sala");
 
+        nombre1.setText("pelicula");
+
+        comboPelis.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboPelis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboPelisActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -97,7 +110,7 @@ public class AñadirSesion extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -106,9 +119,6 @@ public class AñadirSesion extends javax.swing.JFrame {
                                     .addComponent(jLabel5))
                                 .addGap(46, 46, 46)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(131, 131, 131)
-                                        .addComponent(btnAñadirSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(txtHora, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -121,12 +131,23 @@ public class AñadirSesion extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(nombre)
                                 .addGap(39, 39, 39)
-                                .addComponent(comboSala, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 17, Short.MAX_VALUE))
+                                .addComponent(comboSala, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(60, 60, 60)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnAñadirSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(nombre1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(comboPelis, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(72, 72, 72))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,9 +177,13 @@ public class AñadirSesion extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nombre)
                     .addComponent(comboSala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nombre1)
+                    .addComponent(comboPelis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(btnAñadirSesion)
-                .addGap(67, 67, 67))
+                .addGap(23, 23, 23))
         );
 
         pack();
@@ -174,6 +199,13 @@ public class AñadirSesion extends javax.swing.JFrame {
             comboSala.addItem(salas.get(i).getNumSala());
         }
     }
+                                               
+    private void cargarComboPelis() {
+        ArrayList<Pelicula> pelis = datos.Cine.getPeliculas();
+        for (int i = 0; i < pelis.size(); i++) {
+            comboPelis.addItem(pelis.get(i).getNomPeli());
+        }
+    }
 
     private void btnAñadirSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAñadirSesionActionPerformed
         gestion.Sesion sesion;
@@ -181,13 +213,14 @@ public class AñadirSesion extends javax.swing.JFrame {
 
         int nomSala = Integer.parseInt(comboSala.getSelectedItem().toString());
         Sala sala = datos.Cine.buscaSala(nomSala);
-
+        String nomPelicula = comboPelis.getSelectedItem().toString();
+        Pelicula pelis = datos.Cine.buscaPelicula(nomPelicula); 
         this.nomSesion = txtNombre.getText();
         this.fecha = txtFecha.getText();
         this.hora = txtHora.getText();
         this.precio = Double.parseDouble(txtPrecio.getText());
 
-        sesion = new gestion.Sesion(nomSesion, fecha, hora, sala, precio);
+        sesion = new gestion.Sesion(nomSesion, fecha, hora, sala, precio, pelis);
 
         s = new gestion.Pelicula();
 
@@ -199,6 +232,10 @@ public class AñadirSesion extends javax.swing.JFrame {
         txtPrecio.setText("");
 
     }//GEN-LAST:event_btnAñadirSesionActionPerformed
+
+    private void comboPelisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboPelisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboPelisActionPerformed
 
     /**
      * @param args the command line arguments
@@ -240,6 +277,7 @@ public class AñadirSesion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAñadirSesion;
+    private javax.swing.JComboBox comboPelis;
     private javax.swing.JComboBox comboSala;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -249,6 +287,7 @@ public class AñadirSesion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel nombre;
+    private javax.swing.JLabel nombre1;
     private javax.swing.JTextField txtFecha;
     private javax.swing.JTextField txtHora;
     private javax.swing.JTextField txtNombre;
