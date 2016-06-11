@@ -11,7 +11,7 @@ public class Pelicula {
     String interpretes;
     String argumento;
     String genero;
-    static ArrayList<Sesion> sesionesPeli =new ArrayList();
+    static ArrayList<Sesion> sesionesPeli = new ArrayList();
 
     public Pelicula() {
     }

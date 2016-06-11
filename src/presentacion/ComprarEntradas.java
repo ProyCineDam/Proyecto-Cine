@@ -18,7 +18,9 @@ import javax.swing.table.DefaultTableModel;
  * @author usuario
  */
 public class ComprarEntradas extends javax.swing.JFrame {
-DefaultTableModel dtm, dtm1;
+
+    DefaultTableModel dtm, dtm1;
+
     /**
      * Creates new form ComprarEntradas
      */
@@ -26,7 +28,7 @@ DefaultTableModel dtm, dtm1;
         initComponents();
         initComponents();
         dtm = new DefaultTableModel();
-         dtm1 = new DefaultTableModel();
+        dtm1 = new DefaultTableModel();
         tablaPelis.setModel(dtm);
         dtm.addColumn("NOMBRE ");
         dtm.addColumn("Duracion");
@@ -37,10 +39,9 @@ DefaultTableModel dtm, dtm1;
         dtm1.addColumn("Nº Sala ");
         dtm1.addColumn("HORA");
         dtm1.addColumn("FECHA");
-               
+
         borrarTabla();
         llenarTablaPelis();
-        
 
         //setLocationRelativeTo(null);
         setResizable(false);
@@ -219,10 +220,14 @@ DefaultTableModel dtm, dtm1;
         }
     }
     private void btnSeleccionarPeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarPeliActionPerformed
-        String nomPelicula = getSelectedItem().toString();
-        Pelicula pelis = datos.Cine.buscaPelicula(nomPelicula);
-         borrarTabla();
-        llenarTablaSesion();// TODO add your handling code here:
+        int row = tablaPelis.getSelectedRow();
+
+        String nombre = tablaPelis.getValueAt(row, 0).toString();
+        double duracion = Double.parseDouble(tablaPelis.getValueAt(row, 1).toString());
+        String director = tablaPelis.getValueAt(row, 2).toString();
+        String genero = tablaPelis.getValueAt(row, 3).toString();
+        String argumento = tablaPelis.getValueAt(row, 4).toString();
+
     }//GEN-LAST:event_btnSeleccionarPeliActionPerformed
 
     /**
@@ -259,8 +264,6 @@ DefaultTableModel dtm, dtm1;
             }
         });
     }
-
-    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
