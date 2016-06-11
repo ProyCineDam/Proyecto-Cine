@@ -16,7 +16,9 @@ import javax.swing.table.DefaultTableModel;
  * @author abel
  */
 public class ListadoDeSesiones extends javax.swing.JFrame {
- private DefaultTableModel dtm;
+
+    private DefaultTableModel dtm;
+
     /**
      * Creates new form ListadoDeSesiones
      */
@@ -122,15 +124,19 @@ public class ListadoDeSesiones extends javax.swing.JFrame {
             }
         });
     }
+
     private void llenarTabla() {
         ArrayList<Sesion> sesiones;
         sesiones = Pelicula.getSesionesPeli();
+
         for (int i = 0; i < sesiones.size(); i++) {
             Sesion sesion = sesiones.get(i);
-            Object[] datos = {sesion.getNomSesion(), sesion.getFecha(), sesion.getHora(),sesion.getPrecio(),sesion.getSala()};
-            dtm.addRow(datos);
+            Object[] datos = {sesion.getNomSesion(), sesion.getFecha(), sesion.getHora(), sesion.getPrecio(), sesion.getSala()};
+            dtm.addRow(datos); 
             tablaSesiones.setModel(dtm);
         }
+
+       
     }
 
     public void borrarTabla() {
