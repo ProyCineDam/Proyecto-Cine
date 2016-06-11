@@ -6,6 +6,7 @@
 package presentacion;
 
 import datos.Cine;
+import java.awt.event.KeyEvent;
 
 /**
  *
@@ -41,6 +42,11 @@ public class CrearCine extends javax.swing.JFrame {
         txtNombreCine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreCineActionPerformed(evt);
+            }
+        });
+        txtNombreCine.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreCineKeyTyped(evt);
             }
         });
 
@@ -99,6 +105,14 @@ public class CrearCine extends javax.swing.JFrame {
     private void txtNombreCineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreCineActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreCineActionPerformed
+
+    private void txtNombreCineKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreCineKeyTyped
+        char cTeclaPresionada = evt.getKeyChar();
+
+        if(cTeclaPresionada==KeyEvent.VK_ENTER){
+            añadirCine.doClick();
+        }
+    }//GEN-LAST:event_txtNombreCineKeyTyped
 
     /**
      * @param args the command line arguments

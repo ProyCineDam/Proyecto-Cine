@@ -5,6 +5,7 @@
  */
 package presentacion;
 
+import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
@@ -71,6 +72,11 @@ public class Admin extends javax.swing.JFrame {
                 txtNombreUsuarioActionPerformed(evt);
             }
         });
+        txtNombreUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreUsuarioKeyTyped(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -86,6 +92,12 @@ public class Admin extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Contraseña");
+
+        txtContraseña.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtContraseñaKeyTyped(evt);
+            }
+        });
 
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -147,18 +159,37 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNombreUsuarioActionPerformed
 
     private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
-        if (validarNombre(txtNombreUsuario.getText()) && validarContra(txtContraseña.getText())) {
+       if (validarNombre(txtNombreUsuario.getText()) && validarContra(txtContraseña.getText())) {
             presentacion.CineInterface cine = new presentacion.CineInterface();
             cine.setVisible(true);  // TODO add your handling code here:
             this.dispose();
         } else {
             JOptionPane.showMessageDialog(this, "Introduce de nuevo los datos");
         }
+        
+        //Se asegura de capturar la tecla enter y descartar todas las demas
+        
     }//GEN-LAST:event_entrarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void txtContraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraseñaKeyTyped
+        char cTeclaPresionada = evt.getKeyChar();
+
+        if(cTeclaPresionada==KeyEvent.VK_ENTER){
+            entrar.doClick();
+        }
+    }//GEN-LAST:event_txtContraseñaKeyTyped
+
+    private void txtNombreUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreUsuarioKeyTyped
+        char cTeclaPresionada = evt.getKeyChar();
+
+        if(cTeclaPresionada==KeyEvent.VK_ENTER){
+            entrar.doClick();
+        }
+    }//GEN-LAST:event_txtNombreUsuarioKeyTyped
     private boolean validarNombre(String nombre) {
         String nom = "admin";
         if (nombre.equalsIgnoreCase(nom)) {
