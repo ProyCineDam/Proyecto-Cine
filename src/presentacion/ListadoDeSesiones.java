@@ -131,7 +131,7 @@ public class ListadoDeSesiones extends javax.swing.JFrame {
 
         for (int i = 0; i < sesiones.size(); i++) {
             Sesion sesion = sesiones.get(i);
-            Object[] datos = {sesion.getNomSesion(), sesion.getFecha(), sesion.getHora(), sesion.getPrecio(), sesion.getSala()};
+            Object[] datos = {sesion.getNomSesion(), sesion.getFecha(), sesion.getHora(), sesion.getPrecio(), sesion.getSala().getNumSala()};
             dtm.addRow(datos); 
             tablaSesiones.setModel(dtm);
         }
