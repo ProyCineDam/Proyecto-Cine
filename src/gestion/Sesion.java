@@ -11,14 +11,16 @@ public class Sesion {
     String hora;
     Sala sala;
     double precio;
+    Pelicula pelis;
     ArrayList<Asiento>asientos;
 
-    public Sesion(String nomSesion, String fecha, String hora, Sala sala, double precio) {
+    public Sesion(String nomSesion, String fecha, String hora, Sala sala, double precio, Pelicula pelis) {
         this.nomSesion = nomSesion;
         this.fecha = fecha;
         this.hora = hora;
         this.sala = sala;
         this.precio = precio;
+        this.pelis = pelis;
         asientos=new ArrayList<Asiento>();
     }
     
@@ -36,6 +38,14 @@ public class Sesion {
 
     public String getFecha() {
         return fecha;
+    }
+
+    public Pelicula getPelis() {
+        return pelis;
+    }
+
+    public void setPelis(Pelicula pelis) {
+        this.pelis = pelis;
     }
 
     public void setFecha(String fecha) {

@@ -31,6 +31,9 @@ public class ModificarSesion extends javax.swing.JFrame {
         cargarComboSala();
         comboSesion.removeAllItems();
         cargarComboSesion();
+        comboPelis.removeAllItems();
+        cargarComboPelis();
+
     }
 
     /**
@@ -59,6 +62,8 @@ public class ModificarSesion extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         txtPrecio = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
+        nombre2 = new javax.swing.JLabel();
+        comboPelis = new javax.swing.JComboBox();
 
         btnModificar.setText("Modificar");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -110,6 +115,15 @@ public class ModificarSesion extends javax.swing.JFrame {
 
         jLabel5.setText("Precio");
 
+        nombre2.setText("pelicula");
+
+        comboPelis.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboPelis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboPelisActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -117,13 +131,18 @@ public class ModificarSesion extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(nombre)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                                .addComponent(comboSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(nombre1)
-                                .addGap(39, 39, 39)
-                                .addComponent(comboSala, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -139,17 +158,19 @@ public class ModificarSesion extends javax.swing.JFrame {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(txtHora, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(nombre)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(comboSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(nombre2)
+                                        .addGap(51, 51, 51))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(nombre1)
+                                        .addGap(69, 69, 69)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(comboSala, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(comboPelis, 0, 201, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,9 +212,12 @@ public class ModificarSesion extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nombre1)
                     .addComponent(comboSala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(btnModificar)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nombre2)
+                    .addComponent(comboPelis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnModificar))
         );
 
         pack();
@@ -232,14 +256,21 @@ public class ModificarSesion extends javax.swing.JFrame {
         int numero = Integer.parseInt(comboSala.getSelectedItem().toString());
         Sala sala = datos.Cine.buscaSala(numero);
         sesiones.setSala(sala);
-
+        String nomPelicula = comboPelis.getSelectedItem().toString();
+        Pelicula pelis = datos.Cine.buscaPelicula(nomPelicula);
+        sesiones.setPelis(pelis);
+        
         txtNombre.setText("");
         txtFecha.setText("");
         txtHora.setText("");
         txtPrecio.setText("");
-        
+
         this.dispose();
     }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void comboPelisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboPelisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboPelisActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,6 +310,13 @@ public class ModificarSesion extends javax.swing.JFrame {
         });
     }
 
+    private void cargarComboPelis() {
+        ArrayList<Pelicula> pelis = datos.Cine.getPeliculas();
+        for (int i = 0; i < pelis.size(); i++) {
+            comboPelis.addItem(pelis.get(i).getNomPeli());
+        }
+    }
+
     private void cargarComboSala() {
 
         ArrayList<Sala> salas = datos.Cine.getListaSalas();
@@ -298,6 +336,7 @@ public class ModificarSesion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnSeleccionarSesion;
+    private javax.swing.JComboBox comboPelis;
     private javax.swing.JComboBox comboSala;
     private javax.swing.JComboBox comboSesion;
     private javax.swing.JLabel jLabel1;
@@ -309,6 +348,7 @@ public class ModificarSesion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel nombre;
     private javax.swing.JLabel nombre1;
+    private javax.swing.JLabel nombre2;
     private javax.swing.JTextField txtFecha;
     private javax.swing.JTextField txtHora;
     private javax.swing.JTextField txtNombre;
