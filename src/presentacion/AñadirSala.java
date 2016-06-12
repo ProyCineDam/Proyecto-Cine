@@ -10,6 +10,7 @@ int numSala;
 int filas;
 int columnas;
 String tresD;
+
     public AñadirSala() {
         initComponents();
        
@@ -174,6 +175,8 @@ String tresD;
     private void btnAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAñadirActionPerformed
         gestion.Sala sala;
         datos.Cine c;
+        gestion.Asiento asi;
+        
         
        this.numSala=Integer.parseInt(this.txtNumero.getText());
        this.filas=Integer.parseInt(this.txtNumeroFilas.getText());
@@ -181,7 +184,7 @@ String tresD;
        // hace falta hacer un if
        this.tresD=(this.botonSi.getText());
        sala=new gestion.Sala(this.numSala,this.columnas,this.filas,this.tresD);
-       
+       asi = new gestion.Asiento(this.filas, this.columnas);
         c = new datos.Cine();
         c.añadirSala(sala);
         

@@ -40,14 +40,6 @@ public class Sesion {
         return fecha;
     }
 
-    public Pelicula getPelis() {
-        return pelis;
-    }
-
-    public void setPelis(Pelicula pelis) {
-        this.pelis = pelis;
-    }
-
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
@@ -84,6 +76,14 @@ public class Sesion {
 
     public void setPrecio(double precio) {
         this.precio = precio;
+    }
+
+    public Pelicula getPelis() {
+        return pelis;
+    }
+
+    public void setPelis(Pelicula pelis) {
+        this.pelis = pelis;
     }
     
 }

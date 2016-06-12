@@ -41,6 +41,7 @@ public class ComprarEntradas extends javax.swing.JFrame {
         
         tablaSesiones.setModel(dtm1);
         dtm1.addColumn("Nº Sala ");
+        dtm1.addColumn("Sesión");
         dtm1.addColumn("HORA");
         dtm1.addColumn("FECHA");
         dtm1.addColumn("Precio");
@@ -224,7 +225,7 @@ public class ComprarEntradas extends javax.swing.JFrame {
         
         for (int i = 0; i < ls.size(); i++) {
             Sesion sesion = ls.get(i);
-            Object[] datos = {sesion.getNomSesion(), sesion.getHora(), sesion.getFecha(), sesion.getPrecio(), sesion.getSala().getNumSala()};
+            Object[] datos = {sesion.getSala().getNumSala(), sesion.getNomSesion(), sesion.getHora(), sesion.getFecha(), sesion.getPrecio()};
             dtm1.addRow(datos);
             tablaSesiones.setModel(dtm1);
         }
