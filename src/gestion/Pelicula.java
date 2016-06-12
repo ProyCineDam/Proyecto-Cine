@@ -29,6 +29,18 @@ public class Pelicula {
     public void añadirSesion(Sesion sesion) {
         sesionesPeli.add(sesion);
     }
+    
+    public static ArrayList<Sesion> listarSesiones(Pelicula peli){
+        ArrayList<Sesion> auxi=new ArrayList();
+        
+        for (int i = 0; i < sesionesPeli.size(); i++) {
+            if(sesionesPeli.get(i).getPelis() == peli){
+                auxi.add(sesionesPeli.get(i));
+            }
+        }
+        
+        return auxi;
+    }
 
     public static Sesion buscaSesion(String nom) {
         Sesion sesion = null;

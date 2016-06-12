@@ -16,7 +16,6 @@ public class Sala {
         this.filas = filas;
         this.columnas = columnas;
         this.tresD= tresD;
-        asientos=new ArrayList<Asiento>(filas, columnas);
     }
 
     @Override

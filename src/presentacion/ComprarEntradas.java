@@ -28,14 +28,17 @@ public class ComprarEntradas extends javax.swing.JFrame {
     public ComprarEntradas() {
         initComponents();
         initComponents();
+        
         dtm = new DefaultTableModel();
         dtm1 = new DefaultTableModel();
+        
         tablaPelis.setModel(dtm);
         dtm.addColumn("NOMBRE ");
         dtm.addColumn("Duracion");
         dtm.addColumn("Director");
         dtm.addColumn("Genero");
         dtm.addColumn("Argumento");
+        
         tablaSesiones.setModel(dtm1);
         dtm1.addColumn("Nº Sala ");
         dtm1.addColumn("HORA");
@@ -217,6 +220,16 @@ public class ComprarEntradas extends javax.swing.JFrame {
         }
     }
     
+    private void llenarTablaSesiones(ArrayList<Sesion> ls){
+        
+        for (int i = 0; i < ls.size(); i++) {
+            Sesion sesion = ls.get(i);
+            Object[] datos = {sesion.getNomSesion(), sesion.getHora(), sesion.getFecha(), sesion.getPrecio(), sesion.getSala().getNumSala()};
+            dtm1.addRow(datos);
+            tablaSesiones.setModel(dtm1);
+        }
+    }
+    
     public void borrarTabla() {
 
         while (0 < dtm.getRowCount()) {
@@ -230,6 +243,10 @@ public class ComprarEntradas extends javax.swing.JFrame {
         }
     }
     private void btnSeleccionarPeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarPeliActionPerformed
+        datos.Cine peliculaSeleccionada = new datos.Cine();
+        ArrayList<Sesion> sesionPeli;
+        Pelicula auxi = new Pelicula();
+        Pelicula peli = new Pelicula();
         int row = tablaPelis.getSelectedRow();
 
         String nombre = tablaPelis.getValueAt(row, 0).toString();
@@ -238,8 +255,13 @@ public class ComprarEntradas extends javax.swing.JFrame {
         String genero = tablaPelis.getValueAt(row, 3).toString();
         String argumento = tablaPelis.getValueAt(row, 4).toString();
         
-        llenarTabla();
-
+        peli = peliculaSeleccionada.buscaPelicula(nombre);
+        
+        sesionPeli = auxi.listarSesiones(peli);
+        
+        borrarTablaSesion();
+        
+        llenarTablaSesiones(sesionPeli);
     }//GEN-LAST:event_btnSeleccionarPeliActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -249,20 +271,7 @@ public class ComprarEntradas extends javax.swing.JFrame {
 
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
-private void llenarTabla() {
-        ArrayList<Sesion> sesiones;
-        sesiones = gestion.Pelicula.getSesionesPeli();
-        borrarTablaSesion();
 
-        for (int i = 0; i < sesiones.size(); i++) {
-            Sesion sesion = sesiones.get(i);
-            Object[] datos = {sesion.getSala().getNumSala(), sesion.getHora(), sesion.getFecha(), sesion.getPrecio()};
-            dtm1.addRow(datos); 
-            tablaSesiones.setModel(dtm1);
-        }
-
-       
-    }
     /**
      * @param args the command line arguments
      */

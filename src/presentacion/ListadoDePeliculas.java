@@ -9,12 +9,15 @@ import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import gestion.Pelicula;
 import datos.Cine;
+
 /**
  *
  * @author abel
  */
 public class ListadoDePeliculas extends javax.swing.JFrame {
-private DefaultTableModel dtm;
+
+    private DefaultTableModel dtm;
+
     /**
      * Creates new form ListadoDePeliculas
      */
@@ -22,7 +25,7 @@ private DefaultTableModel dtm;
         initComponents();
         dtm = new DefaultTableModel();
         tablaPelis.setModel(dtm);
-    
+
         dtm.addColumn("NOMBRE ");
         dtm.addColumn("Nacionalidad");
         dtm.addColumn("Duracion");
@@ -122,23 +125,25 @@ private DefaultTableModel dtm;
             }
         });
     }
-    private void llenarTabla(){
+
+    private void llenarTabla() {
         ArrayList<Pelicula> pelis;
-    pelis = datos.Cine.getPeliculas();
+        pelis = datos.Cine.getPeliculas();
         for (int i = 0; i < pelis.size(); i++) {
             Pelicula peli = pelis.get(i);
             Object[] datos = {peli.getNomPeli(), peli.getNacionalidad(), peli.getDuracion(), peli.getDirector(), peli.getInterpretes(),
-                    peli.getArgumento(), peli.getGenero()};
+                peli.getArgumento(), peli.getGenero()};
             dtm.addRow(datos);
             tablaPelis.setModel(dtm);
         }
     }
-public void borrarTabla() {
-        
+
+    public void borrarTabla() {
+
         while (0 < dtm.getRowCount()) {
             dtm.removeRow(0);
         }
-        
+
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
