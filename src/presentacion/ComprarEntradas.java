@@ -21,18 +21,20 @@ import javax.swing.table.DefaultTableModel;
 public class ComprarEntradas extends javax.swing.JFrame {
 
     DefaultTableModel dtm1;
+    private Pelicula peli;
+    //private Pelicula peliAuxi;
+   // private ArrayList<Sesion> listaSesiones;
 
     /**
      * Creates new form ComprarEntradas
      */
+    
     public ComprarEntradas() {
-        initComponents();
-        initComponents();
         
-     
+        initComponents();
+        initComponents();
+               
         dtm1 = new DefaultTableModel();
-        
-        
         
         tablaSesiones.setModel(dtm1);
         dtm1.addColumn("Nº Sala ");
@@ -40,8 +42,8 @@ public class ComprarEntradas extends javax.swing.JFrame {
         dtm1.addColumn("HORA");
         dtm1.addColumn("FECHA");
         dtm1.addColumn("Precio");
-
         
+        llenarTablaSesiones(peli.getSesionesPeli());
 
         //setLocationRelativeTo(null);
         setResizable(false);
@@ -166,6 +168,10 @@ public class ComprarEntradas extends javax.swing.JFrame {
         setBounds(100, 0, 752, 633);
     }// </editor-fold>//GEN-END:initComponents
     
+    public void cogerPelicula(Pelicula p){
+        this.peli=p;
+        
+    }
     
     private void llenarTablaSesiones(ArrayList<Sesion> ls){
         
@@ -177,19 +183,17 @@ public class ComprarEntradas extends javax.swing.JFrame {
         }
     }
     
-   
     public void borrarTablaSesion() {
 
         while (0 < dtm1.getRowCount()) {
             dtm1.removeRow(0);
         }
     }
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         int row = tablaSesiones.getSelectedRow();
             int nSala =Integer.parseInt(tablaSesiones.getValueAt(row, 0).toString());
 
-
-// TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
