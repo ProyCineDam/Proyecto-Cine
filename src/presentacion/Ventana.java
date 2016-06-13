@@ -102,7 +102,7 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_CineActionPerformed
 
     private void ComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComprarActionPerformed
-       presentacion.ComprarEntradas comprar = new presentacion.ComprarEntradas();
+       presentacion.ListaPeliculasReserva comprar = new presentacion.ListaPeliculasReserva();
         comprar.setVisible(true); // TODO add your handling code here:
     }//GEN-LAST:event_ComprarActionPerformed
 
