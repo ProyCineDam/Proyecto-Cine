@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ComprarEntradas extends javax.swing.JFrame {
 
-    DefaultTableModel dtm, dtm1;
+    DefaultTableModel dtm1;
 
     /**
      * Creates new form ComprarEntradas
@@ -29,15 +29,10 @@ public class ComprarEntradas extends javax.swing.JFrame {
         initComponents();
         initComponents();
         
-        dtm = new DefaultTableModel();
+     
         dtm1 = new DefaultTableModel();
         
-        tablaPelis.setModel(dtm);
-        dtm.addColumn("NOMBRE ");
-        dtm.addColumn("Duracion");
-        dtm.addColumn("Director");
-        dtm.addColumn("Genero");
-        dtm.addColumn("Argumento");
+        
         
         tablaSesiones.setModel(dtm1);
         dtm1.addColumn("Nº Sala ");
@@ -46,8 +41,7 @@ public class ComprarEntradas extends javax.swing.JFrame {
         dtm1.addColumn("FECHA");
         dtm1.addColumn("Precio");
 
-        borrarTabla();
-        llenarTablaPelis();
+        
 
         //setLocationRelativeTo(null);
         setResizable(false);
@@ -69,15 +63,11 @@ public class ComprarEntradas extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        btnSeleccionarPeli = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jLabel5 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tablaPelis = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablaSesiones = new javax.swing.JTable();
 
@@ -85,17 +75,6 @@ public class ComprarEntradas extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Sesiones De Pelicula");
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Peliculas");
-
-        btnSeleccionarPeli.setText("Seleccionar Pelicula");
-        btnSeleccionarPeli.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSeleccionarPeliActionPerformed(evt);
-            }
-        });
 
         jLabel3.setFont(new java.awt.Font("Andalus", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -115,19 +94,6 @@ public class ComprarEntradas extends javax.swing.JFrame {
         jLabel5.setText("Compra De Entradas");
 
         jButton3.setText("Comprar");
-
-        tablaPelis.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3"
-            }
-        ));
-        jScrollPane2.setViewportView(tablaPelis);
 
         tablaSesiones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -151,15 +117,6 @@ public class ComprarEntradas extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(17, 17, 17))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(131, 131, 131)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,59 +124,48 @@ public class ComprarEntradas extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 0, Short.MAX_VALUE))))))
+                                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(17, 17, 17))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSeleccionarPeli))))
-                .addGap(18, 18, 18)
-                .addComponent(jButton3)
-                .addGap(139, 139, 139))
+                            .addComponent(jButton3)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(212, 212, 212))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(btnSeleccionarPeli, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(11, 11, 11)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(13, 13, 13)
                 .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
-                .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(178, 178, 178))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton3)
+                        .addContainerGap(134, Short.MAX_VALUE))))
         );
 
         setBounds(100, 0, 752, 633);
     }// </editor-fold>//GEN-END:initComponents
-    private void llenarTablaPelis() {
-        ArrayList<Pelicula> pelis;
-        pelis = datos.Cine.getPeliculas();
-        for (int i = 0; i < pelis.size(); i++) {
-            Pelicula peli = pelis.get(i);
-            Object[] datos = {peli.getNomPeli(), peli.getDuracion(), peli.getDirector(), peli.getGenero(), peli.getArgumento()};
-            dtm.addRow(datos);
-            tablaPelis.setModel(dtm);
-        }
-    }
+    
     
     private void llenarTablaSesiones(ArrayList<Sesion> ls){
         
@@ -231,40 +177,13 @@ public class ComprarEntradas extends javax.swing.JFrame {
         }
     }
     
-    public void borrarTabla() {
-
-        while (0 < dtm.getRowCount()) {
-            dtm.removeRow(0);
-        }
-    }
+   
     public void borrarTablaSesion() {
 
         while (0 < dtm1.getRowCount()) {
             dtm1.removeRow(0);
         }
     }
-    private void btnSeleccionarPeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarPeliActionPerformed
-        datos.Cine peliculaSeleccionada = new datos.Cine();
-        ArrayList<Sesion> sesionPeli;
-        Pelicula auxi = new Pelicula();
-        Pelicula peli = new Pelicula();
-        int row = tablaPelis.getSelectedRow();
-
-        String nombre = tablaPelis.getValueAt(row, 0).toString();
-        double duracion = Double.parseDouble(tablaPelis.getValueAt(row, 1).toString());
-        String director = tablaPelis.getValueAt(row, 2).toString();
-        String genero = tablaPelis.getValueAt(row, 3).toString();
-        String argumento = tablaPelis.getValueAt(row, 4).toString();
-        
-        peli = peliculaSeleccionada.buscaPelicula(nombre);
-        
-        sesionPeli = auxi.listarSesiones(peli);
-        
-        borrarTablaSesion();
-        
-        llenarTablaSesiones(sesionPeli);
-    }//GEN-LAST:event_btnSeleccionarPeliActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         int row = tablaSesiones.getSelectedRow();
             int nSala =Integer.parseInt(tablaSesiones.getValueAt(row, 0).toString());
@@ -310,17 +229,13 @@ public class ComprarEntradas extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSeleccionarPeli;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable tablaPelis;
     private javax.swing.JTable tablaSesiones;
     // End of variables declaration//GEN-END:variables
 }
