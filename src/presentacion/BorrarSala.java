@@ -38,7 +38,10 @@ public class BorrarSala extends javax.swing.JFrame {
         nombre = new javax.swing.JLabel();
         comboSalas = new javax.swing.JComboBox();
 
-        btnBorrar.setText("Borrar");
+        btnBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/borrar.png"))); // NOI18N
+        btnBorrar.setContentAreaFilled(false);
+        btnBorrar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/borrar pulsado.png"))); // NOI18N
+        btnBorrar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/borrar puls.png"))); // NOI18N
         btnBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBorrarActionPerformed(evt);
@@ -87,7 +90,7 @@ public class BorrarSala extends javax.swing.JFrame {
                     .addComponent(comboSalas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addComponent(btnBorrar)
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         pack();
