@@ -24,7 +24,12 @@ public class ListadoDeSesiones extends javax.swing.JFrame {
      */
     public ListadoDeSesiones() {
         initComponents();
-        dtm = new DefaultTableModel();
+        dtm = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
         tablaSesiones.setModel(dtm);
 
         dtm.addColumn("Nombre De Sesion ");

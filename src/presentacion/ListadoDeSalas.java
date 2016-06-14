@@ -23,7 +23,12 @@ public class ListadoDeSalas extends javax.swing.JFrame {
      */
     public ListadoDeSalas() {
         initComponents();
-        dtm = new DefaultTableModel();
+        dtm = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
         tablaSalas.setModel(dtm);
 
         dtm.addColumn("Nª De Sala ");

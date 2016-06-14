@@ -8,6 +8,7 @@ package presentacion;
 import gestion.Pelicula;
 import gestion.Sesion;
 import java.util.ArrayList;
+import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,7 +24,13 @@ public class ListaPeliculasReserva extends javax.swing.JFrame {
      */
     public ListaPeliculasReserva() {
         initComponents();
-        dtm = new DefaultTableModel();
+        dtm = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
+        
         tablaPelis.setModel(dtm);
         dtm.addColumn("NOMBRE ");
         dtm.addColumn("Duracion");
@@ -72,7 +79,16 @@ public class ListaPeliculasReserva extends javax.swing.JFrame {
             new String [] {
                 "Title 1", "Title 2", "Title 3"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablaPelis.setCellSelectionEnabled(true);
         jScrollPane2.setViewportView(tablaPelis);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -122,11 +138,10 @@ public class ListaPeliculasReserva extends javax.swing.JFrame {
         String argumento = tablaPelis.getValueAt(row, 4).toString();
 
         peli = peliculaSeleccionada.buscaPelicula(nombre);
-
-        presentacion.ComprarEntradas comprar = new presentacion.ComprarEntradas();
-        comprar.setVisible(true);
-
         
+        presentacion.ComprarEntradas comprar = new presentacion.ComprarEntradas();
+        comprar.cogerPelicula(peli);
+        comprar.setVisible(true);
     }//GEN-LAST:event_btnSeleccionarPeliActionPerformed
  
     

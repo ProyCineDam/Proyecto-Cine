@@ -34,7 +34,12 @@ public class ComprarEntradas extends javax.swing.JFrame {
         initComponents();
         initComponents();
                
-        dtm1 = new DefaultTableModel();
+        dtm1 = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
         
         tablaSesiones.setModel(dtm1);
         dtm1.addColumn("Nº Sala ");
@@ -110,8 +115,20 @@ public class ComprarEntradas extends javax.swing.JFrame {
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablaSesiones.setFocusable(false);
         jScrollPane3.setViewportView(tablaSesiones);
+        if (tablaSesiones.getColumnModel().getColumnCount() > 0) {
+            tablaSesiones.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
