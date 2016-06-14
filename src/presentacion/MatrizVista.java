@@ -15,7 +15,7 @@ public class MatrizVista extends javax.swing.JFrame {
     int tmco=Sala.getColumnas();
     int tmfi=Sala.getFilas();
     private JTextField[][] arreglo = new JTextField[tmfi][tmco];
-    
+    //https://www.youtube.com/watch?v=32raR4yR6jE mirar para los botones
     /**
      * Creates new form MatrizVista
      */
