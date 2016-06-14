@@ -26,7 +26,7 @@ public class MatrizVista extends javax.swing.JFrame {
         for (int i = 0; i < tmfi; i++) {
              int x=10;
             for (int j=0; j < tmco; j++) {
-                pintaC(x,y,i,j,"o");
+                pintaMatriz(x,y,i,j,"o");
                 x=x+30;
             }
             y=y+30;
@@ -34,7 +34,7 @@ public class MatrizVista extends javax.swing.JFrame {
         
     }
 
-    void pintaC(int px, int py, int filas,int col, String contenido) {
+    void pintaMatriz(int px, int py, int filas,int col, String contenido) {
     arreglo[filas][col]= new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -55,16 +55,10 @@ public class MatrizVista extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel3 = new javax.swing.JLabel();
-
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("Andalus", 1, 24)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Asientos");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, -1, -1));
-
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -103,6 +97,5 @@ public class MatrizVista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }

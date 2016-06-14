@@ -48,6 +48,8 @@ public class CineInterface extends javax.swing.JFrame {
         borrarPelicula = new javax.swing.JMenuItem();
         Listado = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
+        importar = new javax.swing.JMenuItem();
+        exportar = new javax.swing.JMenuItem();
 
         jTextField1.setText("jTextField1");
 
@@ -171,7 +173,14 @@ public class CineInterface extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
-        jMenu5.setText("Reservas");
+        jMenu5.setText("Ficheros");
+
+        importar.setText("Importar");
+        jMenu5.add(importar);
+
+        exportar.setText("Exportar");
+        jMenu5.add(exportar);
+
         jMenuBar1.add(jMenu5);
 
         setJMenuBar(jMenuBar1);
@@ -310,6 +319,8 @@ public class CineInterface extends javax.swing.JFrame {
     private javax.swing.JMenuItem ModificarSesiones;
     private javax.swing.JMenuItem borrarPelicula;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JMenuItem exportar;
+    private javax.swing.JMenuItem importar;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;
