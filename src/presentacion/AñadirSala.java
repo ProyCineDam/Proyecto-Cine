@@ -70,6 +70,12 @@ String tresD;
             }
         });
 
+        txtNumeroFilas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNumeroFilasActionPerformed(evt);
+            }
+        });
+
         jLabel3.setText("Nº Filas");
 
         jLabel4.setText("Nº Total De Filas");
@@ -207,6 +213,10 @@ String tresD;
     private void botonNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNoActionPerformed
        this.tresD= this.botonNo.getText();
     }//GEN-LAST:event_botonNoActionPerformed
+
+    private void txtNumeroFilasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroFilasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumeroFilasActionPerformed
 
     /**
      * @param args the command line arguments

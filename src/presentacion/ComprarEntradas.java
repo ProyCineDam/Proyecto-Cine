@@ -215,6 +215,9 @@ public class ComprarEntradas extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         int row = tablaSesiones.getSelectedRow();
             int nSala =Integer.parseInt(tablaSesiones.getValueAt(row, 0).toString());
+       presentacion.MatrizVista ver = new presentacion.MatrizVista();
+       // ver.cogerPelicula(peli);
+        ver.setVisible(true);
 
     }//GEN-LAST:event_jButton2ActionPerformed
 

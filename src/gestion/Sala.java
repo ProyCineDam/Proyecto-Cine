@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 public class Sala {
     int numSala;
-    int filas;
-    int columnas;
+    static int filas;
+    static int columnas;
     String tresD;
     ArrayList<Asiento>asientos;
 
@@ -31,7 +31,7 @@ public class Sala {
         this.numSala = numSala;
     }
 
-    public int getFilas() {
+    public static int getFilas() {
         return filas;
     }
 
@@ -39,7 +39,7 @@ public class Sala {
         this.filas = filas;
     }
 
-    public int getColumnas() {
+    public static int getColumnas() {
         return columnas;
     }
 

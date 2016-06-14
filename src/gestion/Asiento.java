@@ -1,15 +1,16 @@
-
 package gestion;
 
 import java.util.*;
+
 public class Asiento {
-    
+
     int numAsiento;
     int filaAsiento;
-    
-    public Asiento(int filaAsiento, int numAsiento){
-        this.numAsiento=numAsiento;
-        this.filaAsiento=filaAsiento;
+
+    public Asiento(int fila, int num) {
+        this.numAsiento = num;
+        this.filaAsiento = fila;
+        
     }
 
     public int getNumAsiento() {
