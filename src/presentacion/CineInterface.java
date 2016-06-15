@@ -402,17 +402,19 @@ public class CineInterface extends javax.swing.JFrame {
     public void exportarSala(ArrayList<Sala>listaSalas) throws IOException{
         String salida="salas.csv";
         FileWriter fich=new FileWriter(salida,true);
-        PrintWriter print=new PrintWriter(fich);
-        for(int i=0;i<listaSalas.size();i++){
-            print.println(listaSalas.get(i).getNumSala()+":"+listaSalas.get(i).getTresD()+":"+listaSalas.get(i).getColumnas()+":"+listaSalas.get(i).getFilas());
+        try (PrintWriter print = new PrintWriter(fich)) {
+            for(int i=0;i<listaSalas.size();i++){
+                print.println(listaSalas.get(i).getNumSala()+":"+listaSalas.get(i).getFilas()+":"+listaSalas.get(i).getColumnas()+":"+listaSalas.get(i).getTresD());
+            }
+            print.close();
         }
-        print.close();
     }
+    
     public ArrayList importarSala() throws FileNotFoundException{
-        String fichero="salas.csv";
         String[] palabra;
         Sala p;
         ArrayList<Sala>listaSalas=new ArrayList<Sala>();
+        String fichero="salas.csv";
         Scanner sc=new Scanner(new File(fichero));
         while(sc.hasNext()){
             palabra=sc.next().split(":");
