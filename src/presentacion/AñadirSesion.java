@@ -218,7 +218,7 @@ public class AñadirSesion extends javax.swing.JFrame {
         int nomSala = Integer.parseInt(comboSala.getSelectedItem().toString());
         Sala sala = datos.Cine.buscaSala(nomSala);
         String nomPelicula = comboPelis.getSelectedItem().toString();
-        Pelicula pelis = datos.Cine.buscaPelicula(nomPelicula); 
+        Pelicula pelis = datos.Cine.buscaPelicula(nomPelicula);
         this.nomSesion = txtNombre.getText();
         this.fecha = txtFecha.getText();
         this.hora = txtHora.getText();

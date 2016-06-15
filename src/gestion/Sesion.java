@@ -1,7 +1,6 @@
 
 package gestion;
 
-
 import java.util.*;
 
 public class Sesion {
@@ -67,8 +66,6 @@ public class Sesion {
     public void setAsientos(ArrayList<Asiento> asientos) {
         this.asientos = asientos;
     }
-
-   
 
     public double getPrecio() {
         return precio;

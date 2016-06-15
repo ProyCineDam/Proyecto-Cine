@@ -138,14 +138,11 @@ public class ListaPeliculasReserva extends javax.swing.JFrame {
         String argumento = tablaPelis.getValueAt(row, 4).toString();
 
         peli = peliculaSeleccionada.buscaPelicula(nombre);
-        
         presentacion.ComprarEntradas comprar = new presentacion.ComprarEntradas();
-        comprar.cogerPelicula(peli);
+        comprar.llenarTablaSesiones(peli.cogerSesionesPeli());
         comprar.setVisible(true);
     }//GEN-LAST:event_btnSeleccionarPeliActionPerformed
- 
-    
-    
+
     public void borrarTabla() {
 
         while (0 < dtm.getRowCount()) {

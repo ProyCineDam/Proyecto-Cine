@@ -22,7 +22,6 @@ public class ComprarEntradas extends javax.swing.JFrame {
 
     DefaultTableModel dtm1;
     private Pelicula peli;
-    //private Pelicula peliAuxi;
    // private ArrayList<Sesion> listaSesiones;
 
     /**
@@ -48,7 +47,7 @@ public class ComprarEntradas extends javax.swing.JFrame {
         dtm1.addColumn("FECHA");
         dtm1.addColumn("Precio");
         
-        llenarTablaSesiones(peli.getSesionesPeli());
+        
 
         //setLocationRelativeTo(null);
         setResizable(false);
@@ -191,11 +190,11 @@ public class ComprarEntradas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     public void cogerPelicula(Pelicula p){
-        this.peli=p;
-        
-    }
-    
-    private void llenarTablaSesiones(ArrayList<Sesion> ls){
+        this.peli = p;
+        System.out.println(this.peli.getNomPeli()+"asdfasdadssad");
+    }  
+       
+    void llenarTablaSesiones(ArrayList<Sesion> ls){
         
         for (int i = 0; i < ls.size(); i++) {
             Sesion sesion = ls.get(i);

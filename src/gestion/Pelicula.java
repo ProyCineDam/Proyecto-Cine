@@ -29,16 +29,16 @@ public class Pelicula {
     public void añadirSesion(Sesion sesion) {
         sesionesPeli.add(sesion);
     }
-    
-    public static ArrayList<Sesion> listarSesiones(Pelicula peli){
-        ArrayList<Sesion> auxi=new ArrayList();
-        
+
+    public static ArrayList<Sesion> listarSesiones(Pelicula peli) {
+        ArrayList<Sesion> auxi = new ArrayList();
+
         for (int i = 0; i < sesionesPeli.size(); i++) {
-            if(sesionesPeli.get(i).getPelis() == peli){
+            if (sesionesPeli.get(i).getPelis() == peli) {
                 auxi.add(sesionesPeli.get(i));
             }
         }
-        
+
         return auxi;
     }
 
@@ -60,6 +60,17 @@ public class Pelicula {
     @Override
     public String toString() {
         return "Pelicula{" + "nomPeli=" + nomPeli + ", nacionalidad=" + nacionalidad + ", duracion=" + duracion + ", director=" + director + ", interpretes=" + interpretes + ", argumento=" + argumento + ", genero=" + genero + '}';
+    }
+
+    public ArrayList<Sesion> cogerSesionesPeli() {
+        ArrayList listaSesiones = new ArrayList();
+        for (Sesion sp : sesionesPeli) {
+            if (sp.pelis.getNomPeli().equals(this.getNomPeli())) {
+                listaSesiones.add(sp);
+            }
+        }
+
+        return listaSesiones;
     }
 
     public static ArrayList<Sesion> getSesionesPeli() {
