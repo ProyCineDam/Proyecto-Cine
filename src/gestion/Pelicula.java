@@ -78,7 +78,7 @@ public class Pelicula {
         return sesionesPeli;
     }
 
-    public void setSesionesPeli(ArrayList<Sesion> sesionesPeli) {
+    public static void setSesionesPeli(ArrayList<Sesion> sesionesPeli) {
         Pelicula.sesionesPeli = sesionesPeli;
     }
 

@@ -432,7 +432,7 @@ public class CineInterface extends javax.swing.JFrame {
         FileWriter fich = new FileWriter(salida, true);
         try (PrintWriter print = new PrintWriter(fich)) {
             for (int i = 0; i < listaSesiones.size(); i++) {
-                print.println(listaSesiones.get(i).getNomSesion() + ";" + listaSesiones.get(i).getFecha() + ";" + listaSesiones.get(i).getHora() + ";" + listaSesiones.get(i).getPrecio());
+                print.println(listaSesiones.get(i).getNomSesion() + "-" + listaSesiones.get(i).getFecha() + "-" + listaSesiones.get(i).getHora() + "-" + listaSesiones.get(i).getPrecio());
             }
             print.close();
         }
@@ -475,7 +475,7 @@ public class CineInterface extends javax.swing.JFrame {
         String fichero = "sesiones.csv";
         Scanner scn = new Scanner(new File(fichero));
         while (scn.hasNext()) {
-            palabra = scn.next().split(";");
+            palabra = scn.next().split("-");
             s = new Sesion(palabra[0], palabra[1], Double.parseDouble(palabra[2]));
             ls.add(s);
         }
