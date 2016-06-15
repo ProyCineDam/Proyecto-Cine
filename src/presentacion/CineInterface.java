@@ -11,6 +11,7 @@ package presentacion;
  */
 import java.util.*;
 import datos.Cine;
+import gestion.Sala;
 import gestion.Pelicula;
 import java.io.*;
 import java.util.logging.Level;
@@ -331,11 +332,27 @@ public class CineInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_exportarSesionesActionPerformed
 
     private void exportarSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportarSalasActionPerformed
-        // TODO add your handling code here:
+        Cine cine=new Cine();
+        ArrayList<Sala>listaSalas=new ArrayList<>();
+        listaSalas=cine.getListaSalas();
+        try {
+            exportarSala(listaSalas);
+            datos.Cine.setListaSalas(listaSalas);
+        } catch (IOException ex) {
+            Logger.getLogger(CineInterface.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_exportarSalasActionPerformed
 
     private void importarrSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importarrSalasActionPerformed
-        // TODO add your handling code here:
+        Cine cine=new Cine();
+        ArrayList<Sala>listaSalas=new ArrayList<Sala>();
+        try {
+            listaSalas=importarSala();
+            datos.Cine.setListaSalas(listaSalas);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(CineInterface.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_importarrSalasActionPerformed
 
     private void importarSesionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importarSesionesActionPerformed
@@ -351,7 +368,7 @@ public class CineInterface extends javax.swing.JFrame {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(CineInterface.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println(lp.get(0));
+       
     }//GEN-LAST:event_importarPeliculasActionPerformed
 
     private void exportarPeliculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportarPeliculasActionPerformed
@@ -381,6 +398,29 @@ public class CineInterface extends javax.swing.JFrame {
             print.close();
         }
         
+    }
+    public void exportarSala(ArrayList<Sala>listaSalas) throws IOException{
+        String salida="salas.csv";
+        FileWriter fich=new FileWriter(salida,true);
+        PrintWriter print=new PrintWriter(fich);
+        for(int i=0;i<listaSalas.size();i++){
+            print.println(listaSalas.get(i).getNumSala()+":"+listaSalas.get(i).getTresD()+":"+listaSalas.get(i).getColumnas()+":"+listaSalas.get(i).getFilas());
+        }
+        print.close();
+    }
+    public ArrayList importarSala() throws FileNotFoundException{
+        String fichero="salas.csv";
+        String[] palabra;
+        Sala p;
+        ArrayList<Sala>listaSalas=new ArrayList<Sala>();
+        Scanner sc=new Scanner(new File(fichero));
+        while(sc.hasNext()){
+            palabra=sc.next().split(":");
+            p=new  Sala(Integer.parseInt(palabra[0]),Integer.parseInt(palabra[1]),Integer.parseInt(palabra[2]),palabra[3]);
+            listaSalas.add(p);
+        }
+        sc.close();
+        return listaSalas;
     }
     public ArrayList importarPeliculas() throws FileNotFoundException{
         String[] palabra;

@@ -8,7 +8,7 @@ public class Cine {
 
     private String nombre;
     private static ArrayList<Pelicula> peliculas;
-    static ArrayList<Sala> listaSalas;
+    private static ArrayList<Sala> listaSalas;
 
     public Cine() {
 
@@ -28,7 +28,7 @@ public class Cine {
         listaSalas.add(sala);
     }
 
-    public static ArrayList<Sala> getListaSalas() {
+    public static  ArrayList<Sala> getListaSalas() {
         return listaSalas;
     }
 
