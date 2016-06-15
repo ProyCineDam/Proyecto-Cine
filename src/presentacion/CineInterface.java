@@ -16,6 +16,7 @@ import gestion.Pelicula;
 import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 public class CineInterface extends javax.swing.JFrame {
 
     /**
@@ -323,7 +324,7 @@ public class CineInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_listadoDeSalasActionPerformed
 
     private void listaSesionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaSesionesActionPerformed
-         ListadoDeSesiones lista = new presentacion.ListadoDeSesiones();
+        ListadoDeSesiones lista = new presentacion.ListadoDeSesiones();
         lista.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_listaSesionesActionPerformed
 
@@ -332,23 +333,23 @@ public class CineInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_exportarSesionesActionPerformed
 
     private void exportarSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportarSalasActionPerformed
-        Cine cine=new Cine();
-        ArrayList<Sala>listaSalas=new ArrayList<>();
-        listaSalas=cine.getListaSalas();
+        Cine cine = new Cine();
+        ArrayList<Sala> listaSalas = new ArrayList<>();
+        listaSalas = cine.getListaSalas();
         try {
             exportarSala(listaSalas);
             datos.Cine.setListaSalas(listaSalas);
         } catch (IOException ex) {
             Logger.getLogger(CineInterface.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_exportarSalasActionPerformed
 
     private void importarrSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importarrSalasActionPerformed
-        Cine cine=new Cine();
-        ArrayList<Sala>listaSalas=new ArrayList<Sala>();
+        Cine cine = new Cine();
+        ArrayList<Sala> listaSalas = new ArrayList<Sala>();
         try {
-            listaSalas=importarSala();
+            listaSalas = importarSala();
             datos.Cine.setListaSalas(listaSalas);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(CineInterface.class.getName()).log(Level.SEVERE, null, ex);
@@ -360,21 +361,21 @@ public class CineInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_importarSesionesActionPerformed
 
     private void importarPeliculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importarPeliculasActionPerformed
-       Cine cine=new Cine();
-       ArrayList<Pelicula>lp=new ArrayList<Pelicula>();
+        Cine cine = new Cine();
+        ArrayList<Pelicula> lp = new ArrayList<Pelicula>();
         try {
-            lp=importarPeliculas();
+            lp = importarPeliculas();
             datos.Cine.setPeliculas(lp);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(CineInterface.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
+
     }//GEN-LAST:event_importarPeliculasActionPerformed
 
     private void exportarPeliculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportarPeliculasActionPerformed
-      Cine cine=new Cine();
-      ArrayList<Pelicula>lp=new ArrayList<>();
-      lp=cine.getPeliculas();
+        Cine cine = new Cine();
+        ArrayList<Pelicula> lp = new ArrayList<>();
+        lp = cine.getPeliculas();
         try {
             exportarPeliculas(lp);
         } catch (FileNotFoundException ex) {
@@ -382,62 +383,65 @@ public class CineInterface extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(CineInterface.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
+
     }//GEN-LAST:event_exportarPeliculasActionPerformed
 
-    public void exportarPeliculas(ArrayList<Pelicula>listaPeliculas) throws FileNotFoundException, IOException{
-        String salida="peliculas.csv";
-        FileWriter fich=new FileWriter(salida,true); 
+    public void exportarPeliculas(ArrayList<Pelicula> listaPeliculas) throws FileNotFoundException, IOException {
+        String salida = "peliculas.csv";
+        FileWriter fich = new FileWriter(salida, true);
         try (PrintWriter print = new PrintWriter(fich)) {
-            for(int i=0;i<listaPeliculas.size();i++){
-                print.println(listaPeliculas.get(i).getNomPeli()+":"+listaPeliculas.get(i).getNacionalidad()+":"+listaPeliculas.get(i).getDuracion()
-                +":"+listaPeliculas.get(i).getDirector()+":"+listaPeliculas.get(i).getInterpretes()+":"+listaPeliculas.get(i).getArgumento()+":"+
-                        listaPeliculas.get(i).getGenero());
-                
+            for (int i = 0; i < listaPeliculas.size(); i++) {
+                print.println(listaPeliculas.get(i).getNomPeli() + ":" + listaPeliculas.get(i).getNacionalidad() + ":" + listaPeliculas.get(i).getDuracion()
+                        + ":" + listaPeliculas.get(i).getDirector() + ":" + listaPeliculas.get(i).getInterpretes() + ":" + listaPeliculas.get(i).getArgumento() + ":"
+                        + listaPeliculas.get(i).getGenero());
+
             }
             print.close();
         }
-        
+
     }
-    public void exportarSala(ArrayList<Sala>listaSalas) throws IOException{
-        String salida="salas.csv";
-        FileWriter fich=new FileWriter(salida,true);
+
+    public void exportarSala(ArrayList<Sala> listaSalas) throws IOException {
+        String salida = "salas.csv";
+        FileWriter fich = new FileWriter(salida, true);
         try (PrintWriter print = new PrintWriter(fich)) {
-            for(int i=0;i<listaSalas.size();i++){
-                print.println(listaSalas.get(i).getNumSala()+":"+listaSalas.get(i).getFilas()+":"+listaSalas.get(i).getColumnas()+":"+listaSalas.get(i).getTresD());
+            for (int i = 0; i < listaSalas.size(); i++) {
+                print.println(listaSalas.get(i).getNumSala() + ":" + listaSalas.get(i).getFilas() + ":" + listaSalas.get(i).getColumnas() + ":" + listaSalas.get(i).getTresD());
             }
             print.close();
         }
     }
-    
-    public ArrayList importarSala() throws FileNotFoundException{
+
+    public ArrayList importarSala() throws FileNotFoundException {
         String[] palabra;
         Sala p;
-        ArrayList<Sala>listaSalas=new ArrayList<Sala>();
-        String fichero="salas.csv";
-        Scanner sc=new Scanner(new File(fichero));
-        while(sc.hasNext()){
-            palabra=sc.next().split(":");
-            p=new  Sala(Integer.parseInt(palabra[0]),Integer.parseInt(palabra[1]),Integer.parseInt(palabra[2]),palabra[3]);
+        ArrayList<Sala> listaSalas = new ArrayList<Sala>();
+        String fichero = "salas.csv";
+        Scanner sc = new Scanner(new File(fichero));
+        while (sc.hasNext()) {
+            palabra = sc.next().split(":");
+            p = new Sala(Integer.parseInt(palabra[0]), Integer.parseInt(palabra[1]), Integer.parseInt(palabra[2]), palabra[3]);
             listaSalas.add(p);
         }
         sc.close();
         return listaSalas;
     }
-    public ArrayList importarPeliculas() throws FileNotFoundException{
+
+    public ArrayList importarPeliculas() throws FileNotFoundException {
         String[] palabra;
         Pelicula p;
-        ArrayList<Pelicula> lp=new ArrayList<Pelicula>();
-        String fichero="peliculas.csv";
-        Scanner scn =new Scanner(new File(fichero));
-        while(scn.hasNext()){
-            palabra=scn.next().split(":");
-            p=new Pelicula(palabra[0],palabra[1],Double.parseDouble(palabra[2]),palabra[3],palabra[4],palabra[5],palabra[6]);
-        lp.add(p);
-    }
+        ArrayList<Pelicula> lp = new ArrayList<Pelicula>();
+        String fichero = "peliculas.csv";
+        Scanner scn = new Scanner(new File(fichero));
+        while (scn.hasNext()) {
+            palabra = scn.next().split(":");
+            p = new Pelicula(palabra[0], palabra[1], Double.parseDouble(palabra[2]), palabra[3], palabra[4], palabra[5], palabra[6]);
+            lp.add(p);
+        }
         scn.close();
         return lp;
     }
+
     /**
      * @param args the command line arguments
      */

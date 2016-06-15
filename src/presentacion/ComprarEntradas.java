@@ -27,32 +27,29 @@ public class ComprarEntradas extends javax.swing.JFrame {
     DefaultTableModel dtm1;
     private Pelicula peli;
     JButton[][] asiento;
-   // private ArrayList<Sesion> listaSesiones;
+    // private ArrayList<Sesion> listaSesiones;
 
     /**
      * Creates new form ComprarEntradas
      */
-    
     public ComprarEntradas() {
-        
+
         initComponents();
         initComponents();
-               
-        dtm1 = new DefaultTableModel(){
+
+        dtm1 = new DefaultTableModel() {
             @Override
-            public boolean isCellEditable(int row, int column){
+            public boolean isCellEditable(int row, int column) {
                 return false;
             }
         };
-        
+
         tablaSesiones.setModel(dtm1);
         dtm1.addColumn("Nº Sala ");
         dtm1.addColumn("Sesión");
         dtm1.addColumn("HORA");
         dtm1.addColumn("FECHA");
         dtm1.addColumn("Precio");
-        
-        
 
         //setLocationRelativeTo(null);
         setResizable(false);
@@ -201,13 +198,13 @@ public class ComprarEntradas extends javax.swing.JFrame {
 
         setBounds(100, 0, 752, 633);
     }// </editor-fold>//GEN-END:initComponents
-    
-    public void cogerPelicula(Pelicula p){
+
+    public void cogerPelicula(Pelicula p) {
         this.peli = p;
-    }  
-       
-    void llenarTablaSesiones(ArrayList<Sesion> ls){
-        
+    }
+
+    void llenarTablaSesiones(ArrayList<Sesion> ls) {
+
         for (int i = 0; i < ls.size(); i++) {
             Sesion sesion = ls.get(i);
             Object[] datos = {sesion.getSala().getNumSala(), sesion.getNomSesion(), sesion.getHora(), sesion.getFecha(), sesion.getPrecio()};
@@ -215,30 +212,30 @@ public class ComprarEntradas extends javax.swing.JFrame {
             tablaSesiones.setModel(dtm1);
         }
     }
-    
+
     public void borrarTablaSesion() {
 
         while (0 < dtm1.getRowCount()) {
             dtm1.removeRow(0);
         }
     }
-    
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         int row = tablaSesiones.getSelectedRow();
-        String nSesio =(tablaSesiones.getValueAt(row, 1).toString());
+        String nSesio = (tablaSesiones.getValueAt(row, 1).toString());
         Disponibilidad disponible;
         Sesion sesion = gestion.Pelicula.buscaSesion(nSesio);
-        
+
         int filas = sesion.getSala().getFilas();
         int columnas = sesion.getSala().getColumnas();
-        
+
         this.asientos.removeAll();
         this.asientos.setLayout(new java.awt.GridLayout(filas, columnas));
         this.asiento = new JButton[filas][columnas];
         int cont = 0;
         for (int i = 0; i < this.asiento.length; i++) {
             for (int j = 0; j < this.asiento[i].length; j++) {
-                asiento[i][j] = new JButton("Reservame!");         
+                asiento[i][j] = new JButton("Reservame!");
                 this.asientos.add(asiento[i][j]);
                 cont++;
             }
@@ -280,7 +277,7 @@ public class ComprarEntradas extends javax.swing.JFrame {
             }
         });
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel asientos;
     private javax.swing.JButton jButton2;

@@ -10,7 +10,7 @@ public class Asiento {
     public Asiento(int fila, int num) {
         this.numAsiento = num;
         this.filaAsiento = fila;
-        
+
     }
 
     public int getNumAsiento() {

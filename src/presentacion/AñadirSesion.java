@@ -203,7 +203,7 @@ public class AñadirSesion extends javax.swing.JFrame {
             comboSala.addItem(salas.get(i).getNumSala());
         }
     }
-                                               
+
     private void cargarComboPelis() {
         ArrayList<Pelicula> pelis = datos.Cine.getPeliculas();
         for (int i = 0; i < pelis.size(); i++) {

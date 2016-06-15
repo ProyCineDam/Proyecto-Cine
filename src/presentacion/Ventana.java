@@ -25,12 +25,12 @@ public class Ventana extends javax.swing.JFrame {
         setResizable(false);
         setIconImage(new ImageIcon(getClass().getResource("/recursos/iconoVentana.png")).getImage());
         //icono de ventana
-        ((JPanel)getContentPane()).setOpaque(fal­se);
-        ImageIcon uno=new ImageIcon(this.getClass().getResource("/recursos/cine2010.png"));
-        JLabel fondo= new JLabel(); 
+        ((JPanel) getContentPane()).setOpaque(fal­se);
+        ImageIcon uno = new ImageIcon(this.getClass().getResource("/recursos/cine2010.png"));
+        JLabel fondo = new JLabel();
         fondo.setIcon(uno);
-        getLayeredPane().add(fondo,JLayeredPane.FRAME_CONTENT_LAYER);
-        fondo.setBounds(0,0,uno.getIconWidth(),u­no.getIconHeight());
+        getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
+        fondo.setBounds(0, 0, uno.getIconWidth(), u­no.getIconHeight());
     }
 
     /**
@@ -97,12 +97,12 @@ public class Ventana extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CineActionPerformed
-       presentacion.Admin entrar = new presentacion.Admin();
+        presentacion.Admin entrar = new presentacion.Admin();
         entrar.setVisible(true);  // TODO add your handling code here:
     }//GEN-LAST:event_CineActionPerformed
 
     private void ComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComprarActionPerformed
-       presentacion.ListaPeliculasReserva comprar = new presentacion.ListaPeliculasReserva();
+        presentacion.ListaPeliculasReserva comprar = new presentacion.ListaPeliculasReserva();
         comprar.setVisible(true); // TODO add your handling code here:
     }//GEN-LAST:event_ComprarActionPerformed
 

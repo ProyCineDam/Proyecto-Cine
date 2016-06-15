@@ -13,6 +13,7 @@ import java.util.ArrayList;
  * @author usuario
  */
 public class ModificarPelicula extends javax.swing.JFrame {
+
     String nomPeli;
     String nacionalidad;
     double duracion;
@@ -22,6 +23,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
     String interpretes;
     String argumento;
     String genero;
+
     /**
      * Creates new form ModificarPelicula
      */
@@ -227,7 +229,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         String nomPelicula = comboPelis.getSelectedItem().toString();
-        Pelicula pelis = datos.Cine.buscaPelicula(nomPelicula);                                
+        Pelicula pelis = datos.Cine.buscaPelicula(nomPelicula);
         pelis.setNomPeli(txtNombre.getText());
         pelis.setNacionalidad(txtNacion.getText());
         pelis.setDuracion(Double.parseDouble(txtDuracion.getText()));
@@ -235,7 +237,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
         pelis.setInterpretes(txtInter.getText());
         pelis.setArgumento(txtArgu.getText());
         pelis.setGenero(txtGenero.getText());
-         
+
         txtNombre.setText("");
         txtArgu.setText("");
         txtDirector.setText("");
@@ -244,8 +246,8 @@ public class ModificarPelicula extends javax.swing.JFrame {
         txtInter.setText("");
         txtNacion.setText("");
         this.dispose();
-       
-                // TODO add your handling code here:
+
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnModificarActionPerformed
     private void cargarComboPelis() {
         ArrayList<Pelicula> pelis = datos.Cine.getPeliculas();

@@ -99,11 +99,11 @@ public class CrearCine extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void añadirCineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirCineActionPerformed
-        
+
         Cine crearCine = new Cine(txtNombreCine.getText());
         this.dispose();
         //presentacion.CineInterface cine = new presentacion.CineInterface();
-       // cine.setVisible(true);  // TODO add your handling code here:
+        // cine.setVisible(true);  // TODO add your handling code here:
     }//GEN-LAST:event_añadirCineActionPerformed
 
     private void txtNombreCineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreCineActionPerformed
@@ -113,7 +113,7 @@ public class CrearCine extends javax.swing.JFrame {
     private void txtNombreCineKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreCineKeyTyped
         char cTeclaPresionada = evt.getKeyChar();
 
-        if(cTeclaPresionada==KeyEvent.VK_ENTER){
+        if (cTeclaPresionada == KeyEvent.VK_ENTER) {
             añadirCine.doClick();
         }
     }//GEN-LAST:event_txtNombreCineKeyTyped

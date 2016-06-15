@@ -112,8 +112,8 @@ public class BorrarPelicula extends javax.swing.JFrame {
         datos.Cine.borrarPelicula(peli);
         JOptionPane.showMessageDialog(this, "borrado");
         this.dispose();
-       
-        
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
     private void cargarComboPelis() {
         ArrayList<Pelicula> pelis = datos.Cine.getPeliculas();

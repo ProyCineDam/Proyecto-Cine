@@ -186,7 +186,7 @@ public class AñadirPelicula extends javax.swing.JFrame {
         txtGenero.setText("");
         txtInterpretes.setText("");
         txtNacion.setText("");
-       
+
 
     }//GEN-LAST:event_btnAñadirPeliActionPerformed
 

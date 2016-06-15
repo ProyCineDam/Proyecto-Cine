@@ -265,7 +265,7 @@ public class ModificarSesion extends javax.swing.JFrame {
         String nomPelicula = comboPelis.getSelectedItem().toString();
         Pelicula pelis = datos.Cine.buscaPelicula(nomPelicula);
         sesiones.setPelis(pelis);
-        
+
         txtNombre.setText("");
         txtFecha.setText("");
         txtHora.setText("");

@@ -28,7 +28,7 @@ public class Cine {
         listaSalas.add(sala);
     }
 
-    public static  ArrayList<Sala> getListaSalas() {
+    public static ArrayList<Sala> getListaSalas() {
         return listaSalas;
     }
 

@@ -1,17 +1,16 @@
-
 package gestion;
 
 import java.util.*;
 
 public class Sesion {
-    
+
     String nomSesion;
     String fecha;
     String hora;
     Sala sala;
     double precio;
     Pelicula pelis;
-    ArrayList<Asiento>asientos;
+    ArrayList<Asiento> asientos;
 
     public Sesion(String nomSesion, String fecha, String hora, Sala sala, double precio, Pelicula pelis) {
         this.nomSesion = nomSesion;
@@ -20,13 +19,13 @@ public class Sesion {
         this.sala = sala;
         this.precio = precio;
         this.pelis = pelis;
-        asientos=new ArrayList<Asiento>();
+        asientos = new ArrayList<Asiento>();
     }
-    
-    public void añadirAsiento(Asiento asiento){
+
+    public void añadirAsiento(Asiento asiento) {
         asientos.add(asiento);
     }
-    
+
     public String getNomSesion() {
         return nomSesion;
     }
@@ -82,5 +81,5 @@ public class Sesion {
     public void setPelis(Pelicula pelis) {
         this.pelis = pelis;
     }
-    
+
 }

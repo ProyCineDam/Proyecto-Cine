@@ -41,10 +41,7 @@ public class Admin extends javax.swing.JFrame {
         getLayeredPane().add(fondos, JLayeredPane.FRAME_CONTENT_LAYER);
         fondos.setBounds(0, 0, dos.getIconWidth(), dos.getIconHeight());
 
-
-      
     }
-   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -159,16 +156,16 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNombreUsuarioActionPerformed
 
     private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
-       if (validarNombre(txtNombreUsuario.getText()) && validarContra(txtContraseña.getText())) {
+        if (validarNombre(txtNombreUsuario.getText()) && validarContra(txtContraseña.getText())) {
             presentacion.CineInterface cine = new presentacion.CineInterface();
             cine.setVisible(true);  // TODO add your handling code here:
             this.dispose();
         } else {
             JOptionPane.showMessageDialog(this, "Introduce de nuevo los datos");
         }
-        
+
         //Se asegura de capturar la tecla enter y descartar todas las demas
-        
+
     }//GEN-LAST:event_entrarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
@@ -178,7 +175,7 @@ public class Admin extends javax.swing.JFrame {
     private void txtContraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraseñaKeyTyped
         char cTeclaPresionada = evt.getKeyChar();
 
-        if(cTeclaPresionada==KeyEvent.VK_ENTER){
+        if (cTeclaPresionada == KeyEvent.VK_ENTER) {
             entrar.doClick();
         }
     }//GEN-LAST:event_txtContraseñaKeyTyped
@@ -186,7 +183,7 @@ public class Admin extends javax.swing.JFrame {
     private void txtNombreUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreUsuarioKeyTyped
         char cTeclaPresionada = evt.getKeyChar();
 
-        if(cTeclaPresionada==KeyEvent.VK_ENTER){
+        if (cTeclaPresionada == KeyEvent.VK_ENTER) {
             entrar.doClick();
         }
     }//GEN-LAST:event_txtNombreUsuarioKeyTyped

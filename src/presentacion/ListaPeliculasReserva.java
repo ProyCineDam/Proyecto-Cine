@@ -24,20 +24,20 @@ public class ListaPeliculasReserva extends javax.swing.JFrame {
      */
     public ListaPeliculasReserva() {
         initComponents();
-        dtm = new DefaultTableModel(){
+        dtm = new DefaultTableModel() {
             @Override
-            public boolean isCellEditable(int row, int column){
+            public boolean isCellEditable(int row, int column) {
                 return false;
             }
         };
-        
+
         tablaPelis.setModel(dtm);
         dtm.addColumn("NOMBRE ");
         dtm.addColumn("Duracion");
         dtm.addColumn("Director");
         dtm.addColumn("Genero");
         dtm.addColumn("Argumento");
-        
+
         borrarTabla();
         llenarTablaPelis();
     }
@@ -149,6 +149,7 @@ public class ListaPeliculasReserva extends javax.swing.JFrame {
             dtm.removeRow(0);
         }
     }
+
     /**
      * @param args the command line arguments
      */

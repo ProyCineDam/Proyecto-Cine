@@ -23,9 +23,9 @@ public class ListadoDePeliculas extends javax.swing.JFrame {
      */
     public ListadoDePeliculas() {
         initComponents();
-        dtm = new DefaultTableModel(){
+        dtm = new DefaultTableModel() {
             @Override
-            public boolean isCellEditable(int row, int column){
+            public boolean isCellEditable(int row, int column) {
                 return false;
             }
         };

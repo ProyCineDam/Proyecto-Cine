@@ -219,7 +219,7 @@ public class ModificarSala extends javax.swing.JFrame {
         txtNumero.setText("");
         txtNumFilas.setText("");
         txtNumColum.setText("");
-        
+
         this.dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnModificarActionPerformed

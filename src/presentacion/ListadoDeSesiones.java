@@ -24,9 +24,9 @@ public class ListadoDeSesiones extends javax.swing.JFrame {
      */
     public ListadoDeSesiones() {
         initComponents();
-        dtm = new DefaultTableModel(){
+        dtm = new DefaultTableModel() {
             @Override
-            public boolean isCellEditable(int row, int column){
+            public boolean isCellEditable(int row, int column) {
                 return false;
             }
         };
@@ -137,11 +137,10 @@ public class ListadoDeSesiones extends javax.swing.JFrame {
         for (int i = 0; i < sesiones.size(); i++) {
             Sesion sesion = sesiones.get(i);
             Object[] datos = {sesion.getNomSesion(), sesion.getFecha(), sesion.getHora(), sesion.getPrecio(), sesion.getSala().getNumSala()};
-            dtm.addRow(datos); 
+            dtm.addRow(datos);
             tablaSesiones.setModel(dtm);
         }
 
-       
     }
 
     public void borrarTabla() {
