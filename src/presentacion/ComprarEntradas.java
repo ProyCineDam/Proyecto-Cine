@@ -5,6 +5,7 @@
  */
 package presentacion;
 
+import gestion.Asiento;
 import gestion.Disponibilidad;
 import gestion.Pelicula;
 import gestion.Sesion;
@@ -280,6 +281,12 @@ public class ComprarEntradas extends javax.swing.JFrame {
                 new ComprarEntradas().setVisible(true);
             }
         });
+    }
+    public void deReservadosAOcupados(){
+        for( Asiento a : sesion.asientos ){
+            if(a.getDispo().equals(Disponibilidad.RESERVADO))
+                a.setDispo(Disponibilidad.OCUPADO);
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
