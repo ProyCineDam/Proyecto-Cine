@@ -22,6 +22,10 @@ public class Sesion {
         asientos = new ArrayList<Asiento>();
     }
 
+    public Sesion(String palabra, String palabra0, double parseDouble) {
+        
+    }
+
     public void añadirAsiento(Asiento asiento) {
         asientos.add(asiento);
     }

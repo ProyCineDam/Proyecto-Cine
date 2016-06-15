@@ -13,6 +13,7 @@ import java.util.*;
 import datos.Cine;
 import gestion.Sala;
 import gestion.Pelicula;
+import gestion.Sesion;
 import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -329,7 +330,14 @@ public class CineInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_listaSesionesActionPerformed
 
     private void exportarSesionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportarSesionesActionPerformed
-        // TODO add your handling code here:
+        Pelicula peli = new Pelicula();
+        ArrayList<Sesion> ls = new ArrayList<>();
+        ls = peli.getSesionesPeli();
+        try {
+            exportarSesiones(ls);
+        } catch (IOException ex) {
+            Logger.getLogger(CineInterface.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_exportarSesionesActionPerformed
 
     private void exportarSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportarSalasActionPerformed
@@ -357,7 +365,14 @@ public class CineInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_importarrSalasActionPerformed
 
     private void importarSesionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importarSesionesActionPerformed
-        // TODO add your handling code here:
+        Pelicula peli = new Pelicula();
+        ArrayList<Sesion> ls = new ArrayList<Sesion>();
+        try {
+            ls = importarSesiones();
+            gestion.Pelicula.setSesionesPeli(ls);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(CineInterface.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_importarSesionesActionPerformed
 
     private void importarPeliculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importarPeliculasActionPerformed
@@ -411,6 +426,17 @@ public class CineInterface extends javax.swing.JFrame {
             print.close();
         }
     }
+    
+    public void exportarSesiones(ArrayList<Sesion> listaSesiones) throws IOException {
+        String salida = "sesiones.csv";
+        FileWriter fich = new FileWriter(salida, true);
+        try (PrintWriter print = new PrintWriter(fich)) {
+            for (int i = 0; i < listaSesiones.size(); i++) {
+                print.println(listaSesiones.get(i).getNomSesion() + ";" + listaSesiones.get(i).getFecha() + ";" + listaSesiones.get(i).getHora() + ";" + listaSesiones.get(i).getPrecio());
+            }
+            print.close();
+        }
+    }
 
     public ArrayList importarSala() throws FileNotFoundException {
         String[] palabra;
@@ -440,6 +466,21 @@ public class CineInterface extends javax.swing.JFrame {
         }
         scn.close();
         return lp;
+    }
+    
+    public ArrayList importarSesiones() throws FileNotFoundException {
+        String[] palabra;
+        Sesion s;
+        ArrayList<Sesion> ls = new ArrayList<Sesion>();
+        String fichero = "sesiones.csv";
+        Scanner scn = new Scanner(new File(fichero));
+        while (scn.hasNext()) {
+            palabra = scn.next().split(";");
+            s = new Sesion(palabra[0], palabra[1], Double.parseDouble(palabra[2]));
+            ls.add(s);
+        }
+        scn.close();
+        return ls;
     }
 
     /**

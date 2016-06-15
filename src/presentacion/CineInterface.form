@@ -169,12 +169,12 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="importarSesionesActionPerformed"/>
                   </Events>
                 </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="importarrSalas">
+                <MenuItem class="javax.swing.JMenuItem" name="importarSalas">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Salas"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="importarrSalasActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="importarSalasActionPerformed"/>
                   </Events>
                 </MenuItem>
               </SubComponents>

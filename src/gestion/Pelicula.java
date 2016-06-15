@@ -11,7 +11,7 @@ public class Pelicula {
     String interpretes;
     String argumento;
     String genero;
-    static ArrayList<Sesion> sesionesPeli = new ArrayList();
+    private static ArrayList<Sesion> sesionesPeli;
 
     public Pelicula() {
     }
@@ -24,6 +24,7 @@ public class Pelicula {
         this.interpretes = interpretes;
         this.argumento = argumento;
         this.genero = genero;
+        this.sesionesPeli = new ArrayList();
     }
 
     public void añadirSesion(Sesion sesion) {
@@ -78,7 +79,7 @@ public class Pelicula {
     }
 
     public void setSesionesPeli(ArrayList<Sesion> sesionesPeli) {
-        this.sesionesPeli = sesionesPeli;
+        Pelicula.sesionesPeli = sesionesPeli;
     }
 
     public String getNomPeli() {
