@@ -45,6 +45,48 @@ public class Sesion {
         return cadena;
 
     }
+     public void crearReserva(int fila, int num) throws Exception{
+        if (buscarAsiento(fila, num) != null) {
+            Asiento a = buscarAsiento(fila, num);
+            if (!estaOcupado(a)) {
+                a.setDispo(Disponibilidad.RESERVADO);
+            } else {
+                throw new datos.CineExceptionAsientos("El asiento no esta disponible");
+            }
+        } else {
+            throw new datos.CineExceptionAsientos("El asiento no existe");
+        }
+    }
+
+    public void eliminarReserva(int fila, int num) throws Exception{
+        if (buscarAsiento(fila, num) != null) {
+            Asiento a = buscarAsiento(fila, num);
+            if (estaOcupado(a)) {
+                a.setDispo(Disponibilidad.LIBRE);
+            } else {
+                throw new datos.CineExceptionAsientos("El asiento no esta reservado");
+            }
+        } else {
+            throw new datos.CineExceptionAsientos("El asiento no existe");
+        }
+    }
+
+    public boolean estaOcupado(Asiento a) {
+        if (a.getDispo().equals(Disponibilidad.OCUPADO)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public Asiento buscarAsiento(int fila, int num) {
+        for (Asiento a : asientos) {
+            if (a.getFilaAsiento() == fila && a.getNumAsiento() == num) {
+                return a;
+            }
+        }
+        return null;
+    }
 
     public Sesion(String palabra, String palabra0, double parseDouble) {
         
