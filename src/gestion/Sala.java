@@ -1,21 +1,20 @@
-
 package gestion;
 
 import java.util.ArrayList;
 
-
 public class Sala {
+
     int numSala;
     int filas;
     int columnas;
     String tresD;
-    ArrayList<Asiento>asientos;
+    ArrayList<Asiento> asientos;
 
     public Sala(int numSala, int filas, int columnas, String tresD) {
         this.numSala = numSala;
         this.filas = filas;
         this.columnas = columnas;
-        this.tresD= tresD;
+        this.tresD = tresD;
     }
 
     @Override
@@ -55,6 +54,4 @@ public class Sala {
         this.tresD = tresD;
     }
 
-    
-    
 }
