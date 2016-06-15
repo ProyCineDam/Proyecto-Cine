@@ -10,7 +10,7 @@ public class Sesion {
     Sala sala;
     double precio;
     Pelicula pelis;
-    ArrayList<Asiento> asientos;
+    public ArrayList<Asiento> asientos;
 
     public Sesion(String nomSesion, String fecha, String hora, Sala sala, double precio, Pelicula pelis) {
         this.nomSesion = nomSesion;
@@ -19,7 +19,31 @@ public class Sesion {
         this.sala = sala;
         this.precio = precio;
         this.pelis = pelis;
-        asientos = new ArrayList<Asiento>();
+        asientos = new ArrayList();
+        cargarAsientos();
+    }
+
+    public void cargarAsientos() {
+        for (int i = 0; i < this.sala.getFilas(); i++) {
+            for (int j = 0; j < this.sala.getColumnas(); j++) {
+                this.asientos.add(new Asiento(i, j, Disponibilidad.LIBRE));
+            }
+        }
+    }
+
+    @Override
+    public String toString() {
+          String cadena="";
+       cadena+= "Sesion{" + "nomSesion=" + nomSesion + ", fecha=" + fecha + ", hora=" + hora + ", sala=" + sala + ", precio=" + precio + ", pelis=" + pelis + '-';
+        for (Asiento a : this.asientos) {
+            if (a.getDispo().equals(Disponibilidad.LIBRE)) {
+                cadena += "l";
+            } else {
+                cadena += "o";
+            }
+        }
+        return cadena;
+
     }
 
     public Sesion(String palabra, String palabra0, double parseDouble) {

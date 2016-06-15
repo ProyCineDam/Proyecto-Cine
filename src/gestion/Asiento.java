@@ -6,13 +6,20 @@ public class Asiento {
 
     int numAsiento;
     int filaAsiento;
+    Disponibilidad dispo;
 
-    public Asiento(int fila, int num) {
-        this.numAsiento = num;
+    public Asiento(int fila, int num, Disponibilidad dispo) {
+    
         this.filaAsiento = fila;
-
+        this.numAsiento = num;
+        this.dispo = dispo;
     }
-
+@Override
+    public String toString() {
+        String cadena = "";
+        cadena += "NºFila: " + this.filaAsiento + "\nNºAsiento: " + this.numAsiento + "\nDisponibilidad: " + this.dispo;
+        return cadena;
+    }
     public int getNumAsiento() {
         return numAsiento;
     }
@@ -27,5 +34,12 @@ public class Asiento {
 
     public void setFilaAsiento(int filaAsiento) {
         this.filaAsiento = filaAsiento;
+    }
+     public Disponibilidad getDispo() {
+        return dispo;
+    }
+
+    public void setDispo(Disponibilidad dispo) {
+        this.dispo = dispo;
     }
 }

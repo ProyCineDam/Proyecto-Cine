@@ -236,6 +236,10 @@ public class ComprarEntradas extends javax.swing.JFrame {
         for (int i = 0; i < this.asiento.length; i++) {
             for (int j = 0; j < this.asiento[i].length; j++) {
                 asiento[i][j] = new JButton("Reservame!");
+                if (sesion.asientos.get(cont).getDispo().equals(Disponibilidad.LIBRE)){
+                    asiento[i][j].setBackground(Color.GREEN);
+                }else
+                    asiento[i][j].setBackground(Color.RED);
                 this.asientos.add(asiento[i][j]);
                 cont++;
             }

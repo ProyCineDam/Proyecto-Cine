@@ -186,14 +186,15 @@ public class AñadirSala extends javax.swing.JFrame {
         gestion.Sala sala;
         datos.Cine c;
         gestion.Asiento asi;
-
+        gestion.Disponibilidad dis = null;
         this.numSala = Integer.parseInt(this.txtNumero.getText());
         this.filas = Integer.parseInt(this.txtNumeroFilas.getText());
         this.columnas = Integer.parseInt(this.txtColumnas.getText());
+        
         // hace falta hacer un if
         this.tresD = (this.botonSi.getText());
         sala = new gestion.Sala(this.numSala, this.columnas, this.filas, this.tresD);
-        asi = new gestion.Asiento(this.filas, this.columnas);
+        asi = new gestion.Asiento(this.filas, this.columnas,dis.LIBRE );
         c = new datos.Cine();
         c.añadirSala(sala);
 
