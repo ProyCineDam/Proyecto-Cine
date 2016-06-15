@@ -17,6 +17,10 @@ import gestion.Sesion;
 import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
+import javax.swing.JPanel;
 
 public class CineInterface extends javax.swing.JFrame {
 
@@ -25,6 +29,13 @@ public class CineInterface extends javax.swing.JFrame {
      */
     public CineInterface() {
         initComponents();
+        setResizable(false);
+        ((JPanel) getContentPane()).setOpaque(fal­se);
+        ImageIcon uno = new ImageIcon(this.getClass().getResource("/recursos/FondoAzul.png"));
+        JLabel fondo = new JLabel();
+        fondo.setIcon(uno);
+        getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
+        fondo.setBounds(0, 0, uno.getIconWidth(), u­no.getIconHeight());
     }
 
     /**
