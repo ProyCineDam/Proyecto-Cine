@@ -148,16 +148,62 @@
             <Property name="text" type="java.lang.String" value="Ficheros"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="importar">
+            <Menu class="javax.swing.JMenu" name="btnImportar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Importar"/>
               </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="exportar">
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="importarPeliculas">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Peliculas"/>
+                  </Properties>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="importarSesiones">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sesiones"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="importarSesionesActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="importarrSalas">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Salas"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="importarrSalasActionPerformed"/>
+                  </Events>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+            <Menu class="javax.swing.JMenu" name="btnExportar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Exportar"/>
               </Properties>
-            </MenuItem>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="exportarPeliculas">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Peliculas"/>
+                  </Properties>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="exportarSesiones">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sesiones"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exportarSesionesActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="exportarSalas">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Salas"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exportarSalasActionPerformed"/>
+                  </Events>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
           </SubComponents>
         </Menu>
       </SubComponents>

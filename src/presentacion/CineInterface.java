@@ -48,8 +48,14 @@ public class CineInterface extends javax.swing.JFrame {
         borrarPelicula = new javax.swing.JMenuItem();
         Listado = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
-        importar = new javax.swing.JMenuItem();
-        exportar = new javax.swing.JMenuItem();
+        btnImportar = new javax.swing.JMenu();
+        importarPeliculas = new javax.swing.JMenuItem();
+        importarSesiones = new javax.swing.JMenuItem();
+        importarrSalas = new javax.swing.JMenuItem();
+        btnExportar = new javax.swing.JMenu();
+        exportarPeliculas = new javax.swing.JMenuItem();
+        exportarSesiones = new javax.swing.JMenuItem();
+        exportarSalas = new javax.swing.JMenuItem();
 
         jTextField1.setText("jTextField1");
 
@@ -175,11 +181,51 @@ public class CineInterface extends javax.swing.JFrame {
 
         jMenu5.setText("Ficheros");
 
-        importar.setText("Importar");
-        jMenu5.add(importar);
+        btnImportar.setText("Importar");
 
-        exportar.setText("Exportar");
-        jMenu5.add(exportar);
+        importarPeliculas.setText("Peliculas");
+        btnImportar.add(importarPeliculas);
+
+        importarSesiones.setText("Sesiones");
+        importarSesiones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                importarSesionesActionPerformed(evt);
+            }
+        });
+        btnImportar.add(importarSesiones);
+
+        importarrSalas.setText("Salas");
+        importarrSalas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                importarrSalasActionPerformed(evt);
+            }
+        });
+        btnImportar.add(importarrSalas);
+
+        jMenu5.add(btnImportar);
+
+        btnExportar.setText("Exportar");
+
+        exportarPeliculas.setText("Peliculas");
+        btnExportar.add(exportarPeliculas);
+
+        exportarSesiones.setText("Sesiones");
+        exportarSesiones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exportarSesionesActionPerformed(evt);
+            }
+        });
+        btnExportar.add(exportarSesiones);
+
+        exportarSalas.setText("Salas");
+        exportarSalas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exportarSalasActionPerformed(evt);
+            }
+        });
+        btnExportar.add(exportarSalas);
+
+        jMenu5.add(btnExportar);
 
         jMenuBar1.add(jMenu5);
 
@@ -264,6 +310,22 @@ public class CineInterface extends javax.swing.JFrame {
         lista.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_listaSesionesActionPerformed
 
+    private void exportarSesionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportarSesionesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_exportarSesionesActionPerformed
+
+    private void exportarSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportarSalasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_exportarSalasActionPerformed
+
+    private void importarrSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importarrSalasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_importarrSalasActionPerformed
+
+    private void importarSesionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importarSesionesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_importarSesionesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -318,9 +380,15 @@ public class CineInterface extends javax.swing.JFrame {
     private javax.swing.JMenuItem ModificarSala;
     private javax.swing.JMenuItem ModificarSesiones;
     private javax.swing.JMenuItem borrarPelicula;
+    private javax.swing.JMenu btnExportar;
+    private javax.swing.JMenu btnImportar;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JMenuItem exportar;
-    private javax.swing.JMenuItem importar;
+    private javax.swing.JMenuItem exportarPeliculas;
+    private javax.swing.JMenuItem exportarSalas;
+    private javax.swing.JMenuItem exportarSesiones;
+    private javax.swing.JMenuItem importarPeliculas;
+    private javax.swing.JMenuItem importarSesiones;
+    private javax.swing.JMenuItem importarrSalas;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;
