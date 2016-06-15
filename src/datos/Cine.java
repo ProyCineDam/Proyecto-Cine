@@ -48,8 +48,8 @@ public class Cine {
         return peliculas;
     }
 
-    public void setPeliculas(ArrayList<Pelicula> peliculas) {
-        this.peliculas = peliculas;
+    public static void setPeliculas(ArrayList<Pelicula> pl) {
+        peliculas = pl;
     }
 
     public static Pelicula buscaPelicula(String nom) {

@@ -157,6 +157,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Peliculas"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="importarPeliculasActionPerformed"/>
+                  </Events>
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="importarSesiones">
                   <Properties>
@@ -185,6 +188,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Peliculas"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exportarPeliculasActionPerformed"/>
+                  </Events>
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="exportarSesiones">
                   <Properties>

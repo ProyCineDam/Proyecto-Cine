@@ -9,6 +9,12 @@ package presentacion;
  *
  * @author usuario
  */
+import java.util.*;
+import datos.Cine;
+import gestion.Pelicula;
+import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 public class CineInterface extends javax.swing.JFrame {
 
     /**
@@ -184,6 +190,11 @@ public class CineInterface extends javax.swing.JFrame {
         btnImportar.setText("Importar");
 
         importarPeliculas.setText("Peliculas");
+        importarPeliculas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                importarPeliculasActionPerformed(evt);
+            }
+        });
         btnImportar.add(importarPeliculas);
 
         importarSesiones.setText("Sesiones");
@@ -207,6 +218,11 @@ public class CineInterface extends javax.swing.JFrame {
         btnExportar.setText("Exportar");
 
         exportarPeliculas.setText("Peliculas");
+        exportarPeliculas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exportarPeliculasActionPerformed(evt);
+            }
+        });
         btnExportar.add(exportarPeliculas);
 
         exportarSesiones.setText("Sesiones");
@@ -326,6 +342,60 @@ public class CineInterface extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_importarSesionesActionPerformed
 
+    private void importarPeliculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importarPeliculasActionPerformed
+       Cine cine=new Cine();
+       ArrayList<Pelicula>lp=new ArrayList<Pelicula>();
+        try {
+            lp=importarPeliculas();
+            datos.Cine.setPeliculas(lp);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(CineInterface.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println(lp.get(0));
+    }//GEN-LAST:event_importarPeliculasActionPerformed
+
+    private void exportarPeliculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportarPeliculasActionPerformed
+      Cine cine=new Cine();
+      ArrayList<Pelicula>lp=new ArrayList<>();
+      lp=cine.getPeliculas();
+        try {
+            exportarPeliculas(lp);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(CineInterface.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(CineInterface.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+    }//GEN-LAST:event_exportarPeliculasActionPerformed
+
+    public void exportarPeliculas(ArrayList<Pelicula>listaPeliculas) throws FileNotFoundException, IOException{
+        String salida="peliculas.csv";
+        FileWriter fich=new FileWriter(salida,true); 
+        try (PrintWriter print = new PrintWriter(fich)) {
+            for(int i=0;i<listaPeliculas.size();i++){
+                print.println(listaPeliculas.get(i).getNomPeli()+":"+listaPeliculas.get(i).getNacionalidad()+":"+listaPeliculas.get(i).getDuracion()
+                +":"+listaPeliculas.get(i).getDirector()+":"+listaPeliculas.get(i).getInterpretes()+":"+listaPeliculas.get(i).getArgumento()+":"+
+                        listaPeliculas.get(i).getGenero());
+                
+            }
+            print.close();
+        }
+        
+    }
+    public ArrayList importarPeliculas() throws FileNotFoundException{
+        String[] palabra;
+        Pelicula p;
+        ArrayList<Pelicula> lp=new ArrayList<Pelicula>();
+        String fichero="peliculas.csv";
+        Scanner scn =new Scanner(new File(fichero));
+        while(scn.hasNext()){
+            palabra=scn.next().split(":");
+            p=new Pelicula(palabra[0],palabra[1],Double.parseDouble(palabra[2]),palabra[3],palabra[4],palabra[5],palabra[6]);
+        lp.add(p);
+    }
+        scn.close();
+        return lp;
+    }
     /**
      * @param args the command line arguments
      */
