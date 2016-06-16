@@ -27,6 +27,7 @@ public class ComprarEntradas extends javax.swing.JFrame {
 
     DefaultTableModel dtm1;
     Pelicula peli;
+    Sesion sesionActiva=null;
     JButton[][] asiento;
     int numClicks = 0;
     // private ArrayList<Sesion> listaSesiones;
@@ -287,6 +288,7 @@ public class ComprarEntradas extends javax.swing.JFrame {
         this.asientos.updateUI();
 
     }
+    
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         deReservadosAOcupados();
         JOptionPane.showMessageDialog(this, "Asientos reservados ");
