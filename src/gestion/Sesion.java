@@ -11,6 +11,8 @@ public class Sesion {
     double precio;
     Pelicula pelis;
     public ArrayList<Asiento> asientos;
+    
+    public Sesion(){}
 
     public Sesion(String nomSesion, String fecha, String hora, Sala sala, double precio, Pelicula pelis) {
         this.nomSesion = nomSesion;

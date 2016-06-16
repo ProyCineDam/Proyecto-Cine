@@ -231,7 +231,7 @@ public class ComprarEntradas extends javax.swing.JFrame {
         String nSesio = (tablaSesiones.getValueAt(row, 1).toString());
         Disponibilidad disponible;
         Sesion sesionActiva = gestion.Pelicula.buscaSesion(nSesio);
-        int iAux, jAux;
+        int k, l;
         int filas = sesionActiva.getSala().getFilas();
         int columnas = sesionActiva.getSala().getColumnas();
 
@@ -241,15 +241,14 @@ public class ComprarEntradas extends javax.swing.JFrame {
         int cont = 0;
         for (int i = 0; i < this.asiento.length; i++) {
             for (int j = 0; j < this.asiento[i].length; j++) {
-                iAux = i + 1;
-                jAux = j + 1;
-                asiento[i][j] = new JButton(iAux + "-" + jAux);
+                k = i + 1;
+                l = j + 1;
+                asiento[i][j] = new JButton(k + "-" + l);
                 if (sesionActiva.asientos.get(cont).getDispo().equals(Disponibilidad.LIBRE)) {
                     asiento[i][j].setBackground(Color.GREEN);
                 } else {
                     asiento[i][j].setBackground(Color.RED);
                 }
-                // asiento[i][j].addActionListener((ActionListener) this);
                 this.asientos.add(asiento[i][j]);
                 cont++;
             }
@@ -257,6 +256,7 @@ public class ComprarEntradas extends javax.swing.JFrame {
         this.asientos.updateUI();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    /*
     public void cargarAsientos() {
         int row = tablaSesiones.getSelectedRow();
         String nSesio = (tablaSesiones.getValueAt(row, 1).toString());
@@ -287,7 +287,7 @@ public class ComprarEntradas extends javax.swing.JFrame {
         }
         this.asientos.updateUI();
 
-    }
+    }*/
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         deReservadosAOcupados();
         JOptionPane.showMessageDialog(this, "Asientos reservados ");

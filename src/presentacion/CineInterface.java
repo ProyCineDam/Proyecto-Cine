@@ -306,8 +306,14 @@ public class CineInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_importarrSalasActionPerformed
 
     private void importarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importarActionPerformed
+        
+        Pelicula pelicula = new Pelicula();
         importarTodasPeliculas();
+        
+        Sala sala = new Sala();
         importarTodasSalas();
+        
+        Sesion sesion = new Sesion();
         importarTodasSesiones();
     }//GEN-LAST:event_importarActionPerformed
 
@@ -399,7 +405,7 @@ public class CineInterface extends javax.swing.JFrame {
         ArrayList<Pelicula> lp = new ArrayList<Pelicula>();
         String fichero = "peliculas.csv";
         Scanner scn = new Scanner(new File(fichero));
-        while (scn.hasNextLine()) {
+        while (scn.hasNext()) {
             palabra = scn.next().split(":");
             p = new Pelicula(palabra[0], palabra[1], Double.parseDouble(palabra[2]), palabra[3], palabra[4], palabra[5], palabra[6]);
             lp.add(p);
