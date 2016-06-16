@@ -30,6 +30,8 @@ public class ComprarEntradas extends javax.swing.JFrame implements ActionListene
     JButton[][] asiento;
     Double du;
     String dura;
+    double precio;
+    double total;
 
     int numClicks = 0;
     // private ArrayList<Sesion> listaSesiones;
@@ -280,7 +282,7 @@ public class ComprarEntradas extends javax.swing.JFrame implements ActionListene
         String nSesio = (tablaSesiones.getValueAt(row, 1).toString());
         Disponibilidad disponible;
         Sesion sesionActiva = gestion.Pelicula.buscaSesion(nSesio);
-        int iAux, jAux;
+        int k, l;
         int filas = sesionActiva.getSala().getFilas();
         int columnas = sesionActiva.getSala().getColumnas();
         int cont = 0;
@@ -291,9 +293,9 @@ public class ComprarEntradas extends javax.swing.JFrame implements ActionListene
 
         for (int i = 0; i < this.asiento.length; i++) {
             for (int j = 0; j < this.asiento[i].length; j++) {
-                iAux = i + 1;
-                jAux = j + 1;
-                asiento[i][j] = new JButton(iAux + "-" + jAux);
+                k = i + 1;
+                l = j + 1;
+                asiento[i][j] = new JButton(k + "-" + l);
                 if (sesionActiva.asientos.get(cont).getDispo().equals(Disponibilidad.LIBRE)) {
                     asiento[i][j].setBackground(Color.GREEN);
                 } else {
@@ -310,8 +312,17 @@ public class ComprarEntradas extends javax.swing.JFrame implements ActionListene
 
     private void ComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComprarActionPerformed
         deReservadosAOcupados();
-        JOptionPane.showMessageDialog(this, "Asientos reservados ");
         cargarAsientos();
+        
+        int row = tablaSesiones.getSelectedRow();
+        String nSesio = (tablaSesiones.getValueAt(row, 1).toString());
+        Sesion sesionActiva = gestion.Pelicula.buscaSesion(nSesio);
+        total = sesionActiva.getPrecio() * this.numClicks;
+        
+        JOptionPane.showMessageDialog(this, "El precio total de las entradas seran: "+total+"€");
+        numClicks = 0;
+        
+        this.dispose();
     }//GEN-LAST:event_ComprarActionPerformed
 
     /**
@@ -339,6 +350,9 @@ public class ComprarEntradas extends javax.swing.JFrame implements ActionListene
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(ComprarEntradas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
@@ -371,6 +385,7 @@ public class ComprarEntradas extends javax.swing.JFrame implements ActionListene
         this.asiento = new JButton[filas][columnas];
 
         numClicks++;
+        
         String[] textoBotonPulsado = e.getActionCommand().split("-");//necesitamos el texto del boton pulsado para poder trabajar con ese asiento
         int fila = Integer.parseInt(textoBotonPulsado[0]);
         int columna = Integer.parseInt(textoBotonPulsado[1]);
@@ -381,7 +396,8 @@ public class ComprarEntradas extends javax.swing.JFrame implements ActionListene
             sesionActiva.crearReserva(fila, columna);
             this.asiento[fila][columna].setBackground(Color.ORANGE);
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, ex.toString());
+            JOptionPane.showMessageDialog(this, "Reservado!");
+            cargarAsientos();
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
