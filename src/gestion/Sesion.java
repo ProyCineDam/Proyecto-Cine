@@ -75,7 +75,7 @@ public class Sesion {
     }
 
     public boolean estaOcupado(Asiento a) {
-        if (a.getDispo().equals(Disponibilidad.OCUPADO)) {
+        if (a.getDispo().equals(Disponibilidad.OCUPADO) || a.getDispo().equals(Disponibilidad.RESERVADO)) {
             return true;
         } else {
             return false;

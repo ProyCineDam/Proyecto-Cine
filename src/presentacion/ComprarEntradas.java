@@ -25,7 +25,7 @@ import javax.swing.table.DefaultTableModel;
 public class ComprarEntradas extends javax.swing.JFrame implements ActionListener {
 
     DefaultTableModel dtm1;
-    Pelicula peli=null;
+    Pelicula peli = null;
     Sesion sesionActiva = null;
     JButton[][] asiento;
     Double du;
@@ -42,7 +42,7 @@ public class ComprarEntradas extends javax.swing.JFrame implements ActionListene
     public ComprarEntradas() {
 
         initComponents();
-       
+
         dtm1 = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -247,10 +247,10 @@ public class ComprarEntradas extends javax.swing.JFrame implements ActionListene
 
         setBounds(100, 0, 735, 530);
     }// </editor-fold>//GEN-END:initComponents
-   
+
     public void cogerPelicula(Pelicula p) {
         this.peli = p;
-         txtNombre.setText(this.peli.getNomPeli());
+        txtNombre.setText(this.peli.getNomPeli());
         du = this.peli.getDuracion();
         dura = String.valueOf(du);
         minutos.setText(dura);
@@ -281,7 +281,7 @@ public class ComprarEntradas extends javax.swing.JFrame implements ActionListene
         int row = tablaSesiones.getSelectedRow();
         String nSesio = (tablaSesiones.getValueAt(row, 1).toString());
         Disponibilidad disponible;
-        Sesion sesionActiva = gestion.Pelicula.buscaSesion(nSesio);
+        this.sesionActiva = gestion.Pelicula.buscaSesion(nSesio);
         int k, l;
         int filas = sesionActiva.getSala().getFilas();
         int columnas = sesionActiva.getSala().getColumnas();
@@ -295,14 +295,14 @@ public class ComprarEntradas extends javax.swing.JFrame implements ActionListene
             for (int j = 0; j < this.asiento[i].length; j++) {
                 k = i + 1;
                 l = j + 1;
-                asiento[i][j] = new JButton(k + "-" + l);
+                this.asiento[i][j] = new JButton(k + "-" + l);
                 if (sesionActiva.asientos.get(cont).getDispo().equals(Disponibilidad.LIBRE)) {
-                    asiento[i][j].setBackground(Color.GREEN);
+                    this.asiento[i][j].setBackground(Color.GREEN);
                 } else {
-                    asiento[i][j].setBackground(Color.RED);
+                    this.asiento[i][j].setBackground(Color.RED);
                 }
-                asiento[i][j].addActionListener(this);
-                this.panelAsientos.add(asiento[i][j]);
+                this.asiento[i][j].addActionListener(this);
+                this.panelAsientos.add(this.asiento[i][j]);
                 cont++;
             }
         }
@@ -313,15 +313,15 @@ public class ComprarEntradas extends javax.swing.JFrame implements ActionListene
     private void ComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComprarActionPerformed
         deReservadosAOcupados();
         cargarAsientos();
-        
+
         int row = tablaSesiones.getSelectedRow();
         String nSesio = (tablaSesiones.getValueAt(row, 1).toString());
         Sesion sesionActiva = gestion.Pelicula.buscaSesion(nSesio);
         total = sesionActiva.getPrecio() * this.numClicks;
-        
-        JOptionPane.showMessageDialog(this, "El precio total de las entradas seran: "+total+"€");
+
+        JOptionPane.showMessageDialog(this, "El precio total de las entradas seran: " + total + "€");
         numClicks = 0;
-        
+
         this.dispose();
     }//GEN-LAST:event_ComprarActionPerformed
 
@@ -376,28 +376,34 @@ public class ComprarEntradas extends javax.swing.JFrame implements ActionListene
     }
 
     public void actionPerformed(ActionEvent e) {
-        int row = tablaSesiones.getSelectedRow();
-        String nSesio = (tablaSesiones.getValueAt(row, 1).toString());
-        Disponibilidad disponible;
-        Sesion sesionActiva = gestion.Pelicula.buscaSesion(nSesio);
-        int filas = sesionActiva.getSala().getFilas();
-        int columnas = sesionActiva.getSala().getColumnas();
-        this.asiento = new JButton[filas][columnas];
 
-        numClicks++;
-        
-        String[] textoBotonPulsado = e.getActionCommand().split("-");//necesitamos el texto del boton pulsado para poder trabajar con ese asiento
+        Disponibilidad disponible = null;
+
+
+        String[] textoBotonPulsado = e.getActionCommand().split("-");
         int fila = Integer.parseInt(textoBotonPulsado[0]);
         int columna = Integer.parseInt(textoBotonPulsado[1]);
-        fila--;//a la inversa e cuando metimos el texto que le sumamos 1 para eliminar el 0
+
+        fila--;
         columna--;
-        //reservamos
-        try {
-            sesionActiva.crearReserva(fila, columna);
-            this.asiento[fila][columna].setBackground(Color.ORANGE);
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Reservado!");
-            cargarAsientos();
+        if (this.sesionActiva.buscarAsiento(fila, columna).getDispo().equals(disponible.LIBRE)) {
+            try {
+                numClicks++;
+                this.sesionActiva.crearReserva(fila, columna);
+                this.asiento[fila][columna].setBackground(Color.ORANGE);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, ex);
+            }
+        } else if (this.sesionActiva.buscarAsiento(fila, columna).getDispo().equals(disponible.RESERVADO)) {
+            try {
+                numClicks--;
+                this.sesionActiva.eliminarReserva(fila, columna);
+                this.asiento[fila][columna].setBackground(Color.GREEN);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, ex);
+            }
+        }else{
+            JOptionPane.showMessageDialog(this, "Ese asiento esta ocupado");
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
