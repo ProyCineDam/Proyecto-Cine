@@ -74,12 +74,12 @@ public class ComprarEntradas extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        Seleccionar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        Comprar = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablaSesiones = new javax.swing.JTable();
-        asientos = new javax.swing.JPanel();
+        panelAsientos = new javax.swing.JPanel();
 
         jLabel1.setFont(new java.awt.Font("Andalus", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -91,13 +91,13 @@ public class ComprarEntradas extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Asientos");
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Seleccionar.png"))); // NOI18N
-        jButton2.setContentAreaFilled(false);
-        jButton2.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/SeleccionarAma.png"))); // NOI18N
-        jButton2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Seleccionarlinea.png"))); // NOI18N
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        Seleccionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Seleccionar.png"))); // NOI18N
+        Seleccionar.setContentAreaFilled(false);
+        Seleccionar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/SeleccionarAma.png"))); // NOI18N
+        Seleccionar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Seleccionarlinea.png"))); // NOI18N
+        Seleccionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                SeleccionarActionPerformed(evt);
             }
         });
 
@@ -106,13 +106,13 @@ public class ComprarEntradas extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Compra De Entradas");
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/comprar.png"))); // NOI18N
-        jButton3.setContentAreaFilled(false);
-        jButton3.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/comprarrer.png"))); // NOI18N
-        jButton3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/comprarrer.png"))); // NOI18N
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        Comprar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/comprar.png"))); // NOI18N
+        Comprar.setContentAreaFilled(false);
+        Comprar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/comprarrer.png"))); // NOI18N
+        Comprar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/comprarrer.png"))); // NOI18N
+        Comprar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                ComprarActionPerformed(evt);
             }
         });
 
@@ -141,66 +141,66 @@ public class ComprarEntradas extends javax.swing.JFrame {
             tablaSesiones.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        javax.swing.GroupLayout asientosLayout = new javax.swing.GroupLayout(asientos);
-        asientos.setLayout(asientosLayout);
-        asientosLayout.setHorizontalGroup(
-            asientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelAsientosLayout = new javax.swing.GroupLayout(panelAsientos);
+        panelAsientos.setLayout(panelAsientosLayout);
+        panelAsientosLayout.setHorizontalGroup(
+            panelAsientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 599, Short.MAX_VALUE)
         );
-        asientosLayout.setVerticalGroup(
-            asientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 252, Short.MAX_VALUE)
+        panelAsientosLayout.setVerticalGroup(
+            panelAsientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 273, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(panelAsientos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(169, 169, 169))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(Comprar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 150, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(81, 81, 81)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Seleccionar, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(137, 137, 137))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(131, 131, 131)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(17, 17, 17)))
-                .addGap(152, 152, 152))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(asientos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(185, 185, 185))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(11, 11, 11)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Seleccionar, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
-                .addComponent(asientos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelAsientos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(Comprar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         setBounds(100, 0, 752, 633);
@@ -227,7 +227,7 @@ public class ComprarEntradas extends javax.swing.JFrame {
         }
     }
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void SeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarActionPerformed
         int row = tablaSesiones.getSelectedRow();
         String nSesio = (tablaSesiones.getValueAt(row, 1).toString());
         Disponibilidad disponible;
@@ -236,8 +236,8 @@ public class ComprarEntradas extends javax.swing.JFrame {
         int filas = sesionActiva.getSala().getFilas();
         int columnas = sesionActiva.getSala().getColumnas();
 
-        this.asientos.removeAll();
-        this.asientos.setLayout(new java.awt.GridLayout(filas, columnas));
+        this.panelAsientos.removeAll();
+        this.panelAsientos.setLayout(new java.awt.GridLayout(filas, columnas));
         this.asiento = new JButton[filas][columnas];
         int cont = 0;
         for (int i = 0; i < this.asiento.length; i++) {
@@ -250,12 +250,12 @@ public class ComprarEntradas extends javax.swing.JFrame {
                 } else {
                     asiento[i][j].setBackground(Color.RED);
                 }
-                this.asientos.add(asiento[i][j]);
+                this.panelAsientos.add(asiento[i][j]);
                 cont++;
             }
         }
-        this.asientos.updateUI();
-    }//GEN-LAST:event_jButton2ActionPerformed
+        this.panelAsientos.updateUI();
+    }//GEN-LAST:event_SeleccionarActionPerformed
 
     public void cargarAsientos() {
         int row = tablaSesiones.getSelectedRow();
@@ -266,8 +266,9 @@ public class ComprarEntradas extends javax.swing.JFrame {
         int filas = sesionActiva.getSala().getFilas();
         int columnas = sesionActiva.getSala().getColumnas();
         int cont = 0;
-        this.asientos.removeAll();
-        this.asientos.setLayout(new java.awt.GridLayout(filas, columnas));
+        
+        this.panelAsientos.removeAll();
+        this.panelAsientos.setLayout(new java.awt.GridLayout(filas, columnas));
         this.asiento = new JButton[filas][columnas];
 
         for (int i = 0; i < this.asiento.length; i++) {
@@ -280,20 +281,20 @@ public class ComprarEntradas extends javax.swing.JFrame {
                 } else {
                     asiento[i][j].setBackground(Color.RED);
                 }
-                asiento[i][j].addActionListener((ActionListener) this);
-                this.asientos.add(asiento[i][j]);
+                asiento[i][j].addActionListener(this);
+                this.panelAsientos.add(asiento[i][j]);
                 cont++;
             }
         }
-        this.asientos.updateUI();
+        this.panelAsientos.updateUI();
 
     }
     
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void ComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComprarActionPerformed
         deReservadosAOcupados();
         JOptionPane.showMessageDialog(this, "Asientos reservados ");
         cargarAsientos();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_ComprarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -366,13 +367,13 @@ public class ComprarEntradas extends javax.swing.JFrame {
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel asientos;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton Comprar;
+    private javax.swing.JButton Seleccionar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JPanel panelAsientos;
     private javax.swing.JTable tablaSesiones;
     // End of variables declaration//GEN-END:variables
 }
