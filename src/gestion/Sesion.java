@@ -33,8 +33,8 @@ public class Sesion {
 
     @Override
     public String toString() {
-          String cadena="";
-       cadena+= "Sesion{" + "nomSesion=" + nomSesion + ", fecha=" + fecha + ", hora=" + hora + ", sala=" + sala + ", precio=" + precio + ", pelis=" + pelis + '-';
+        String cadena = "";
+        cadena += "Sesion{" + "nomSesion=" + nomSesion + ", fecha=" + fecha + ", hora=" + hora + ", sala=" + sala + ", precio=" + precio + ", pelis=" + pelis + '-';
         for (Asiento a : this.asientos) {
             if (a.getDispo().equals(Disponibilidad.LIBRE)) {
                 cadena += "l";
@@ -45,7 +45,8 @@ public class Sesion {
         return cadena;
 
     }
-     public void crearReserva(int fila, int num) throws Exception{
+
+    public void crearReserva(int fila, int num) throws Exception {
         if (buscarAsiento(fila, num) != null) {
             Asiento a = buscarAsiento(fila, num);
             if (!estaOcupado(a)) {
@@ -58,7 +59,7 @@ public class Sesion {
         }
     }
 
-    public void eliminarReserva(int fila, int num) throws Exception{
+    public void eliminarReserva(int fila, int num) throws Exception {
         if (buscarAsiento(fila, num) != null) {
             Asiento a = buscarAsiento(fila, num);
             if (estaOcupado(a)) {
@@ -86,10 +87,6 @@ public class Sesion {
             }
         }
         return null;
-    }
-
-    public Sesion(String palabra, String palabra0, double parseDouble) {
-        
     }
 
     public void añadirAsiento(Asiento asiento) {

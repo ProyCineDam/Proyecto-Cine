@@ -68,14 +68,8 @@ public class CineInterface extends javax.swing.JFrame {
         borrarPelicula = new javax.swing.JMenuItem();
         Listado = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
-        btnImportar = new javax.swing.JMenu();
-        importarPeliculas = new javax.swing.JMenuItem();
-        importarSesiones = new javax.swing.JMenuItem();
-        importarrSalas = new javax.swing.JMenuItem();
-        btnExportar = new javax.swing.JMenu();
-        exportarPeliculas = new javax.swing.JMenuItem();
-        exportarSesiones = new javax.swing.JMenuItem();
-        exportarSalas = new javax.swing.JMenuItem();
+        importar = new javax.swing.JMenuItem();
+        exportar = new javax.swing.JMenuItem();
 
         jTextField1.setText("jTextField1");
 
@@ -201,61 +195,21 @@ public class CineInterface extends javax.swing.JFrame {
 
         jMenu5.setText("Ficheros");
 
-        btnImportar.setText("Importar");
-
-        importarPeliculas.setText("Peliculas");
-        importarPeliculas.addActionListener(new java.awt.event.ActionListener() {
+        importar.setText("Importar");
+        importar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                importarPeliculasActionPerformed(evt);
+                importarActionPerformed(evt);
             }
         });
-        btnImportar.add(importarPeliculas);
+        jMenu5.add(importar);
 
-        importarSesiones.setText("Sesiones");
-        importarSesiones.addActionListener(new java.awt.event.ActionListener() {
+        exportar.setText("Exportar");
+        exportar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                importarSesionesActionPerformed(evt);
+                exportarActionPerformed(evt);
             }
         });
-        btnImportar.add(importarSesiones);
-
-        importarrSalas.setText("Salas");
-        importarrSalas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                importarrSalasActionPerformed(evt);
-            }
-        });
-        btnImportar.add(importarrSalas);
-
-        jMenu5.add(btnImportar);
-
-        btnExportar.setText("Exportar");
-
-        exportarPeliculas.setText("Peliculas");
-        exportarPeliculas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exportarPeliculasActionPerformed(evt);
-            }
-        });
-        btnExportar.add(exportarPeliculas);
-
-        exportarSesiones.setText("Sesiones");
-        exportarSesiones.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exportarSesionesActionPerformed(evt);
-            }
-        });
-        btnExportar.add(exportarSesiones);
-
-        exportarSalas.setText("Salas");
-        exportarSalas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exportarSalasActionPerformed(evt);
-            }
-        });
-        btnExportar.add(exportarSalas);
-
-        jMenu5.add(btnExportar);
+        jMenu5.add(exportar);
 
         jMenuBar1.add(jMenu5);
 
@@ -340,30 +294,6 @@ public class CineInterface extends javax.swing.JFrame {
         lista.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_listaSesionesActionPerformed
 
-    private void exportarSesionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportarSesionesActionPerformed
-        Pelicula peli = new Pelicula();
-        ArrayList<Sesion> ls = new ArrayList<>();
-        ls = peli.getSesionesPeli();
-        try {
-            exportarSesiones(ls);
-        } catch (IOException ex) {
-            Logger.getLogger(CineInterface.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_exportarSesionesActionPerformed
-
-    private void exportarSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportarSalasActionPerformed
-        Cine cine = new Cine();
-        ArrayList<Sala> listaSalas = new ArrayList<>();
-        listaSalas = cine.getListaSalas();
-        try {
-            exportarSala(listaSalas);
-            datos.Cine.setListaSalas(listaSalas);
-        } catch (IOException ex) {
-            Logger.getLogger(CineInterface.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }//GEN-LAST:event_exportarSalasActionPerformed
-
     private void importarrSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importarrSalasActionPerformed
         Cine cine = new Cine();
         ArrayList<Sala> listaSalas = new ArrayList<Sala>();
@@ -375,43 +305,79 @@ public class CineInterface extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_importarrSalasActionPerformed
 
-    private void importarSesionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importarSesionesActionPerformed
-        Pelicula peli = new Pelicula();
-        ArrayList<Sesion> ls = new ArrayList<Sesion>();
-        try {
-            ls = importarSesiones();
-            gestion.Pelicula.setSesionesPeli(ls);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(CineInterface.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_importarSesionesActionPerformed
+    private void importarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importarActionPerformed
+        importarTodasPeliculas();
+        importarTodasSalas();
+        importarTodasSesiones();
+    }//GEN-LAST:event_importarActionPerformed
 
-    private void importarPeliculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importarPeliculasActionPerformed
-        Cine cine = new Cine();
-        ArrayList<Pelicula> lp = new ArrayList<Pelicula>();
+    private void exportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportarActionPerformed
+        
         try {
-            lp = importarPeliculas();
-            datos.Cine.setPeliculas(lp);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(CineInterface.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }//GEN-LAST:event_importarPeliculasActionPerformed
-
-    private void exportarPeliculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportarPeliculasActionPerformed
-        Cine cine = new Cine();
-        ArrayList<Pelicula> lp = new ArrayList<>();
-        lp = cine.getPeliculas();
-        try {
-            exportarPeliculas(lp);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(CineInterface.class.getName()).log(Level.SEVERE, null, ex);
+            exportarPeliculas(datos.Cine.getPeliculas());
         } catch (IOException ex) {
             Logger.getLogger(CineInterface.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        try {
+            exportarSesiones(gestion.Pelicula.getSesionesPeli());
+        } catch (IOException ex) {
+            Logger.getLogger(CineInterface.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            exportarSala(datos.Cine.getListaSalas());
+        } catch (IOException ex) {
+            Logger.getLogger(CineInterface.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_exportarActionPerformed
 
-    }//GEN-LAST:event_exportarPeliculasActionPerformed
+    
+    public void importarTodasPeliculas(){
+        Cine cine = new Cine();
+        ArrayList<Pelicula> listaPelis = new ArrayList<Pelicula>();
+        try {
+            listaPelis = importarPeliculas();
+            datos.Cine.setPeliculas(listaPelis);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(CineInterface.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void importarTodasSalas(){
+        Cine cine = new Cine();
+        ArrayList<Sala> listaSalas = new ArrayList<Sala>();
+        try {
+            listaSalas = importarSala();
+            datos.Cine.setListaSalas(listaSalas);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(CineInterface.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void importarTodasSesiones(){
+        Cine cine = new Cine();
+        ArrayList<Sesion> listaSesiones = new ArrayList<Sesion>();
+        try {
+            listaSesiones = importarSesiones();
+            gestion.Pelicula.setSesionesPeli(listaSesiones);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(CineInterface.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
 
+    public void exportarSala(ArrayList<Sala> listaSalas) throws IOException {
+        String salida = "salas.csv";
+        FileWriter fich = new FileWriter(salida, true);
+        try (PrintWriter print = new PrintWriter(fich)) {
+            for (int i = 0; i < listaSalas.size(); i++) {
+                print.println(listaSalas.get(i).getNumSala() + ":" + listaSalas.get(i).getFilas() + ":" + listaSalas.get(i).getColumnas() + ":" + listaSalas.get(i).getTresD());
+            }
+            print.close();
+        }
+    }
+    
     public void exportarPeliculas(ArrayList<Pelicula> listaPeliculas) throws FileNotFoundException, IOException {
         String salida = "peliculas.csv";
         FileWriter fich = new FileWriter(salida, true);
@@ -427,26 +393,19 @@ public class CineInterface extends javax.swing.JFrame {
 
     }
 
-    public void exportarSala(ArrayList<Sala> listaSalas) throws IOException {
-        String salida = "salas.csv";
-        FileWriter fich = new FileWriter(salida, true);
-        try (PrintWriter print = new PrintWriter(fich)) {
-            for (int i = 0; i < listaSalas.size(); i++) {
-                print.println(listaSalas.get(i).getNumSala() + ":" + listaSalas.get(i).getFilas() + ":" + listaSalas.get(i).getColumnas() + ":" + listaSalas.get(i).getTresD());
-            }
-            print.close();
+    public ArrayList importarPeliculas() throws FileNotFoundException {
+        String[] palabra;
+        Pelicula p;
+        ArrayList<Pelicula> lp = new ArrayList<Pelicula>();
+        String fichero = "peliculas.csv";
+        Scanner scn = new Scanner(new File(fichero));
+        while (scn.hasNextLine()) {
+            palabra = scn.next().split(":");
+            p = new Pelicula(palabra[0], palabra[1], Double.parseDouble(palabra[2]), palabra[3], palabra[4], palabra[5], palabra[6]);
+            lp.add(p);
         }
-    }
-    
-    public void exportarSesiones(ArrayList<Sesion> listaSesiones) throws IOException {
-        String salida = "sesiones.csv";
-        FileWriter fich = new FileWriter(salida, true);
-        try (PrintWriter print = new PrintWriter(fich)) {
-            for (int i = 0; i < listaSesiones.size(); i++) {
-                print.println(listaSesiones.get(i).getNomSesion() + "-" + listaSesiones.get(i).getFecha() + "-" + listaSesiones.get(i).getHora() + "-" + listaSesiones.get(i).getPrecio());
-            }
-            print.close();
-        }
+        scn.close();
+        return lp;
     }
 
     public ArrayList importarSala() throws FileNotFoundException {
@@ -463,20 +422,16 @@ public class CineInterface extends javax.swing.JFrame {
         sc.close();
         return listaSalas;
     }
-
-    public ArrayList importarPeliculas() throws FileNotFoundException {
-        String[] palabra;
-        Pelicula p;
-        ArrayList<Pelicula> lp = new ArrayList<Pelicula>();
-        String fichero = "peliculas.csv";
-        Scanner scn = new Scanner(new File(fichero));
-        while (scn.hasNext()) {
-            palabra = scn.next().split(":");
-            p = new Pelicula(palabra[0], palabra[1], Double.parseDouble(palabra[2]), palabra[3], palabra[4], palabra[5], palabra[6]);
-            lp.add(p);
+    
+    public void exportarSesiones(ArrayList<Sesion> listaSesiones) throws IOException {
+        String salida = "sesiones.csv";
+        FileWriter fich = new FileWriter(salida, true);
+        try (PrintWriter print = new PrintWriter(fich)) {
+            for (int i = 0; i < listaSesiones.size(); i++) {
+                print.println(listaSesiones.get(i).getNomSesion() + "-" + listaSesiones.get(i).getFecha() + "-" + listaSesiones.get(i).getHora() + "-"+ listaSesiones.get(i).getSala().getNumSala() + "-" + listaSesiones.get(i).getPrecio() + "-" + listaSesiones.get(i).getPelis().getNomPeli());
+            }
+            print.close();
         }
-        scn.close();
-        return lp;
     }
     
     public ArrayList importarSesiones() throws FileNotFoundException {
@@ -487,7 +442,9 @@ public class CineInterface extends javax.swing.JFrame {
         Scanner scn = new Scanner(new File(fichero));
         while (scn.hasNext()) {
             palabra = scn.next().split("-");
-            s = new Sesion(palabra[0], palabra[1], Double.parseDouble(palabra[2]));
+            Sala sala = datos.Cine.buscaSala(Integer.parseInt(palabra[3]));
+            Pelicula peli = datos.Cine.buscaPelicula(palabra[5]);
+            s = new Sesion(palabra[0], palabra[1], palabra[2], sala, Double.parseDouble(palabra[4]), peli);
             ls.add(s);
         }
         scn.close();
@@ -548,15 +505,9 @@ public class CineInterface extends javax.swing.JFrame {
     private javax.swing.JMenuItem ModificarSala;
     private javax.swing.JMenuItem ModificarSesiones;
     private javax.swing.JMenuItem borrarPelicula;
-    private javax.swing.JMenu btnExportar;
-    private javax.swing.JMenu btnImportar;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JMenuItem exportarPeliculas;
-    private javax.swing.JMenuItem exportarSalas;
-    private javax.swing.JMenuItem exportarSesiones;
-    private javax.swing.JMenuItem importarPeliculas;
-    private javax.swing.JMenuItem importarSesiones;
-    private javax.swing.JMenuItem importarrSalas;
+    private javax.swing.JMenuItem exportar;
+    private javax.swing.JMenuItem importar;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;
