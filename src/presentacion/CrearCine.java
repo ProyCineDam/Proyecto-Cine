@@ -7,6 +7,7 @@ package presentacion;
 
 import datos.Cine;
 import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -100,8 +101,13 @@ public class CrearCine extends javax.swing.JFrame {
 
     private void añadirCineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirCineActionPerformed
 
-        Cine crearCine = new Cine(txtNombreCine.getText());
-        this.dispose();
+        if (!this.txtNombreCine.getText().equals("")) {
+            Cine crearCine = new Cine(txtNombreCine.getText());
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "El campo no puede estar vacio");
+        }
+
         //presentacion.CineInterface cine = new presentacion.CineInterface();
         // cine.setVisible(true);  // TODO add your handling code here:
     }//GEN-LAST:event_añadirCineActionPerformed

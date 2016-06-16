@@ -20,6 +20,7 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class CineInterface extends javax.swing.JFrame {
@@ -230,71 +231,136 @@ public class CineInterface extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ModificarSesionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarSesionesActionPerformed
-        presentacion.ModificarSesion modificarSesion = new presentacion.ModificarSesion();
-        modificarSesion.setVisible(true);// TODO add your handling code here:
+        if (comprobarCine()) {
+            if (!gestion.Pelicula.getSesionesPeli().isEmpty()) {
+                presentacion.ModificarSesion modificarSesion = new presentacion.ModificarSesion();
+                modificarSesion.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(this, "Aun no tienes sesiones añadidas");
+            }
+        }
     }//GEN-LAST:event_ModificarSesionesActionPerformed
 
     private void AñadirsalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AñadirsalaActionPerformed
-        presentacion.AñadirSala altaSala = new presentacion.AñadirSala();
-        altaSala.setVisible(true);// TODO add your handling code here:// TODO add your handling code here:
+        if (comprobarCine()) {
+            presentacion.AñadirSala altaSala = new presentacion.AñadirSala();
+            altaSala.setVisible(true);
+        }
     }//GEN-LAST:event_AñadirsalaActionPerformed
 
     private void ModificarSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarSalaActionPerformed
-        presentacion.ModificarSala modificarSala = new presentacion.ModificarSala();
-        modificarSala.setVisible(true);// TODO add your handling code here:
+        if (comprobarCine()) {
+            if (!datos.Cine.getListaSalas().isEmpty()) {
+                presentacion.ModificarSala modificarSala = new presentacion.ModificarSala();
+                modificarSala.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(this, "Aun no tienes salas añadidas");
+            }
+        }
     }//GEN-LAST:event_ModificarSalaActionPerformed
 
     private void BorrarSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BorrarSalaActionPerformed
-        presentacion.BorrarSala borrarSala = new presentacion.BorrarSala();
-        borrarSala.setVisible(true); // TODO add your handling code here:
+        if (comprobarCine()) {
+            if (!datos.Cine.getListaSalas().isEmpty()) {
+                presentacion.BorrarSala borrarSala = new presentacion.BorrarSala();
+                borrarSala.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(this, "Aun no tienes salas añadidas");
+            }
+        }
     }//GEN-LAST:event_BorrarSalaActionPerformed
 
     private void AñadirSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AñadirSesionActionPerformed
-        presentacion.AñadirSesion altaSesion = new presentacion.AñadirSesion();
-        altaSesion.setVisible(true); // TODO add your handling code here:
+        if (comprobarCine()) {
+            if (!datos.Cine.getPeliculas().isEmpty() && !datos.Cine.getListaSalas().isEmpty()) {
+                presentacion.AñadirSesion altaSesion = new presentacion.AñadirSesion();
+                altaSesion.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(this, "No tienes peliculas o salas añadidas");
+            }
+        }
     }//GEN-LAST:event_AñadirSesionActionPerformed
 
     private void BorrarSesionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BorrarSesionesActionPerformed
-        presentacion.BorrarSesion borrarSesion = new presentacion.BorrarSesion();
-        borrarSesion.setVisible(true); // TODO add your handling code here:
+        if (comprobarCine()) {
+            if (!gestion.Pelicula.getSesionesPeli().isEmpty()) {
+                presentacion.BorrarSesion borrarSesion = new presentacion.BorrarSesion();
+                borrarSesion.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(this, "Aun no tienes sesiones añadidas");
+            }
+        }
     }//GEN-LAST:event_BorrarSesionesActionPerformed
 
     private void AñadirPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AñadirPeliculaActionPerformed
-        presentacion.AñadirPelicula altaPelicula = new presentacion.AñadirPelicula();
-        altaPelicula.setVisible(true); // TODO add your handling code here:
+        if (comprobarCine()) {
+            presentacion.AñadirPelicula altaPelicula = new presentacion.AñadirPelicula();
+            altaPelicula.setVisible(true);
+        }
     }//GEN-LAST:event_AñadirPeliculaActionPerformed
 
     private void modificarPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarPeliculaActionPerformed
-        presentacion.ModificarPelicula modificarPelicula = new presentacion.ModificarPelicula();
-        modificarPelicula.setVisible(true); // TODO add your handling code here:
+        if (comprobarCine()) {
+            if (!datos.Cine.getPeliculas().isEmpty()) {
+                presentacion.ModificarPelicula modificarPelicula = new presentacion.ModificarPelicula();
+                modificarPelicula.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(this, "Aun no tienes peliculas añadidas");
+            }
+        }
     }//GEN-LAST:event_modificarPeliculaActionPerformed
 
     private void borrarPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarPeliculaActionPerformed
-        presentacion.BorrarPelicula borrarPelicula = new presentacion.BorrarPelicula();
-        borrarPelicula.setVisible(true);// TODO add your handling code here:
+        if (comprobarCine()) {
+            if (!datos.Cine.getPeliculas().isEmpty()) {
+                presentacion.BorrarPelicula borrarPelicula = new presentacion.BorrarPelicula();
+                borrarPelicula.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(this, "Aun no tienes peliculas añadidas");
+            }
+        }
     }//GEN-LAST:event_borrarPeliculaActionPerformed
 
     private void CrearCineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearCineActionPerformed
         presentacion.CrearCine cine = new presentacion.CrearCine();
-        cine.setVisible(true);        // TODO add your handling code here:
+        cine.setVisible(true);
     }//GEN-LAST:event_CrearCineActionPerformed
 
     private void ListadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListadoActionPerformed
-        presentacion.ListadoDePeliculas lista = new presentacion.ListadoDePeliculas();
-        lista.setVisible(true);  // TODO add your handling code here:
+        if (comprobarCine()) {
+            if (!datos.Cine.getPeliculas().isEmpty()) {
+                presentacion.ListadoDePeliculas lista = new presentacion.ListadoDePeliculas();
+                lista.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(this, "Aun no tienes peliculas añadidas");
+            }
+        }
     }//GEN-LAST:event_ListadoActionPerformed
 
     private void listadoDeSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listadoDeSalasActionPerformed
-        ListadoDeSalas lista = new presentacion.ListadoDeSalas();
-        lista.setVisible(true);
+        if (comprobarCine()) {
+            if (!datos.Cine.getListaSalas().isEmpty()) {
+                ListadoDeSalas lista = new presentacion.ListadoDeSalas();
+                lista.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(this, "Aun no tienes salas añadidas");
+            }
+        }
     }//GEN-LAST:event_listadoDeSalasActionPerformed
 
     private void listaSesionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaSesionesActionPerformed
-        ListadoDeSesiones lista = new presentacion.ListadoDeSesiones();
-        lista.setVisible(true);// TODO add your handling code here:
+        if (comprobarCine()) {
+            if (!gestion.Pelicula.getSesionesPeli().isEmpty()) {
+                ListadoDeSesiones lista = new presentacion.ListadoDeSesiones();
+                lista.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(this, "Aun no tienes sesiones añadidas");
+            }
+        }
     }//GEN-LAST:event_listaSesionesActionPerformed
 
     private void importarrSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importarrSalasActionPerformed
+
         Cine cine = new Cine();
         ArrayList<Sala> listaSalas = new ArrayList<Sala>();
         try {
@@ -306,40 +372,41 @@ public class CineInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_importarrSalasActionPerformed
 
     private void importarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importarActionPerformed
-        
-        Pelicula pelicula = new Pelicula();
-        importarTodasPeliculas();
-        
-        Sala sala = new Sala();
-        importarTodasSalas();
-        
-        Sesion sesion = new Sesion();
-        importarTodasSesiones();
+        if (comprobarCine()) {
+            Pelicula pelicula = new Pelicula();
+            importarTodasPeliculas();
+
+            Sala sala = new Sala();
+            importarTodasSalas();
+
+            Sesion sesion = new Sesion();
+            importarTodasSesiones();
+        }
     }//GEN-LAST:event_importarActionPerformed
 
     private void exportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportarActionPerformed
-        
-        try {
-            exportarPeliculas(datos.Cine.getPeliculas());
-        } catch (IOException ex) {
-            Logger.getLogger(CineInterface.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        try {
-            exportarSesiones(gestion.Pelicula.getSesionesPeli());
-        } catch (IOException ex) {
-            Logger.getLogger(CineInterface.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        try {
-            exportarSala(datos.Cine.getListaSalas());
-        } catch (IOException ex) {
-            Logger.getLogger(CineInterface.class.getName()).log(Level.SEVERE, null, ex);
+        if (comprobarCine()) {
+            try {
+                exportarPeliculas(datos.Cine.getPeliculas());
+            } catch (IOException ex) {
+                Logger.getLogger(CineInterface.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            try {
+                exportarSesiones(gestion.Pelicula.getSesionesPeli());
+            } catch (IOException ex) {
+                Logger.getLogger(CineInterface.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            try {
+                exportarSala(datos.Cine.getListaSalas());
+            } catch (IOException ex) {
+                Logger.getLogger(CineInterface.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_exportarActionPerformed
 
-    
-    public void importarTodasPeliculas(){
+    public void importarTodasPeliculas() {
         Cine cine = new Cine();
         ArrayList<Pelicula> listaPelis = new ArrayList<Pelicula>();
         try {
@@ -349,8 +416,8 @@ public class CineInterface extends javax.swing.JFrame {
             Logger.getLogger(CineInterface.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public void importarTodasSalas(){
+
+    public void importarTodasSalas() {
         Cine cine = new Cine();
         ArrayList<Sala> listaSalas = new ArrayList<Sala>();
         try {
@@ -360,8 +427,8 @@ public class CineInterface extends javax.swing.JFrame {
             Logger.getLogger(CineInterface.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public void importarTodasSesiones(){
+
+    public void importarTodasSesiones() {
         Cine cine = new Cine();
         ArrayList<Sesion> listaSesiones = new ArrayList<Sesion>();
         try {
@@ -371,7 +438,6 @@ public class CineInterface extends javax.swing.JFrame {
             Logger.getLogger(CineInterface.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
 
     public void exportarSala(ArrayList<Sala> listaSalas) throws IOException {
         String salida = "salas.csv";
@@ -383,7 +449,7 @@ public class CineInterface extends javax.swing.JFrame {
             print.close();
         }
     }
-    
+
     public void exportarPeliculas(ArrayList<Pelicula> listaPeliculas) throws FileNotFoundException, IOException {
         String salida = "peliculas.csv";
         FileWriter fich = new FileWriter(salida, true);
@@ -428,18 +494,18 @@ public class CineInterface extends javax.swing.JFrame {
         sc.close();
         return listaSalas;
     }
-    
+
     public void exportarSesiones(ArrayList<Sesion> listaSesiones) throws IOException {
         String salida = "sesiones.csv";
         FileWriter fich = new FileWriter(salida, true);
         try (PrintWriter print = new PrintWriter(fich)) {
             for (int i = 0; i < listaSesiones.size(); i++) {
-                print.println(listaSesiones.get(i).getNomSesion() + "-" + listaSesiones.get(i).getFecha() + "-" + listaSesiones.get(i).getHora() + "-"+ listaSesiones.get(i).getSala().getNumSala() + "-" + listaSesiones.get(i).getPrecio() + "-" + listaSesiones.get(i).getPelis().getNomPeli());
+                print.println(listaSesiones.get(i).getNomSesion() + "-" + listaSesiones.get(i).getFecha() + "-" + listaSesiones.get(i).getHora() + "-" + listaSesiones.get(i).getSala().getNumSala() + "-" + listaSesiones.get(i).getPrecio() + "-" + listaSesiones.get(i).getPelis().getNomPeli());
             }
             print.close();
         }
     }
-    
+
     public ArrayList importarSesiones() throws FileNotFoundException {
         String[] palabra;
         Sesion s;
@@ -455,6 +521,16 @@ public class CineInterface extends javax.swing.JFrame {
         }
         scn.close();
         return ls;
+    }
+
+    public boolean comprobarCine() {
+
+        if (!datos.Cine.getNombre().equals("")) {
+            return true;
+        } else {
+            JOptionPane.showMessageDialog(this, "Debes crear un cine primero");
+            return false;
+        }
     }
 
     /**

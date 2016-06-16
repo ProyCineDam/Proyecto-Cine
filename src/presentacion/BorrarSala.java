@@ -104,7 +104,7 @@ public class BorrarSala extends javax.swing.JFrame {
         int numero = Integer.parseInt(comboSalas.getSelectedItem().toString());
         Sala sala = datos.Cine.buscaSala(numero);
         datos.Cine.borrarSala(sala);
-        JOptionPane.showMessageDialog(this, "borrado");
+        JOptionPane.showMessageDialog(this, "Borrada");
         this.dispose();
 // TODO add your handling code here:
     }//GEN-LAST:event_btnBorrarActionPerformed

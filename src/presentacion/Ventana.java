@@ -8,6 +8,7 @@ package presentacion;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -102,8 +103,16 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_CineActionPerformed
 
     private void ComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComprarActionPerformed
-        presentacion.ListaPeliculasReserva comprar = new presentacion.ListaPeliculasReserva();
-        comprar.setVisible(true); // TODO add your handling code here:
+        if (!datos.Cine.getNombre().equals("")) {
+            if (!gestion.Pelicula.getSesionesPeli().isEmpty()) {
+                presentacion.ListaPeliculasReserva comprar = new presentacion.ListaPeliculasReserva();
+                comprar.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(this, "No hay sesiones disponibles");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Aun no se ha creado un cine");
+        }
     }//GEN-LAST:event_ComprarActionPerformed
 
     /**

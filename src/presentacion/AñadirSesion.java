@@ -8,6 +8,7 @@ package presentacion;
 import gestion.Pelicula;
 import gestion.Sala;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -215,26 +216,30 @@ public class AñadirSesion extends javax.swing.JFrame {
         gestion.Sesion sesion;
         gestion.Pelicula s;
 
-        int nomSala = Integer.parseInt(comboSala.getSelectedItem().toString());
-        Sala sala = datos.Cine.buscaSala(nomSala);
-        String nomPelicula = comboPelis.getSelectedItem().toString();
-        Pelicula pelis = datos.Cine.buscaPelicula(nomPelicula);
-        this.nomSesion = txtNombre.getText();
-        this.fecha = txtFecha.getText();
-        this.hora = txtHora.getText();
-        this.precio = Double.parseDouble(txtPrecio.getText());
+        if (this.txtNombre.getText().equals("") || this.txtFecha.getText().equals("") || this.txtHora.getText().equals("") || this.txtPrecio.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Faltan campos por rellenar");
+        } else {
 
-        sesion = new gestion.Sesion(nomSesion, fecha, hora, sala, precio, pelis);
+            int nomSala = Integer.parseInt(comboSala.getSelectedItem().toString());
+            Sala sala = datos.Cine.buscaSala(nomSala);
+            String nomPelicula = comboPelis.getSelectedItem().toString();
+            Pelicula pelis = datos.Cine.buscaPelicula(nomPelicula);
+            this.nomSesion = txtNombre.getText();
+            this.fecha = txtFecha.getText();
+            this.hora = txtHora.getText();
+            this.precio = Double.parseDouble(txtPrecio.getText());
 
-        s = new gestion.Pelicula();
+            sesion = new gestion.Sesion(nomSesion, fecha, hora, sala, precio, pelis);
 
-        s.añadirSesion(sesion);
+            s = new gestion.Pelicula();
 
-        txtNombre.setText("");
-        txtFecha.setText("");
-        txtHora.setText("");
-        txtPrecio.setText("");
+            s.añadirSesion(sesion);
 
+            txtNombre.setText("");
+            txtFecha.setText("");
+            txtHora.setText("");
+            txtPrecio.setText("");
+        }
     }//GEN-LAST:event_btnAñadirSesionActionPerformed
 
     private void comboPelisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboPelisActionPerformed

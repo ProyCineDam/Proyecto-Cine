@@ -8,6 +8,7 @@ package presentacion;
 import gestion.Pelicula;
 import gestion.Sala;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -24,9 +25,11 @@ public class ModificarSala extends javax.swing.JFrame {
      * Creates new form ModificarSala
      */
     public ModificarSala() {
+
         initComponents();
         comboSalas.removeAllItems();
         cargarComboSala();
+
     }
 
     /**
@@ -209,18 +212,24 @@ public class ModificarSala extends javax.swing.JFrame {
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
 
-        int numero = Integer.parseInt(comboSalas.getSelectedItem().toString());
-        Sala sala = datos.Cine.buscaSala(numero);
-        sala.setNumSala(Integer.parseInt(txtNumero.getText()));
-        sala.setFilas(Integer.parseInt(txtNumFilas.getText()));
-        sala.setColumnas(Integer.parseInt(txtNumColum.getText()));
-        sala.setTresD(botnSi.getText());
+        if (this.txtNumFilas.getText().equals("") || this.txtNumero.getText().equals("") || this.txtNumColum.getText().equals("") || this.tresD.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Faltan campos por rellenar");
+        } else {
 
-        txtNumero.setText("");
-        txtNumFilas.setText("");
-        txtNumColum.setText("");
+            int numero = Integer.parseInt(comboSalas.getSelectedItem().toString());
+            Sala sala = datos.Cine.buscaSala(numero);
+            sala.setNumSala(Integer.parseInt(txtNumero.getText()));
+            sala.setFilas(Integer.parseInt(txtNumFilas.getText()));
+            sala.setColumnas(Integer.parseInt(txtNumColum.getText()));
+            sala.setTresD(botnSi.getText());
 
-        this.dispose();
+            txtNumero.setText("");
+            txtNumFilas.setText("");
+            txtNumColum.setText("");
+
+            this.dispose();
+        }
+
         // TODO add your handling code here:
     }//GEN-LAST:event_btnModificarActionPerformed
 
@@ -272,6 +281,7 @@ public class ModificarSala extends javax.swing.JFrame {
         for (int i = 0; i < salas.size(); i++) {
             comboSalas.addItem(salas.get(i).getNumSala());
         }
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

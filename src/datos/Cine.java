@@ -6,7 +6,7 @@ import java.util.*;
 
 public class Cine {
 
-    private String nombre;
+    private static String nombre = "";
     private static ArrayList<Pelicula> peliculas;
     private static ArrayList<Sala> listaSalas;
 
@@ -36,7 +36,7 @@ public class Cine {
         Cine.listaSalas = listaSalas;
     }
 
-    public String getNombre() {
+    public static String getNombre() {
         return nombre;
     }
 

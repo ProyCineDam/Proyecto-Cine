@@ -7,6 +7,7 @@ package presentacion;
 
 import gestion.Pelicula;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -220,7 +221,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
         txtDuracion.setText(dura);
         txtGenero.setText(pelis.getGenero());
         txtInter.setText(pelis.getInterpretes());
-        txtNacion.setText(pelis.getNacionalidad());// TODO add your handling code here:
+        txtNacion.setText(pelis.getNacionalidad());
     }//GEN-LAST:event_btnSeleccionarPeliculaActionPerformed
 
     private void comboPelisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboPelisActionPerformed
@@ -228,24 +229,29 @@ public class ModificarPelicula extends javax.swing.JFrame {
     }//GEN-LAST:event_comboPelisActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        String nomPelicula = comboPelis.getSelectedItem().toString();
-        Pelicula pelis = datos.Cine.buscaPelicula(nomPelicula);
-        pelis.setNomPeli(txtNombre.getText());
-        pelis.setNacionalidad(txtNacion.getText());
-        pelis.setDuracion(Double.parseDouble(txtDuracion.getText()));
-        pelis.setDirector(txtDirector.getText());
-        pelis.setInterpretes(txtInter.getText());
-        pelis.setArgumento(txtArgu.getText());
-        pelis.setGenero(txtGenero.getText());
 
-        txtNombre.setText("");
-        txtArgu.setText("");
-        txtDirector.setText("");
-        txtDuracion.setText("");
-        txtGenero.setText("");
-        txtInter.setText("");
-        txtNacion.setText("");
-        this.dispose();
+        if (this.txtNombre.getText().equals("") || this.txtArgu.getText().equals("") || this.txtDirector.getText().equals("") || this.txtDuracion.getText().equals("") || this.txtGenero.getText().equals("") || this.txtInter.getText().equals("") || this.txtNacion.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Faltan campos por rellenar");
+        } else {
+            String nomPelicula = comboPelis.getSelectedItem().toString();
+            Pelicula pelis = datos.Cine.buscaPelicula(nomPelicula);
+            pelis.setNomPeli(txtNombre.getText());
+            pelis.setNacionalidad(txtNacion.getText());
+            pelis.setDuracion(Double.parseDouble(txtDuracion.getText()));
+            pelis.setDirector(txtDirector.getText());
+            pelis.setInterpretes(txtInter.getText());
+            pelis.setArgumento(txtArgu.getText());
+            pelis.setGenero(txtGenero.getText());
+
+            txtNombre.setText("");
+            txtArgu.setText("");
+            txtDirector.setText("");
+            txtDuracion.setText("");
+            txtGenero.setText("");
+            txtInter.setText("");
+            txtNacion.setText("");
+            this.dispose();
+        }
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnModificarActionPerformed

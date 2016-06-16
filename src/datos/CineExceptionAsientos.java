@@ -1,17 +1,15 @@
-
 package datos;
 
+public class CineExceptionAsientos extends Exception {
 
-public class CineExceptionAsientos extends Exception{
-    
     String m;
-    
-    public CineExceptionAsientos(String mensaje){
+
+    public CineExceptionAsientos(String mensaje) {
         this.m = mensaje;
     }
-    
+
     @Override
-    public String toString(){
+    public String toString() {
         return m;
     }
 }

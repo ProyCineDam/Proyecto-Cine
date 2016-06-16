@@ -11,7 +11,7 @@ public class Pelicula {
     String interpretes;
     String argumento;
     String genero;
-    private static ArrayList<Sesion> sesionesPeli;
+    private static ArrayList<Sesion> sesionesPeli = new ArrayList<Sesion>();
 
     public Pelicula() {
     }
@@ -24,7 +24,6 @@ public class Pelicula {
         this.interpretes = interpretes;
         this.argumento = argumento;
         this.genero = genero;
-        this.sesionesPeli = new ArrayList();
     }
 
     public void añadirSesion(Sesion sesion) {
@@ -56,6 +55,10 @@ public class Pelicula {
             i++;
         }
         return sesion;
+    }
+
+    public static void borraSesion(Sesion s) {
+        sesionesPeli.remove(s);
     }
 
     @Override

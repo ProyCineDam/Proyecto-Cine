@@ -166,27 +166,31 @@ public class AñadirPelicula extends javax.swing.JFrame {
     private void btnAñadirPeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAñadirPeliActionPerformed
         gestion.Pelicula peli;
         datos.Cine c;
-        this.nomPeli = txtNombre.getText();
-        this.nacionalidad = txtNacion.getText();
-        this.duracion = Double.parseDouble(txtDuracion.getText());
-        this.director = txtDirector.getText();
-        this.interpretes = txtInterpretes.getText();
-        this.argumento = txtArgumentos.getText();
-        this.genero = txtGenero.getText();
 
-        peli = new gestion.Pelicula(nomPeli, nacionalidad, duracion, director, interpretes, argumento, genero);
+        if (this.txtNombre.getText().equals("") || this.txtArgumentos.getText().equals("") || this.txtDirector.getText().equals("") || this.txtDuracion.getText().equals("") || this.txtGenero.getText().equals("") || this.txtInterpretes.getText().equals("") || this.txtNacion.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Faltan campos por rellenar");
+        } else {
+            this.nomPeli = txtNombre.getText();
+            this.nacionalidad = txtNacion.getText();
+            this.duracion = Double.parseDouble(txtDuracion.getText());
+            this.director = txtDirector.getText();
+            this.interpretes = txtInterpretes.getText();
+            this.argumento = txtArgumentos.getText();
+            this.genero = txtGenero.getText();
 
-        c = new datos.Cine();
+            peli = new gestion.Pelicula(nomPeli, nacionalidad, duracion, director, interpretes, argumento, genero);
 
-        c.añadirPelicula(peli);
-        txtNombre.setText("");
-        txtArgumentos.setText("");
-        txtDirector.setText("");
-        txtDuracion.setText("");
-        txtGenero.setText("");
-        txtInterpretes.setText("");
-        txtNacion.setText("");
+            c = new datos.Cine();
 
+            c.añadirPelicula(peli);
+            txtNombre.setText("");
+            txtArgumentos.setText("");
+            txtDirector.setText("");
+            txtDuracion.setText("");
+            txtGenero.setText("");
+            txtInterpretes.setText("");
+            txtNacion.setText("");
+        }
 
     }//GEN-LAST:event_btnAñadirPeliActionPerformed
 

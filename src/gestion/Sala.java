@@ -9,8 +9,9 @@ public class Sala {
     int columnas;
     String tresD;
     ArrayList<Asiento> asientos;
-    
-    public Sala(){}
+
+    public Sala() {
+    }
 
     public Sala(int numSala, int filas, int columnas, String tresD) {
         this.numSala = numSala;

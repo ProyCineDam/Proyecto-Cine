@@ -110,10 +110,8 @@ public class BorrarPelicula extends javax.swing.JFrame {
         String nomPelicula = comboPelis.getSelectedItem().toString();
         Pelicula peli = datos.Cine.buscaPelicula(nomPelicula);// TODO add your handling code here:
         datos.Cine.borrarPelicula(peli);
-        JOptionPane.showMessageDialog(this, "borrado");
+        JOptionPane.showMessageDialog(this, "Borrada");
         this.dispose();
-
-
     }//GEN-LAST:event_jButton1ActionPerformed
     private void cargarComboPelis() {
         ArrayList<Pelicula> pelis = datos.Cine.getPeliculas();

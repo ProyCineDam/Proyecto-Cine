@@ -9,17 +9,19 @@ public class Asiento {
     Disponibilidad dispo;
 
     public Asiento(int fila, int num, Disponibilidad dispo) {
-    
+
         this.filaAsiento = fila;
         this.numAsiento = num;
         this.dispo = dispo;
     }
-@Override
+
+    @Override
     public String toString() {
         String cadena = "";
         cadena += "NºFila: " + this.filaAsiento + "\nNºAsiento: " + this.numAsiento + "\nDisponibilidad: " + this.dispo;
         return cadena;
     }
+
     public int getNumAsiento() {
         return numAsiento;
     }
@@ -35,7 +37,8 @@ public class Asiento {
     public void setFilaAsiento(int filaAsiento) {
         this.filaAsiento = filaAsiento;
     }
-     public Disponibilidad getDispo() {
+
+    public Disponibilidad getDispo() {
         return dispo;
     }
 

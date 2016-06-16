@@ -4,6 +4,7 @@ import gestion.Sala;
 import java.util.ArrayList;
 import gestion.Pelicula;
 import gestion.Sesion;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -253,25 +254,29 @@ public class ModificarSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_comboSalaActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        String nomSesion = comboSesion.getSelectedItem().toString();
-        Sesion sesiones = Pelicula.buscaSesion(nomSesion);
-        sesiones.setNomSesion(txtNombre.getText());
-        sesiones.setFecha(txtFecha.getText());
-        sesiones.setHora(txtHora.getText());
-        sesiones.setPrecio(Double.parseDouble(txtPrecio.getText()));
-        int numero = Integer.parseInt(comboSala.getSelectedItem().toString());
-        Sala sala = datos.Cine.buscaSala(numero);
-        sesiones.setSala(sala);
-        String nomPelicula = comboPelis.getSelectedItem().toString();
-        Pelicula pelis = datos.Cine.buscaPelicula(nomPelicula);
-        sesiones.setPelis(pelis);
 
-        txtNombre.setText("");
-        txtFecha.setText("");
-        txtHora.setText("");
-        txtPrecio.setText("");
+        if (this.txtNombre.getText().equals("") || this.txtFecha.getText().equals("") || this.txtHora.getText().equals("") || this.txtPrecio.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Faltan campos por rellenar");
+        } else {
+            String nomSesion = comboSesion.getSelectedItem().toString();
+            Sesion sesiones = Pelicula.buscaSesion(nomSesion);
+            sesiones.setNomSesion(txtNombre.getText());
+            sesiones.setFecha(txtFecha.getText());
+            sesiones.setHora(txtHora.getText());
+            sesiones.setPrecio(Double.parseDouble(txtPrecio.getText()));
+            int numero = Integer.parseInt(comboSala.getSelectedItem().toString());
+            Sala sala = datos.Cine.buscaSala(numero);
+            sesiones.setSala(sala);
+            String nomPelicula = comboPelis.getSelectedItem().toString();
+            Pelicula pelis = datos.Cine.buscaPelicula(nomPelicula);
+            sesiones.setPelis(pelis);
 
-        this.dispose();
+            txtNombre.setText("");
+            txtFecha.setText("");
+            txtHora.setText("");
+            txtPrecio.setText("");
+            this.dispose();
+        }
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void comboPelisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboPelisActionPerformed

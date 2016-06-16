@@ -5,6 +5,8 @@
  */
 package presentacion;
 
+import javax.swing.JOptionPane;
+
 public class AñadirSala extends javax.swing.JFrame {
 
     int numSala;
@@ -187,34 +189,35 @@ public class AñadirSala extends javax.swing.JFrame {
         datos.Cine c;
         gestion.Asiento asi;
         gestion.Disponibilidad dis = null;
-        this.numSala = Integer.parseInt(this.txtNumero.getText());
-        this.filas = Integer.parseInt(this.txtNumeroFilas.getText());
-        this.columnas = Integer.parseInt(this.txtColumnas.getText());
-        
-        // hace falta hacer un if
-        this.tresD = (this.botonSi.getText());
-        sala = new gestion.Sala(this.numSala, this.columnas, this.filas, this.tresD);
-        asi = new gestion.Asiento(this.filas, this.columnas,dis.LIBRE );
-        c = new datos.Cine();
-        c.añadirSala(sala);
 
-        this.txtNumero.setText("");
-        this.txtNumeroFilas.setText("");
-        this.txtColumnas.setText("");
+        if (this.txtNumeroFilas.getText().equals("") || this.txtNumero.getText().equals("") || this.txtColumnas.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Faltan campos por rellenar");
+        } else {
+            this.numSala = Integer.parseInt(this.txtNumero.getText());
+            this.filas = Integer.parseInt(this.txtNumeroFilas.getText());
+            this.columnas = Integer.parseInt(this.txtColumnas.getText());
+            sala = new gestion.Sala(this.numSala, this.columnas, this.filas, this.tresD);
+            asi = new gestion.Asiento(this.filas, this.columnas, dis.LIBRE);
+            c = new datos.Cine();
+            c.añadirSala(sala);
 
+            this.txtNumero.setText("");
+            this.txtNumeroFilas.setText("");
+            this.txtColumnas.setText("");
+        }
     }//GEN-LAST:event_btnAñadirActionPerformed
-
-    private void botonSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiActionPerformed
-        this.tresD = this.botonSi.getText();
-    }//GEN-LAST:event_botonSiActionPerformed
-
-    private void botonNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNoActionPerformed
-        this.tresD = this.botonNo.getText();
-    }//GEN-LAST:event_botonNoActionPerformed
 
     private void txtNumeroFilasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroFilasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNumeroFilasActionPerformed
+
+    private void botonSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiActionPerformed
+        this.tresD = "SI";
+    }//GEN-LAST:event_botonSiActionPerformed
+
+    private void botonNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNoActionPerformed
+        this.tresD = "NO";
+    }//GEN-LAST:event_botonNoActionPerformed
 
     /**
      * @param args the command line arguments

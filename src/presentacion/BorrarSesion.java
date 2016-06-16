@@ -5,6 +5,11 @@
  */
 package presentacion;
 
+import gestion.Pelicula;
+import gestion.Sesion;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author usuario
@@ -16,6 +21,8 @@ public class BorrarSesion extends javax.swing.JFrame {
      */
     public BorrarSesion() {
         initComponents();
+        this.comboSesiones.removeAllItems();
+        cargarComboSesiones();
     }
 
     /**
@@ -40,6 +47,11 @@ public class BorrarSesion extends javax.swing.JFrame {
         jButton1.setContentAreaFilled(false);
         jButton1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/borrar pulsado.png"))); // NOI18N
         jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/borrar puls.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         nombre.setText("Sesiones");
 
@@ -90,8 +102,24 @@ public class BorrarSesion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void comboSesionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSesionesActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_comboSesionesActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String nomSesion = comboSesiones.getSelectedItem().toString();
+        Sesion sesion = gestion.Pelicula.buscaSesion(nomSesion);
+        gestion.Pelicula.borraSesion(sesion);
+        JOptionPane.showMessageDialog(this, "Borrada");
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    public void cargarComboSesiones() {
+        ArrayList<Sesion> ls = gestion.Pelicula.getSesionesPeli();
+
+        for (Sesion s : ls) {
+            comboSesiones.addItem(s.getNomSesion());
+        }
+    }
 
     /**
      * @param args the command line arguments
