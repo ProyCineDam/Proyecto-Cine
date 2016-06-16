@@ -151,6 +151,7 @@ public class ListaPeliculasReserva extends javax.swing.JFrame {
         peli = peliculaSeleccionada.buscaPelicula(nombre);
         presentacion.ComprarEntradas comprar = new presentacion.ComprarEntradas();
         comprar.llenarTablaSesiones(peli.cogerSesionesPeli());
+        comprar.cogerPelicula(peli);
         comprar.setVisible(true);
     }//GEN-LAST:event_btnSeleccionarPeliActionPerformed
 
