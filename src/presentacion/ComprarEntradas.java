@@ -256,7 +256,6 @@ public class ComprarEntradas extends javax.swing.JFrame {
         this.asientos.updateUI();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    
     public void cargarAsientos() {
         int row = tablaSesiones.getSelectedRow();
         String nSesio = (tablaSesiones.getValueAt(row, 1).toString());
@@ -265,11 +264,11 @@ public class ComprarEntradas extends javax.swing.JFrame {
         int iAux, jAux;
         int filas = sesionActiva.getSala().getFilas();
         int columnas = sesionActiva.getSala().getColumnas();
-
+        int cont = 0;
         this.asientos.removeAll();
         this.asientos.setLayout(new java.awt.GridLayout(filas, columnas));
         this.asiento = new JButton[filas][columnas];
-        int cont = 0;
+
         for (int i = 0; i < this.asiento.length; i++) {
             for (int j = 0; j < this.asiento[i].length; j++) {
                 iAux = i + 1;
