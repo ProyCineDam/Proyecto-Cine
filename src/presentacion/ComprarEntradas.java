@@ -256,7 +256,7 @@ public class ComprarEntradas extends javax.swing.JFrame {
         this.asientos.updateUI();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    /*
+    
     public void cargarAsientos() {
         int row = tablaSesiones.getSelectedRow();
         String nSesio = (tablaSesiones.getValueAt(row, 1).toString());
@@ -287,7 +287,7 @@ public class ComprarEntradas extends javax.swing.JFrame {
         }
         this.asientos.updateUI();
 
-    }*/
+    }
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         deReservadosAOcupados();
         JOptionPane.showMessageDialog(this, "Asientos reservados ");
