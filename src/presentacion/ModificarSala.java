@@ -212,7 +212,7 @@ public class ModificarSala extends javax.swing.JFrame {
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
 
-        if (this.txtNumFilas.getText().equals("") || this.txtNumero.getText().equals("") || this.txtNumColum.getText().equals("") || this.tresD.isEmpty()) {
+        if (this.txtNumFilas.getText().equals("") || this.txtNumero.getText().equals("") || this.txtNumColum.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Faltan campos por rellenar");
         } else {
 
